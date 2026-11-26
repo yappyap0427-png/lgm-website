@@ -1,0 +1,27 @@
+name: 同步 Google Sheet 备份
+
+on:
+  schedule:
+    - cron: '17 18 * * *'   # 每天马来西亚时间凌晨 2:17
+  workflow_dispatch:         # Actions 页面可手动按「Run workflow」
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/sync-sheet.mjs
+      - name: 有变动才提交
+        run: |
+          if git diff --quiet data/data.json; then echo "没有变动"; exit 0; fi
+          git config user.name "lgm-bot"
+          git config user.email "lgm-bot@users.noreply.github.com"
+          git add data/data.json
+          git commit -m "自动同步 Google Sheet 备份"
+          git push
