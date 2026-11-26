@@ -48,7 +48,7 @@
           <div style="display:flex;align-items:center"><span class="n">${LGM.esc(n)}</span><span class="l">${LGM.esc(LGM.termName(n, t['学年']))}${t['主题_zh'] ? ` · 《${LGM.esc(LGM.pick(t, '主题'))}》` : ''}</span></div>
           <a href="term.html?t=${encodeURIComponent(n)}" style="font-weight:900">${LGM.t('ev.archive')}</a>
         </div>
-        ${items.length ? `<div class="grid tilt" style="--min:250px;gap:28px">${items.map((r) => LGM.eventCard(r, { desc: true })).join('')}</div>` : `<p class="empty">${LGM.t('ev.empty')}</p>`}`;
+        ${items.length ? `<div class="grid tilt fill" style="--min:250px;gap:28px">${items.map((r) => LGM.eventCard(r, { desc: true })).join('')}</div>` : `<p class="empty">${LGM.t('ev.empty')}</p>`}`;
     }).join('');
   }
 

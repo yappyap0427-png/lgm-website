@@ -73,8 +73,8 @@
     if (m) return `https://lh3.googleusercontent.com/d/${m[1]}`;
     return /^https?:\/\//.test(path) ? path : 'assets/img/' + path.replace(/^\/+/, '');
   };
-  LGM.imgTag = (path, alt, cls) => path
-    ? `<img class="${cls || ''}" src="${LGM.esc(LGM.img(path))}" alt="${LGM.esc(alt)}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph ${cls || ''}',textContent:'${LGM.esc(alt)}'}))">`
+  LGM.imgTag = (path, alt, cls, eager) => path
+    ? `<img class="${cls || ''}" src="${LGM.esc(LGM.img(path))}" alt="${LGM.esc(alt)}" loading="${eager ? 'eager' : 'lazy'}" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph ${cls || ''}',textContent:'${LGM.esc(alt)}'}))">`
     : `<div class="ph ${cls || ''}">${LGM.esc(alt)}</div>`;
   LGM.ytEmbed = function (url) {
     const m = String(url || '').match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);

@@ -62,12 +62,12 @@
   },
   {
    "key": "hero_photo",
-   "value": "",
+   "value": "photos/hero-group.jpg",
    "说明": "首页招商期右边照片"
   },
   {
    "key": "recap_youtube",
-   "value": "https://youtu.be/SBh8mInK2uU",
+   "value": "https://youtu.be/Fm383p5EmJA",
    "说明": "回顾期显示的影片"
   },
   {
@@ -311,7 +311,7 @@
    "主题_zh": "乐境加载中……",
    "主题_en": "Load: Melotopia",
    "日期": "2026-06-06",
-   "地点": "高渊培德华小大礼堂",
+   "地点": "理大工程系分院 Dewan Utama USMKKJ",
    "海报": "posters/26.jpg",
    "影片_youtube": "https://youtu.be/Fm383p5EmJA",
    "播放清单": "https://www.youtube.com/playlist?list=PLM0CSjXKEYcU",
@@ -325,7 +325,7 @@
    "主题_en": "Melody Odyssey",
    "日期": "2025-05",
    "地点": "",
-   "海报": "",
+   "海报": "posters/25.jpg",
    "影片_youtube": "https://youtu.be/gnz1cGHkWMg",
    "播放清单": "https://www.youtube.com/playlist?list=PLfcMs80YixaHE1c6YOMmc848-_HjC2hhf",
    "简介_zh": "",
@@ -478,14 +478,14 @@
  "events": [
   {
    "届数": "26",
-   "日期": "",
+   "日期": "2025-10-29",
    "类型": "迎新夜",
    "名称_zh": "迎新夜",
    "名称_en": "Freshmen Welcoming Night",
    "简介_zh": "每学年开始的迎新夜，欢迎新成员加入，让陌生人变成朋友。",
    "简介_en": "Our welcome night at the start of each academic year, turning strangers into friends.",
-   "地点": "",
-   "封面": "",
+   "地点": "Puma Hall, USM Engineering Campus",
+   "封面": "events/26-welcome-night.jpg",
    "连结": "",
    "上架": "TRUE"
   },
@@ -498,72 +498,72 @@
    "简介_zh": "没有舞台和灯光，只有笑声和互动，把“我们”变成“一起”。",
    "简介_en": "No stage, no lights, just laughter that turns 'us' into 'together'.",
    "地点": "",
-   "封面": "",
+   "封面": "events/26-bonding-day.jpg",
    "连结": "",
    "上架": "TRUE"
   },
   {
    "届数": "26",
-   "日期": "",
+   "日期": "2025-12-28",
    "类型": "Mini Concert",
    "名称_zh": "小型音乐会",
    "名称_en": "Mini Concert",
-   "简介_zh": "新成员的第一场演出，从紧张到专注，是音乐旅程的起点。",
+   "简介_zh": "新成员的第一场演出，从紧张到专注，是音乐旅程的起点。（门票 RM4 / 3 人 RM10）",
    "简介_en": "Our new members' first performance, the start of their musical journey.",
-   "地点": "",
-   "封面": "",
+   "地点": "Puma Hall, USM Engineering Campus",
+   "封面": "events/26-mini-concert.jpg",
    "连结": "",
    "上架": "TRUE"
   },
   {
    "届数": "26",
-   "日期": "",
+   "日期": "2026-04-08",
    "类型": "座谈会",
    "名称_zh": "萱萱老师歌唱座谈会",
-   "名称_en": "Singing talk with Teacher Xuanxuan",
-   "简介_zh": "不只是一场讲座，而是一段重新认识自己声音的旅程。",
-   "简介_en": "Not just a talk, but a journey to rediscover your own voice.",
+   "名称_en": "Madam Khor's Vocal Symposium",
+   "简介_zh": "不只是一场讲座，而是一段重新认识自己声音的旅程。讲师：Madam Khor Gek Suan。",
+   "简介_en": "Not just a talk, but a journey to rediscover your own voice. Speaker: Madam Khor Gek Suan.",
    "地点": "",
-   "封面": "",
+   "封面": "events/26-singing-talk.jpg",
    "连结": "",
    "上架": "TRUE"
   },
   {
    "届数": "26",
-   "日期": "",
+   "日期": "2026-04-19",
    "类型": "歌唱比赛",
-   "名称_zh": "小草新歌声",
-   "名称_en": "LGM New Voices",
-   "简介_zh": "年度歌唱比赛，让音乐把紧张变成掌声。",
-   "简介_en": "Our annual singing competition, where nerves turn into applause.",
-   "地点": "",
-   "封面": "",
+   "名称_zh": "小草新歌声 Sing! LGM",
+   "名称_en": "Sing! LGM",
+   "简介_zh": "年度歌唱比赛：初赛 4 月 12 日，半决赛与决赛 4 月 19 日。",
+   "简介_en": "Our annual singing competition: auditions on 12 April, semi-final and final on 19 April.",
+   "地点": "Puma Hall, USM Engineering Campus",
+   "封面": "events/26-sing-lgm.jpg",
    "连结": "",
    "上架": "TRUE"
   },
   {
    "届数": "26",
-   "日期": "",
+   "日期": "2025-12-17",
    "类型": "Christmas Party",
    "名称_zh": "圣诞派对",
    "名称_en": "Christmas Party",
    "简介_zh": "表演、游戏、幸运抽奖和交换礼物的冬夜。",
    "简介_en": "Performances, games, a lucky draw and a gift exchange.",
-   "地点": "",
-   "封面": "",
+   "地点": "Puma Hall, USM Engineering Campus",
+   "封面": "events/26-christmas-party.jpg",
    "连结": "",
    "上架": "TRUE"
   },
   {
    "届数": "26",
-   "日期": "",
+   "日期": "2026-04-26",
    "类型": "造势活动",
-   "名称_zh": "造势活动",
-   "名称_en": "Hype-up event",
-   "简介_zh": "造势活动，是序章，也是预告。",
-   "简介_en": "The prologue, and the trailer.",
-   "地点": "",
-   "封面": "",
+   "名称_zh": "游梦音乐",
+   "名称_en": "Melodic Dreamscape",
+   "简介_zh": "第 26 届音乐会的造势活动，从下午玩到晚上。",
+   "简介_en": "A pre-concert event for the 26th concert, running from afternoon into the night.",
+   "地点": "Puma Hall, USM Engineering Campus",
+   "封面": "events/26-melodic-dreamscape.jpg",
    "连结": "",
    "上架": "TRUE"
   },
@@ -576,7 +576,7 @@
    "简介_zh": "与奏漫游之旅第四站。",
    "简介_en": "Stop four of the Melody Odyssey journey.",
    "地点": "Cafe Lembaran, USM Engineering Campus",
-   "封面": "",
+   "封面": "events/25-echoes-of-the-odyssey.jpg",
    "连结": "https://www.facebook.com/share/p/16RL8vVL71/",
    "上架": "TRUE"
   },
@@ -667,7 +667,7 @@
    "简介_zh": "新学年的第一个晚上：认识新朋友、听音乐，在欢笑与歌声中开启大学新篇章。",
    "简介_en": "Our first night of the new year: meet new friends, enjoy the music and start university life together.",
    "地点": "Puma Hall, USM Engineering Campus",
-   "封面": "",
+   "封面": "events/27-welcome-night.jpg",
    "连结": "",
    "上架": "TRUE"
   },
@@ -707,6 +707,19 @@
    "简介_en": "",
    "地点": "",
    "封面": "",
+   "连结": "",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "26",
+   "日期": "2026-05-20",
+   "类型": "造势活动",
+   "名称_zh": "迷失乐章",
+   "名称_en": "Lost Symphony",
+   "简介_zh": "第 26 届音乐会的造势活动。",
+   "简介_en": "A pre-concert event for the 26th concert.",
+   "地点": "Lembaran Cafe, USM Engineering Campus",
+   "封面": "events/26-lost-symphony.jpg",
    "连结": "",
    "上架": "TRUE"
   }
@@ -2284,7 +2297,7 @@
   {
    "届数": "26",
    "商家名": "YB Goh Choon Aik 吴俊益州议员",
-   "logo": "",
+   "logo": "sponsors/yb-goh-choon-aik.png",
    "等级": "白金",
    "网址": "",
    "上架": "TRUE"
@@ -2292,7 +2305,7 @@
   {
    "届数": "26",
    "商家名": "NTPM",
-   "logo": "",
+   "logo": "sponsors/ntpm.png",
    "等级": "铜级",
    "网址": "",
    "上架": "TRUE"
@@ -2300,7 +2313,7 @@
   {
    "届数": "26",
    "商家名": "Neobun",
-   "logo": "",
+   "logo": "sponsors/neobun.png",
    "等级": "Event Supporter",
    "网址": "",
    "上架": "TRUE"
@@ -2308,7 +2321,7 @@
   {
    "届数": "26",
    "商家名": "KPSB",
-   "logo": "",
+   "logo": "sponsors/kpsb.png",
    "等级": "Event Supporter",
    "网址": "",
    "上架": "TRUE"
@@ -2316,7 +2329,7 @@
   {
    "届数": "26",
    "商家名": "Vida",
-   "logo": "",
+   "logo": "sponsors/vida.png",
    "等级": "Co-Sponsor",
    "网址": "",
    "上架": "TRUE"
@@ -2324,7 +2337,7 @@
   {
    "届数": "26",
    "商家名": "B-Bean Black Soya Bean 黑豆水",
-   "logo": "",
+   "logo": "sponsors/b-bean.png",
    "等级": "Co-Sponsor",
    "网址": "",
    "上架": "TRUE"
@@ -2332,7 +2345,7 @@
   {
    "届数": "26",
    "商家名": "Yiwen Makeup Studio",
-   "logo": "",
+   "logo": "sponsors/yiwen-makeup-studio.png",
    "等级": "化妆赞助",
    "网址": "",
    "上架": "TRUE"
@@ -2340,7 +2353,7 @@
   {
    "届数": "26",
    "商家名": "CA Makeup Artistry",
-   "logo": "",
+   "logo": "sponsors/ca-makeup-artistry.png",
    "等级": "化妆赞助",
    "网址": "",
    "上架": "TRUE"
@@ -2348,7 +2361,7 @@
   {
    "届数": "26",
    "商家名": "Ecohair Academy",
-   "logo": "",
+   "logo": "sponsors/ecohair-academy.png",
    "等级": "发型赞助",
    "网址": "",
    "上架": "TRUE"
@@ -2356,7 +2369,7 @@
   {
    "届数": "26",
    "商家名": "AMIGO",
-   "logo": "",
+   "logo": "sponsors/amigo.png",
    "等级": "Collateral Sponsor",
    "网址": "",
    "上架": "TRUE"
@@ -2364,7 +2377,7 @@
   {
    "届数": "26",
    "商家名": "Rymes Apparel",
-   "logo": "",
+   "logo": "sponsors/rymes-apparel.png",
    "等级": "Collateral Sponsor",
    "网址": "",
    "上架": "TRUE"
@@ -2372,7 +2385,7 @@
   {
    "届数": "26",
    "商家名": "Svein Media",
-   "logo": "",
+   "logo": "sponsors/svein-media.png",
    "等级": "Powered by",
    "网址": "",
    "上架": "TRUE"
@@ -2380,7 +2393,7 @@
   {
    "届数": "26",
    "商家名": "GoXuan",
-   "logo": "",
+   "logo": "sponsors/goxuan.png",
    "等级": "电台伙伴",
    "网址": "",
    "上架": "TRUE"
@@ -2388,7 +2401,7 @@
   {
    "届数": "26",
    "商家名": "星洲日报 Sin Chew Daily",
-   "logo": "",
+   "logo": "sponsors/sin-chew-daily.png",
    "等级": "媒体伙伴",
    "网址": "",
    "上架": "TRUE"
@@ -2396,7 +2409,7 @@
   {
    "届数": "26",
    "商家名": "理大游子吟 The Wanderers Association",
-   "logo": "",
+   "logo": "sponsors/the-wanderers-association.png",
    "等级": "妆发伙伴",
    "网址": "",
    "上架": "TRUE"

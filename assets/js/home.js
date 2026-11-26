@@ -110,7 +110,7 @@
     block.classList.toggle('hidden', !rows.length);
     if (!rows.length) return;
     const one = rows.map((r) => {
-      const inner = r['logo'] ? LGM.imgTag(r['logo'], r['商家名'], '') : LGM.esc(r['商家名']);
+      const inner = r['logo'] ? LGM.imgTag(r['logo'], r['商家名'], '', true) : LGM.esc(r['商家名']);
       return r['网址'] ? `<a class="logo-item" href="${LGM.esc(r['网址'])}" target="_blank" rel="noopener">${inner}</a>` : `<div class="logo-item">${inner}</div>`;
     }).join('');
     const half = repeat(one, Math.ceil(8 / rows.length));

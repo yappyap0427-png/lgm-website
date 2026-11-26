@@ -51,7 +51,7 @@
         ${video}</section>` : ''}
 
       ${events.length ? `<section class="wrap block"><div class="sec-title"><h2>${LGM.t('ar.events')}</h2></div>
-        <div class="grid tilt" style="--min:250px;gap:28px">${events.map((r) => LGM.eventCard(r, { desc: true })).join('')}</div></section>` : ''}
+        <div class="grid tilt fill" style="--min:250px;gap:28px">${events.map((r) => LGM.eventCard(r, { desc: true })).join('')}</div></section>` : ''}
 
       ${songs.length ? `<section class="wrap block"><div class="sec-title"><h2 class="display">NEW SONGS<span style="color:var(--pink)">.</span> <span style="font-family:var(--body);font-size:22px">${LGM.t('ar.songs')}</span></h2></div>
         <div class="sleeves">${songs.map(LGM.songCard).join('')}</div></section>` : ''}
