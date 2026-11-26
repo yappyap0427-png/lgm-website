@@ -79,6 +79,15 @@ a.card:hover{animation:wob .5s ease-in-out infinite;color:var(--ink)}
 .logo-item{width:190px;height:100px;display:flex;align-items:center;justify-content:center;padding:16px 24px;border-right:2px solid #EEE;font-weight:700;color:#777}
 .logo-item img{max-height:68px;max-width:150px;object-fit:contain}
 
+/* 往届伙伴：两排倾斜的 logo 胶带，反方向滚动 */
+.past-block{overflow:hidden;padding-bottom:88px}
+.past-block .logos{margin:0 -40px;transform:rotate(-1.5deg)}
+.past-block .logos.b{transform:rotate(1.2deg);margin-top:22px;background:var(--yellow)}
+.past-block .logos.b .logo-item{border-right-color:rgba(0,0,0,.08)}
+.past-block .logos .track{animation-duration:38s}
+.past-block .logos:hover .track{animation-play-state:paused}
+.logo-item span{font-weight:900;color:var(--ink);text-align:center}
+
 /* ---------- sections ---------- */
 .block{padding-top:64px;padding-bottom:64px}
 .sec-title{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px;margin-bottom:28px}

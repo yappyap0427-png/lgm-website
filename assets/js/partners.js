@@ -82,12 +82,27 @@
       <ul style="margin:12px 0 0;padding-left:18px;line-height:1.8">${LGM.split(LGM.pick(r, '权益')).map((x) => `<li>${LGM.esc(x)}</li>`).join('')}</ul>
     </div>`).join('');
 
-    // 往届伙伴
+    // 往届伙伴：两排反方向滚动（同一商家只显示一次）
     const seen = new Set();
     const past = LGM.live(d.sponsors).filter((r) => r['商家名'] && !seen.has(r['商家名']) && seen.add(r['商家名']));
-    $('past').innerHTML = past.length
-      ? past.map((r) => `<div>${r['logo'] ? LGM.imgTag(r['logo'], r['商家名'], '') : LGM.esc(r['商家名'])}</div>`).join('')
-      : `<p class="empty" style="grid-column:1/-1">${LGM.t('p.past.empty')}</p>`;
+    const item = (r) => {
+      const inner = r['logo'] ? LGM.imgTag(r['logo'], r['商家名'], '', true) : `<span>${LGM.esc(r['商家名'])}</span>`;
+      return r['网址'] ? `<a class="logo-item" href="${LGM.esc(r['网址'])}" target="_blank" rel="noopener" title="${LGM.esc(r['商家名'])}">${inner}</a>`
+                      : `<div class="logo-item" title="${LGM.esc(r['商家名'])}">${inner}</div>`;
+    };
+    const strip = (rows, cls) => {
+      let one = rows.map(item).join('');
+      for (let n = rows.length; n < 8; n += rows.length) one += rows.map(item).join('');   // 太少就重复，填满一屏
+      return `<div class="logos ${cls}"><div class="track ${cls === 'b' ? 'rev' : ''}">${one}${one}</div></div>`;
+    };
+    if (!past.length) {
+      $('past').innerHTML = `<p class="wrap empty">${LGM.t('p.past.empty')}</p>`;
+    } else if (past.length < 8) {
+      $('past').innerHTML = strip(past, 'a');
+    } else {
+      const half = Math.ceil(past.length / 2);
+      $('past').innerHTML = strip(past.slice(0, half), 'a') + strip(past.slice(half), 'b');
+    }
 
     // 条款
     const tc = (d.terms_conditions || []).sort(LGM.byOrder);
