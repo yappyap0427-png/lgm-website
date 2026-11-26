@@ -19,8 +19,8 @@
     const n = s.current_term || '';
     const title = LGM.setting(d, 'concert_title');
     const packs = LGM.live(d.packages).sort(LGM.byOrder);
-    const ads = (d.ads || []).slice().sort(LGM.byOrder);
-    const minOf = (rows) => rows.length ? rows.reduce((m, p) => Math.min(m, num(p['价格'])), Infinity) : 0;
+    const ads = (d.ads || []).filter((r) => num(r['价格'])).sort(LGM.byOrder);
+    const minOf = (rows) => rows.some((p) => num(p['价格'])) ? rows.filter((p) => num(p['价格'])).reduce((m, p) => Math.min(m, num(p['价格'])), Infinity) : 0;
     const minPack = minOf(packs), minAd = minOf(ads);
     const shown = LGM.live(d.stats).filter((r) => r['数字'] !== '');
     const main = shown.filter((r) => String(r['显示在']).includes('赞助主')).sort(LGM.byOrder);
