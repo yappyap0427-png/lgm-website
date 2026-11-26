@@ -3,82 +3,122 @@
   {
    "key": "current_term",
    "value": "27",
-   "说明": "当前届数（数字）"
+   "说明": "当前届数"
   },
   {
    "key": "phase",
    "value": "招商期",
-   "说明": "招商期 / 宣传期 / 回顾期 —— 决定首页 Hero 显示哪一个"
+   "说明": "招商期 / 宣传期 / 回顾期"
   },
   {
    "key": "concert_title_zh",
-   "value": "",
-   "说明": "本届主题（中文）；没公布前留空 = 显示「敬请期待」"
+   "value": "无限·无界",
+   "说明": "本届主题（中）"
   },
   {
    "key": "concert_title_en",
-   "value": "",
-   "说明": "本届主题（英文）"
+   "value": "UNBOUND",
+   "说明": "本届主题（英）"
   },
   {
    "key": "concert_month",
    "value": "2027-05",
-   "说明": "还没定日期时只填月份"
+   "说明": ""
   },
   {
    "key": "concert_datetime",
-   "value": "",
-   "说明": "定了再填，格式 2027-05-15 19:00（倒数计时用）"
+   "value": "2027-05-02 19:30",
+   "说明": "开始时间（倒数用）"
+  },
+  {
+   "key": "concert_end",
+   "value": "22:30",
+   "说明": "结束时间"
   },
   {
    "key": "venue_zh",
-   "value": "",
-   "说明": "地点（中文）"
+   "value": "理大工程系分院 Dewan Utama",
+   "说明": ""
   },
   {
    "key": "venue_en",
-   "value": "",
-   "说明": "地点（英文）"
+   "value": "Dewan Utama, USM Tuanku Syed Sirajuddin Engineering Campus, Nibong Tebal",
+   "说明": ""
   },
   {
    "key": "ticket_price",
    "value": "",
-   "说明": "票价，例：RM 18"
+   "说明": "例：RM 18（宣传期填）"
   },
   {
    "key": "ticket_url",
    "value": "",
-   "说明": "购票 Google Form 连结（宣传期才显示按钮）"
+   "说明": "购票表格连结（宣传期填）"
   },
   {
    "key": "poster",
    "value": "",
-   "说明": "海报档名或连结"
+   "说明": "海报档名，例：posters/27.jpg"
+  },
+  {
+   "key": "hero_photo",
+   "value": "",
+   "说明": "首页招商期右边照片"
   },
   {
    "key": "recap_youtube",
-   "value": "",
-   "说明": "回顾期：上一届回顾影片 YouTube 连结"
+   "value": "https://youtu.be/SBh8mInK2uU",
+   "说明": "回顾期显示的影片"
+  },
+  {
+   "key": "theme_desc_zh",
+   "value": "有时候，一首原创歌诞生时没有方向，也没有公式。在这个舞台上，我们不再担心未来，只为此刻热爱的东西而演奏。没有人能决定音乐应该是什么样子。|音乐是一场没有终点的接力。小草颂的传承从未停止，我们把火花一届一届传下去。|没有边界，就没有什么能定义我们；没有什么定义我们，所以一切皆有可能。",
+   "说明": "主题介绍，| 分段"
+  },
+  {
+   "key": "theme_desc_en",
+   "value": "Sometimes an original song is born with no direction in mind and no formula to follow. On this stage, we stop worrying about the future and play for what we love right now. No one gets to decide what music should sound like.|Music is an endless relay. The legacy of LGM is a journey that never stops. We pass the spark from one generation to the next, again and again.|Without boundaries, there is nothing to be defined by. Nothing defines us, so anything is possible.",
+   "说明": ""
+  },
+  {
+   "key": "audience_target",
+   "value": "500+",
+   "说明": "目标观众人数"
   },
   {
    "key": "sponsor_pdf_url",
-   "value": "",
-   "说明": "赞助书 PDF（Drive 公开连结）"
+   "value": "assets/docs/2027-sponsorship-proposal.pdf",
+   "说明": "赞助计划书"
+  },
+  {
+   "key": "sponsor_package_pdf_url",
+   "value": "assets/docs/2027-sponsor-package.pdf",
+   "说明": "赞助配套表"
+  },
+  {
+   "key": "sponsor_contact_name_zh",
+   "value": "黄欣仪（赞助组组长）",
+   "说明": ""
+  },
+  {
+   "key": "sponsor_contact_name_en",
+   "value": "Ng Xin Yi (Head of Sponsorship)",
+   "说明": ""
   },
   {
    "key": "sponsor_whatsapp",
-   "value": "",
-   "说明": "赞助组 WhatsApp，例：60123456789（建议用公用号）"
+   "value": "60107716682",
+   "说明": "赞助组 WhatsApp（国码 60 开头，不要 -）"
   },
   {
-   "key": "sponsor_contact_name",
-   "value": "",
-   "说明": "赞助组负责人名字"
+   "key": "sponsor_email",
+   "value": "ngxinyi.lgm2027@gmail.com",
+   "说明": ""
   },
   {
    "key": "email",
-   "value": "litlegrasmusic@gmail.com",
-   "说明": ""
+   "value": "litlegrasmusic2027@gmail.com",
+   "说明": "本届社团电邮"
   },
   {
    "key": "facebook",
@@ -87,7 +127,7 @@
   },
   {
    "key": "instagram",
-   "value": "https://www.instagram.com/lgm_litlegrasmusic",
+   "value": "https://www.instagram.com/lgm_litlegrasmusic/",
    "说明": ""
   },
   {
@@ -98,7 +138,47 @@
   {
    "key": "join_form_url",
    "value": "",
-   "说明": "招新报名表连结"
+   "说明": "招新报名表"
+  },
+  {
+   "key": "about_zh",
+   "value": "小草颂（LitleGras Music Club, LGM）成立于 2000 年，是理大工程系分院的原创音乐团体。“小草”寓意力量虽小，也努力朝音乐梦成长。我们希望成为全马大专院校中出色的音乐创作团体，为观众带来视听享受，也为社员提供完整、有收获的学习环境，培养有能力、有责任感的音乐人。",
+   "说明": ""
+  },
+  {
+   "key": "about_en",
+   "value": "LitleGras Music Club (LGM) was founded in 2000 at the USM Engineering Campus. We aspire to be one of the great music creation organizations among Malaysia's colleges and universities, giving audiences an impressive audio-visual experience and providing a comprehensive, rewarding learning environment for skilled and responsible musicians.",
+   "说明": ""
+  },
+  {
+   "key": "mission_zh",
+   "value": "持续制作高质量演出，让小草颂成为全马大专院校中享有声誉的音乐团体。",
+   "说明": ""
+  },
+  {
+   "key": "mission_en",
+   "value": "Continuously produce high-quality performances, so that LitleGras Music Club is known as a prestigious music club throughout the colleges in Malaysia.",
+   "说明": ""
+  },
+  {
+   "key": "vision_zh",
+   "value": "以出色的演出带给观众视觉与听觉的享受|提供完整、良好的学习环境，培养有能力、有责任感的音乐人",
+   "说明": ""
+  },
+  {
+   "key": "vision_en",
+   "value": "Impress audiences through outstanding performances that are an aural and visual delight|Develop skilled and responsible musicians through an extensive and conducive learning environment",
+   "说明": ""
+  },
+  {
+   "key": "annual_activities_zh",
+   "value": "年度音乐创作演绎会|小型音乐会|北马作曲人协会金锋奖创作歌曲观摩赛|年度歌唱比赛（小草新歌声）|PBT Night、Pesta Budaya 4.0 等校内演出|迎新夜|音乐营|每周音乐课",
+   "说明": ""
+  },
+  {
+   "key": "annual_activities_en",
+   "value": "LGM Annual Concert|LGM Mini Concert|Golden Frontier Award Song Composing Competition (Northern Group of Composers)|Annual Singing Competition|Performances for PBT Night, Pesta Budaya 4.0 and more|Freshmen Welcoming Night|Music Camp|Weekly music classes",
+   "说明": ""
   }
  ],
  "stats": [
@@ -108,38 +188,70 @@
    "后缀": "",
    "名称_zh": "届年度音乐会",
    "名称_en": "annual concerts",
+   "显示在": "首页,赞助",
    "上架": "TRUE"
   },
   {
    "顺序": "2",
-   "数字": "",
+   "数字": "500",
    "后缀": "+",
-   "名称_zh": "每届现场观众",
-   "名称_en": "audience per concert",
+   "名称_zh": "目标现场观众",
+   "名称_en": "target audience",
+   "显示在": "首页,赞助",
    "上架": "TRUE"
   },
   {
    "顺序": "3",
-   "数字": "",
-   "后缀": "+",
-   "名称_zh": "社媒粉丝（FB+IG+YT）",
-   "名称_en": "social followers",
+   "数字": "15",
+   "后缀": "K",
+   "名称_zh": "IG 每月触及帐号",
+   "名称_en": "IG accounts reached / month",
+   "显示在": "首页,赞助",
    "上架": "TRUE"
   },
   {
    "顺序": "4",
-   "数字": "",
-   "后缀": "",
-   "名称_zh": "宣传期贴文触达",
-   "名称_en": "campaign reach",
-   "上架": "FALSE"
+   "数字": "160",
+   "后缀": "K",
+   "名称_zh": "IG 每月观看",
+   "名称_en": "IG views / month",
+   "显示在": "赞助",
+   "上架": "TRUE"
   },
   {
    "顺序": "5",
+   "数字": "11.7",
+   "后缀": "K",
+   "名称_zh": "Reel 平均观看",
+   "名称_en": "average reel views",
+   "显示在": "赞助",
+   "上架": "TRUE"
+  },
+  {
+   "顺序": "6",
+   "数字": "47.6",
+   "后缀": "K",
+   "名称_zh": "Reel 最高观看",
+   "名称_en": "highest reel views",
+   "显示在": "赞助",
+   "上架": "TRUE"
+  },
+  {
+   "顺序": "7",
+   "数字": "2400",
+   "后缀": "",
+   "名称_zh": "FB 每月触及",
+   "名称_en": "FB reach / month",
+   "显示在": "赞助",
+   "上架": "TRUE"
+  },
+  {
+   "顺序": "8",
    "数字": "10",
    "后缀": "",
-   "名称_zh": "年连续入围金锋奖",
-   "名称_en": "years shortlisted at Golden Melody",
+   "名称_zh": "年入围金锋奖",
+   "名称_en": "years at the Golden Frontier Award",
+   "显示在": "首页",
    "上架": "TRUE"
   }
  ],
@@ -147,79 +259,92 @@
   {
    "届数": "27",
    "学年": "26/27",
-   "主题_zh": "",
-   "主题_en": "",
-   "音乐会日期": "2027-05",
-   "地点": "",
+   "主题_zh": "无限·无界",
+   "主题_en": "UNBOUND",
+   "日期": "2027-05-02",
+   "地点": "理大工程系分院 Dewan Utama",
    "海报": "",
-   "回顾影片_youtube": "",
-   "备注": "招商中"
+   "影片_youtube": "",
+   "播放清单": "",
+   "简介_zh": "",
+   "简介_en": ""
   },
   {
    "届数": "26",
    "学年": "25/26",
    "主题_zh": "乐境加载中……",
    "主题_en": "Load: Melotopia",
-   "音乐会日期": "2026-06-06",
+   "日期": "2026-06-06",
    "地点": "高渊培德华小大礼堂",
    "海报": "posters/26.jpg",
-   "回顾影片_youtube": "",
-   "备注": "旧网站同时把《与奏漫游》标为 25/26，请核对"
+   "影片_youtube": "",
+   "播放清单": "",
+   "简介_zh": "",
+   "简介_en": ""
   },
   {
    "届数": "25",
-   "学年": "24/25?",
+   "学年": "24/25",
    "主题_zh": "与奏漫游",
    "主题_en": "Melody Odyssey",
-   "音乐会日期": "",
+   "日期": "2025-05",
    "地点": "",
    "海报": "",
-   "回顾影片_youtube": "",
-   "备注": "旧网站标 25/26，待确认"
+   "影片_youtube": "https://youtu.be/SBh8mInK2uU",
+   "播放清单": "",
+   "简介_zh": "",
+   "简介_en": ""
   },
   {
-   "届数": "",
+   "届数": "24",
    "学年": "23/24",
    "主题_zh": "草草闹闹",
    "主题_en": "MUSIC NOW",
-   "音乐会日期": "",
+   "日期": "",
    "地点": "",
    "海报": "",
-   "回顾影片_youtube": "",
-   "备注": "届数待补"
+   "影片_youtube": "https://www.youtube.com/watch?v=DtecqIqUTWk",
+   "播放清单": "https://www.youtube.com/playlist?list=PLfcMs80YixaGWG0B-Dv-gx1FpffdzKmF0",
+   "简介_zh": "",
+   "简介_en": ""
   },
   {
-   "届数": "",
+   "届数": "23",
    "学年": "22/23",
    "主题_zh": "星运",
    "主题_en": "",
-   "音乐会日期": "",
+   "日期": "",
    "地点": "",
    "海报": "",
-   "回顾影片_youtube": "",
-   "备注": "届数待补"
+   "影片_youtube": "https://www.youtube.com/watch?v=G1ziCbs6H0A",
+   "播放清单": "https://www.youtube.com/playlist?list=PLfcMs80YixaEIVKTkEEwymKZLBOVevO8a",
+   "简介_zh": "",
+   "简介_en": ""
   },
   {
-   "届数": "",
+   "届数": "22",
    "学年": "21/22",
    "主题_zh": "鲸落",
    "主题_en": "",
-   "音乐会日期": "",
+   "日期": "",
    "地点": "",
    "海报": "",
-   "回顾影片_youtube": "",
-   "备注": "届数待补"
+   "影片_youtube": "https://www.youtube.com/watch?v=zBPY4-7R7xk",
+   "播放清单": "https://www.youtube.com/playlist?list=PLfcMs80YixaFNFTXrF2zGgS5bek5jR0FW",
+   "简介_zh": "",
+   "简介_en": ""
   }
  ],
  "events": [
   {
    "届数": "26",
    "日期": "",
-   "类型": "造势活动",
-   "名称_zh": "与奏冒险之旅",
-   "名称_en": "",
-   "简介_zh": "",
-   "简介_en": "",
+   "类型": "迎新夜",
+   "名称_zh": "迎新夜",
+   "名称_en": "Freshmen Welcoming Night",
+   "简介_zh": "每学年开始的迎新夜，欢迎新成员加入，让陌生人变成朋友。",
+   "简介_en": "Our welcome night at the start of each academic year, turning strangers into friends.",
+   "地点": "",
    "封面": "",
    "连结": "",
    "上架": "TRUE"
@@ -227,11 +352,12 @@
   {
    "届数": "26",
    "日期": "",
-   "类型": "造势活动",
-   "名称_zh": "与奏补给站",
-   "名称_en": "",
-   "简介_zh": "",
-   "简介_en": "",
+   "类型": "Bonding Day",
+   "名称_zh": "对内联系日",
+   "名称_en": "Bonding Day",
+   "简介_zh": "没有舞台和灯光，只有笑声和互动，把“我们”变成“一起”。",
+   "简介_en": "No stage, no lights, just laughter that turns 'us' into 'together'.",
+   "地点": "",
    "封面": "",
    "连结": "",
    "上架": "TRUE"
@@ -239,29 +365,176 @@
   {
    "届数": "26",
    "日期": "",
-   "类型": "外校演出",
-   "名称_zh": "校外宣传 · 槟城华都中学",
-   "名称_en": "",
-   "简介_zh": "",
-   "简介_en": "",
+   "类型": "Mini Concert",
+   "名称_zh": "小型音乐会",
+   "名称_en": "Mini Concert",
+   "简介_zh": "新成员的第一场演出，从紧张到专注，是音乐旅程的起点。",
+   "简介_en": "Our new members' first performance, the start of their musical journey.",
+   "地点": "",
    "封面": "",
    "连结": "",
    "上架": "TRUE"
   },
   {
-   "届数": "27",
+   "届数": "26",
+   "日期": "",
+   "类型": "座谈会",
+   "名称_zh": "萱萱老师歌唱座谈会",
+   "名称_en": "Singing talk with Teacher Xuanxuan",
+   "简介_zh": "不只是一场讲座，而是一段重新认识自己声音的旅程。",
+   "简介_en": "Not just a talk, but a journey to rediscover your own voice.",
+   "地点": "",
+   "封面": "",
+   "连结": "",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "26",
+   "日期": "",
+   "类型": "歌唱比赛",
+   "名称_zh": "小草新歌声",
+   "名称_en": "LGM New Voices",
+   "简介_zh": "年度歌唱比赛，让音乐把紧张变成掌声。",
+   "简介_en": "Our annual singing competition, where nerves turn into applause.",
+   "地点": "",
+   "封面": "",
+   "连结": "",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "26",
    "日期": "",
    "类型": "Christmas Party",
-   "名称_zh": "",
-   "名称_en": "",
-   "简介_zh": "",
-   "简介_en": "",
+   "名称_zh": "圣诞派对",
+   "名称_en": "Christmas Party",
+   "简介_zh": "表演、游戏、幸运抽奖和交换礼物的冬夜。",
+   "简介_en": "Performances, games, a lucky draw and a gift exchange.",
+   "地点": "",
    "封面": "",
    "连结": "",
-   "上架": "FALSE"
+   "上架": "TRUE"
+  },
+  {
+   "届数": "26",
+   "日期": "",
+   "类型": "造势活动",
+   "名称_zh": "造势活动",
+   "名称_en": "Hype-up event",
+   "简介_zh": "造势活动，是序章，也是预告。",
+   "简介_en": "The prologue, and the trailer.",
+   "地点": "",
+   "封面": "",
+   "连结": "",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "25",
+   "日期": "2025-05-07",
+   "类型": "造势活动",
+   "名称_zh": "与奏补给站",
+   "名称_en": "Echoes of the Odyssey",
+   "简介_zh": "与奏漫游之旅第四站。",
+   "简介_en": "Stop four of the Melody Odyssey journey.",
+   "地点": "Cafe Lembaran, USM Engineering Campus",
+   "封面": "",
+   "连结": "https://www.facebook.com/share/p/16RL8vVL71/",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "25",
+   "日期": "2025-05-02",
+   "类型": "外校演出",
+   "名称_zh": "校外宣传 · 槟城华都中学",
+   "名称_en": "Off-campus show at SMK Valdor",
+   "简介_zh": "造势活动三之外校表演。",
+   "简介_en": "Hype event 3: off-campus performance.",
+   "地点": "SMK Valdor, Sungai Jawi",
+   "封面": "",
+   "连结": "https://www.facebook.com/share/p/1KjHhy5Aj7/",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "25",
+   "日期": "2025-04-27",
+   "类型": "造势活动",
+   "名称_zh": "与奏冒险之旅",
+   "名称_en": "Journey into a Melodic Adventure",
+   "简介_zh": "与奏漫游之旅第三站，一场互动故事活动。",
+   "简介_en": "Stop three of the Melody Odyssey journey, an interactive story event.",
+   "地点": "Dewan PUMA, USM Engineering Campus",
+   "封面": "",
+   "连结": "https://www.facebook.com/share/p/17zUEBybBC/",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "24",
+   "日期": "",
+   "类型": "外校演出",
+   "名称_zh": "Malaysia Talent《原创音乐分享会》",
+   "名称_en": "Malaysia Talent original music sharing",
+   "简介_zh": "",
+   "简介_en": "",
+   "地点": "",
+   "封面": "",
+   "连结": "",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "24",
+   "日期": "",
+   "类型": "外校演出",
+   "名称_zh": "理大游子吟《After Hours》《Live Goes Stonks》",
+   "名称_en": "USM You Zi Yin: After Hours & Live Goes Stonks",
+   "简介_zh": "",
+   "简介_en": "",
+   "地点": "",
+   "封面": "",
+   "连结": "",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "24",
+   "日期": "",
+   "类型": "外校演出",
+   "名称_zh": "元宵节潮州大锣鼓提灯游行新春晚宴",
+   "名称_en": "Chap Goh Mei lantern parade dinner",
+   "简介_zh": "",
+   "简介_en": "",
+   "地点": "",
+   "封面": "",
+   "连结": "",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "24",
+   "日期": "",
+   "类型": "外校演出",
+   "名称_zh": "Career Fair USM Engineering Campus Gala Dinner 2024",
+   "名称_en": "Career Fair Gala Dinner 2024",
+   "简介_zh": "",
+   "简介_en": "",
+   "地点": "",
+   "封面": "",
+   "连结": "",
+   "上架": "TRUE"
   }
  ],
  "songs": [
+  {
+   "歌名": "谜",
+   "拼音": "Mí",
+   "英文名": "",
+   "年份": "2026",
+   "届数": "",
+   "作词": "",
+   "作曲": "",
+   "编曲": "",
+   "获奖_zh": "第32届金锋奖 半决赛",
+   "获奖_en": "32nd Golden Frontier Award · Semi-finalist",
+   "youtube": "",
+   "精选": "FALSE",
+   "上架": "TRUE"
+  },
   {
    "歌名": "木马",
    "拼音": "Mù Mǎ",
@@ -271,7 +544,8 @@
    "作词": "",
    "作曲": "",
    "编曲": "",
-   "获奖": "金锋奖 评审推荐奖",
+   "获奖_zh": "第31届金锋奖 评审推荐奖",
+   "获奖_en": "31st Golden Frontier Award · Judges' Choice",
    "youtube": "",
    "精选": "TRUE",
    "上架": "TRUE"
@@ -285,7 +559,8 @@
    "作词": "",
    "作曲": "",
    "编曲": "",
-   "获奖": "金锋奖 半决赛",
+   "获奖_zh": "第29届金锋奖 半决赛",
+   "获奖_en": "29th Golden Frontier Award · Semi-finalist",
    "youtube": "",
    "精选": "FALSE",
    "上架": "TRUE"
@@ -295,11 +570,12 @@
    "拼音": "Jīng Luò",
    "英文名": "",
    "年份": "2022",
-   "届数": "",
+   "届数": "22",
    "作词": "",
    "作曲": "",
    "编曲": "",
-   "获奖": "金锋奖 总决赛",
+   "获奖_zh": "第28届金锋奖 总决赛",
+   "获奖_en": "28th Golden Frontier Award · Finalist",
    "youtube": "",
    "精选": "TRUE",
    "上架": "TRUE"
@@ -313,7 +589,8 @@
    "作词": "",
    "作曲": "",
    "编曲": "",
-   "获奖": "金锋奖 半决赛",
+   "获奖_zh": "第28届金锋奖 半决赛",
+   "获奖_en": "28th Golden Frontier Award · Semi-finalist",
    "youtube": "",
    "精选": "FALSE",
    "上架": "TRUE"
@@ -327,7 +604,53 @@
    "作词": "",
    "作曲": "",
    "编曲": "",
-   "获奖": "金锋奖 总决赛",
+   "获奖_zh": "第27届金锋奖 总决赛",
+   "获奖_en": "27th Golden Frontier Award · Finalist",
+   "youtube": "",
+   "精选": "FALSE",
+   "上架": "TRUE"
+  },
+  {
+   "歌名": "我们都一样",
+   "拼音": "Wǒ Men Dōu Yī Yàng",
+   "英文名": "",
+   "年份": "2020",
+   "届数": "",
+   "作词": "",
+   "作曲": "",
+   "编曲": "",
+   "获奖_zh": "第26届金锋奖 总决赛",
+   "获奖_en": "26th Golden Frontier Award · Finalist",
+   "youtube": "",
+   "精选": "FALSE",
+   "上架": "TRUE"
+  },
+  {
+   "歌名": "最初的声音",
+   "拼音": "Zuì Chū De Shēng Yīn",
+   "英文名": "",
+   "年份": "2020",
+   "届数": "",
+   "作词": "",
+   "作曲": "",
+   "编曲": "",
+   "获奖_zh": "第26届金锋奖 半决赛",
+   "获奖_en": "26th Golden Frontier Award · Semi-finalist",
+   "youtube": "",
+   "精选": "FALSE",
+   "上架": "TRUE"
+  },
+  {
+   "歌名": "Ghost Life",
+   "拼音": "",
+   "英文名": "Ghost Life",
+   "年份": "2020",
+   "届数": "",
+   "作词": "",
+   "作曲": "",
+   "编曲": "",
+   "获奖_zh": "第26届金锋奖 半决赛",
+   "获奖_en": "26th Golden Frontier Award · Semi-finalist",
    "youtube": "",
    "精选": "FALSE",
    "上架": "TRUE"
@@ -341,9 +664,10 @@
    "作词": "",
    "作曲": "",
    "编曲": "",
-   "获奖": "金锋奖 银奖",
+   "获奖_zh": "第25届金锋奖 银奖",
+   "获奖_en": "25th Golden Frontier Award · Silver",
    "youtube": "",
-   "精选": "FALSE",
+   "精选": "TRUE",
    "上架": "TRUE"
   },
   {
@@ -355,7 +679,113 @@
    "作词": "",
    "作曲": "",
    "编曲": "",
-   "获奖": "金锋奖 铜奖 · 最佳作词",
+   "获奖_zh": "第25届金锋奖 铜奖 · 最佳作词",
+   "获奖_en": "25th Golden Frontier Award · Bronze & Best Lyrics",
+   "youtube": "",
+   "精选": "FALSE",
+   "上架": "TRUE"
+  },
+  {
+   "歌名": "你吃盐多所以你肾衰竭",
+   "拼音": "Nǐ Chī Yán Duō Suǒ Yǐ Nǐ Shèn Shuāi Jié",
+   "英文名": "",
+   "年份": "2018",
+   "届数": "",
+   "作词": "",
+   "作曲": "",
+   "编曲": "",
+   "获奖_zh": "第24届金锋奖 金奖 · 最佳编曲",
+   "获奖_en": "24th Golden Frontier Award · Gold & Best Arrangement",
+   "youtube": "",
+   "精选": "TRUE",
+   "上架": "TRUE"
+  },
+  {
+   "歌名": "史蒂芬·威尔夏",
+   "拼音": "Shǐ Dì Fēn · Wēi Ěr Xià",
+   "英文名": "",
+   "年份": "2018",
+   "届数": "",
+   "作词": "",
+   "作曲": "",
+   "编曲": "",
+   "获奖_zh": "第24届金锋奖 银奖",
+   "获奖_en": "24th Golden Frontier Award · Silver",
+   "youtube": "",
+   "精选": "FALSE",
+   "上架": "TRUE"
+  },
+  {
+   "歌名": "他点名查证件",
+   "拼音": "Tā Diǎn Míng Chá Zhèng Jiàn",
+   "英文名": "",
+   "年份": "2018",
+   "届数": "",
+   "作词": "",
+   "作曲": "",
+   "编曲": "",
+   "获奖_zh": "第24届金锋奖 铜奖 · 最佳作曲 · 最佳作词",
+   "获奖_en": "24th Golden Frontier Award · Bronze, Best Composing & Best Lyrics",
+   "youtube": "",
+   "精选": "FALSE",
+   "上架": "TRUE"
+  },
+  {
+   "歌名": "芭蕾男",
+   "拼音": "Bā Lěi Nán",
+   "英文名": "",
+   "年份": "2017",
+   "届数": "",
+   "作词": "",
+   "作曲": "",
+   "编曲": "",
+   "获奖_zh": "第23届金锋奖 铜奖 · 最佳作词",
+   "获奖_en": "23rd Golden Frontier Award · Bronze & Best Lyrics",
+   "youtube": "",
+   "精选": "FALSE",
+   "上架": "TRUE"
+  },
+  {
+   "歌名": "2117年",
+   "拼音": "",
+   "英文名": "2117",
+   "年份": "2017",
+   "届数": "",
+   "作词": "",
+   "作曲": "",
+   "编曲": "",
+   "获奖_zh": "第23届金锋奖 铜奖 · 最佳演绎",
+   "获奖_en": "23rd Golden Frontier Award · Bronze & Best Performance",
+   "youtube": "",
+   "精选": "FALSE",
+   "上架": "TRUE"
+  },
+  {
+   "歌名": "再干一杯",
+   "拼音": "Zài Gān Yī Bēi",
+   "英文名": "",
+   "年份": "2017",
+   "届数": "",
+   "作词": "",
+   "作曲": "",
+   "编曲": "",
+   "获奖_zh": "988 全马原创毕业歌大赛 决赛",
+   "获奖_en": "988FM Graduation Song Competition · Finalist",
+   "youtube": "",
+   "精选": "FALSE",
+   "上架": "TRUE"
+  },
+  {
+   "歌名": "我们的纪念歌",
+   "拼音": "Wǒ Men De Jì Niàn Gē",
+   "英文名": "",
+   "年份": "2017",
+   "届数": "",
+   "作词": "",
+   "作曲": "",
+   "编曲": "",
+   "获奖_zh": "988 全马原创毕业歌大赛 决赛",
+   "获奖_en": "988FM Graduation Song Competition · Finalist",
    "youtube": "",
    "精选": "FALSE",
    "上架": "TRUE"
@@ -363,120 +793,467 @@
  ],
  "awards_other": [
   {
-   "年份": "2018",
-   "内容_zh": "金锋奖 金、银、铜奖，最佳编曲、最佳作曲、最佳作词",
-   "内容_en": "",
-   "上架": "TRUE"
-  },
-  {
    "年份": "2017",
-   "内容_zh": "金锋奖铜奖及单项奖；988 全马原创毕业歌大赛十强；SEAMEX 2017 东南亚音乐教育交流峰会",
-   "内容_en": "",
-   "上架": "TRUE"
-  },
-  {
-   "年份": "2020",
-   "内容_zh": "3 首歌曲入围，其中 2 首进入总决赛",
-   "内容_en": "",
+   "内容_zh": "参与 SEAMEX 2017 东南亚音乐教育交流峰会",
+   "内容_en": "Took part in SEAMEX 2017 (Southeast Asia Music Education Exchange)",
    "上架": "TRUE"
   },
   {
    "年份": "2016",
-   "内容_zh": "2 首歌曲入围总决赛",
-   "内容_en": "",
+   "内容_zh": "金锋奖 2 首歌曲入围总决赛",
+   "内容_en": "Two songs reached the Golden Frontier Award final",
    "上架": "TRUE"
-  }
- ],
- "sponsors": [
-  {
-   "届数": "26",
-   "商家名": "[商家名]",
-   "logo": "sponsors/xxx.png",
-   "等级": "银级",
-   "网址": "",
-   "上架": "FALSE"
   }
  ],
  "packages": [
   {
    "顺序": "1",
-   "等级_zh": "铜级",
-   "等级_en": "Bronze",
-   "价格": "RM [价格]",
-   "内容_zh": "节目册 Logo|社媒感谢贴 ×1|网站赞助商墙",
-   "内容_en": "",
+   "code": "platinum",
+   "等级_zh": "白金",
+   "等级_en": "Platinum",
+   "价格": "RM 4,000",
    "推荐": "FALSE",
    "上架": "TRUE"
   },
   {
    "顺序": "2",
-   "等级_zh": "银级",
-   "等级_en": "Silver",
-   "价格": "RM [价格]",
-   "内容_zh": "铜级全部|舞台背板 Logo|司仪口播 ×1|现场摊位",
-   "内容_en": "",
-   "推荐": "TRUE",
+   "code": "gold",
+   "等级_zh": "金级",
+   "等级_en": "Gold",
+   "价格": "RM 2,800",
+   "推荐": "FALSE",
    "上架": "TRUE"
   },
   {
    "顺序": "3",
-   "等级_zh": "冠名 / 金级",
-   "等级_en": "Gold",
-   "价格": "RM [价格]",
-   "内容_zh": "银级全部|海报与门票冠名|造势活动联名|演出影片片头",
-   "内容_en": "",
+   "code": "silver",
+   "等级_zh": "银级",
+   "等级_en": "Silver",
+   "价格": "RM 2,000",
+   "推荐": "FALSE",
+   "上架": "TRUE"
+  },
+  {
+   "顺序": "4",
+   "code": "bronze",
+   "等级_zh": "铜级",
+   "等级_en": "Bronze",
+   "价格": "RM 1,200",
    "推荐": "FALSE",
    "上架": "TRUE"
   }
  ],
+ "package_benefits": [
+  {
+   "顺序": "1",
+   "权益_zh": "免费门票",
+   "权益_en": "Complimentary tickets",
+   "platinum": "20",
+   "gold": "12",
+   "silver": "8",
+   "bronze": "5"
+  },
+  {
+   "顺序": "2",
+   "权益_zh": "社媒宣传",
+   "权益_en": "Promotion on social media",
+   "platinum": "✔",
+   "gold": "✔",
+   "silver": "✔",
+   "bronze": "✔"
+  },
+  {
+   "顺序": "3",
+   "权益_zh": "宣传物料上的 logo",
+   "权益_en": "Logo on collaterals",
+   "platinum": "✔",
+   "gold": "✔",
+   "silver": "✔",
+   "bronze": "✔"
+  },
+  {
+   "顺序": "4",
+   "权益_zh": "节目册全页彩色广告",
+   "权益_en": "Full-page coloured booklet ad",
+   "platinum": "✔",
+   "gold": "✔",
+   "silver": "✔",
+   "bronze": "✔"
+  },
+  {
+   "顺序": "5",
+   "权益_zh": "感谢纪念品",
+   "权益_en": "Token of appreciation",
+   "platinum": "✔",
+   "gold": "✔",
+   "silver": "✔",
+   "bronze": "✔"
+  },
+  {
+   "顺序": "6",
+   "权益_zh": "活动当天模拟支票颁发",
+   "权益_en": "Mock cheque presentation on event day",
+   "platinum": "✔",
+   "gold": "✔",
+   "silver": "✔",
+   "bronze": "✔"
+  },
+  {
+   "顺序": "7",
+   "权益_zh": "活动当天派发宣传品（商家提供）",
+   "权益_en": "Distribute promo materials on event day (sponsor-provided)",
+   "platinum": "✔",
+   "gold": "✔",
+   "silver": "✔",
+   "bronze": "✔"
+  },
+  {
+   "顺序": "8",
+   "权益_zh": "活动当天免费展位",
+   "权益_en": "Free exhibition booth on event day",
+   "platinum": "✔",
+   "gold": "✔",
+   "silver": "✔",
+   "bronze": ""
+  },
+  {
+   "顺序": "9",
+   "权益_zh": "展示横幅（商家提供）",
+   "权益_en": "Banner display (sponsor-provided)",
+   "platinum": "✔",
+   "gold": "✔",
+   "silver": "✔",
+   "bronze": ""
+  },
+  {
+   "顺序": "10",
+   "权益_zh": "活动当天播放公司影片（商家提供）",
+   "权益_en": "Company video screened on event day (sponsor-provided)",
+   "platinum": "✔",
+   "gold": "✔",
+   "silver": "",
+   "bronze": ""
+  },
+  {
+   "顺序": "11",
+   "权益_zh": "纪念奖牌",
+   "权益_en": "Plaque award",
+   "platinum": "✔",
+   "gold": "✔",
+   "silver": "",
+   "bronze": ""
+  },
+  {
+   "顺序": "12",
+   "权益_zh": "公司宣传 Reel 上传社媒",
+   "权益_en": "Company promotional reel on our social media",
+   "platinum": "✔",
+   "gold": "",
+   "silver": "",
+   "bronze": ""
+  },
+  {
+   "顺序": "13",
+   "权益_zh": "客制化品牌戏剧环节",
+   "权益_en": "Customised drama segment featuring your brand",
+   "platinum": "✔",
+   "gold": "",
+   "silver": "",
+   "bronze": ""
+  },
+  {
+   "顺序": "14",
+   "权益_zh": "3 件活动 T 恤",
+   "权益_en": "3 event T-shirts",
+   "platinum": "✔",
+   "gold": "",
+   "silver": "",
+   "bronze": ""
+  }
+ ],
+ "ads": [
+  {
+   "顺序": "1",
+   "颜色_zh": "彩色",
+   "颜色_en": "Coloured",
+   "规格_zh": "全页",
+   "规格_en": "Full page",
+   "价格": "RM 300"
+  },
+  {
+   "顺序": "2",
+   "颜色_zh": "彩色",
+   "颜色_en": "Coloured",
+   "规格_zh": "半页",
+   "规格_en": "Half page",
+   "价格": "RM 200"
+  },
+  {
+   "顺序": "3",
+   "颜色_zh": "彩色",
+   "颜色_en": "Coloured",
+   "规格_zh": "四分之一页",
+   "规格_en": "Quarter page",
+   "价格": "RM 90"
+  },
+  {
+   "顺序": "4",
+   "颜色_zh": "黑白",
+   "颜色_en": "Black & white",
+   "规格_zh": "全页",
+   "规格_en": "Full page",
+   "价格": "RM 180"
+  },
+  {
+   "顺序": "5",
+   "颜色_zh": "黑白",
+   "颜色_en": "Black & white",
+   "规格_zh": "半页",
+   "规格_en": "Half page",
+   "价格": "RM 100"
+  },
+  {
+   "顺序": "6",
+   "颜色_zh": "黑白",
+   "颜色_en": "Black & white",
+   "规格_zh": "四分之一页",
+   "规格_en": "Quarter page",
+   "价格": "RM 75"
+  }
+ ],
+ "other_packages": [
+  {
+   "顺序": "1",
+   "组别_zh": "实物赞助",
+   "组别_en": "In-kind",
+   "名称_zh": "Event Supporter",
+   "名称_en": "Event Supporter",
+   "条件_zh": "数量 750–1000 件，总值 ≥ RM1,000",
+   "条件_en": "750–1,000 pcs, total value ≥ RM1,000",
+   "权益_zh": "节目册半页彩色广告|感谢纪念品|宣传物料上的 logo|社媒宣传（贴文 + Reel）",
+   "权益_en": "Half-page coloured booklet ad|Token of appreciation|Logo on collaterals|Social media promotion (post + reel)"
+  },
+  {
+   "顺序": "2",
+   "组别_zh": "实物赞助",
+   "组别_en": "In-kind",
+   "名称_zh": "Co-Sponsor",
+   "名称_en": "Co-Sponsor",
+   "条件_zh": "数量 750–1000 件，总值 < RM1,000",
+   "条件_en": "750–1,000 pcs, total value < RM1,000",
+   "权益_zh": "节目册半页黑白广告|感谢纪念品|宣传物料上的 logo|社媒宣传（贴文 + Reel）",
+   "权益_en": "Half-page B&W booklet ad|Token of appreciation|Logo on collaterals|Social media promotion (post + reel)"
+  },
+  {
+   "顺序": "3",
+   "组别_zh": "服务赞助",
+   "组别_en": "Services",
+   "名称_zh": "化妆赞助",
+   "名称_en": "Make-Up Sponsor",
+   "条件_zh": "提供演出化妆服务",
+   "条件_en": "Make-up services for performers",
+   "权益_zh": "“化妆赞助”冠名|节目册全页彩色广告|宣传物料上的 logo|社媒宣传|感谢纪念品",
+   "权益_en": "Title of 'Make-Up Sponsor'|Full-page coloured booklet ad|Logo on collaterals|Social media promotion|Token of appreciation"
+  },
+  {
+   "顺序": "4",
+   "组别_zh": "服务赞助",
+   "组别_en": "Services",
+   "名称_zh": "发型赞助",
+   "名称_en": "Hair-Do Sponsor",
+   "条件_zh": "提供演出发型服务",
+   "条件_en": "Hair styling services for performers",
+   "权益_zh": "“发型赞助”冠名|节目册全页彩色广告|宣传物料上的 logo|社媒宣传|感谢纪念品",
+   "权益_en": "Title of 'Hair-Do Sponsor'|Full-page coloured booklet ad|Logo on collaterals|Social media promotion|Token of appreciation"
+  }
+ ],
+ "terms_conditions": [
+  {
+   "顺序": "1",
+   "标题_zh": "禁止政治与种族内容",
+   "标题_en": "No political or racial content",
+   "内容_zh": "主办方拍摄的 Reel 或赞助商提供的影片不得含政治、种族或敏感社会内容，主办方有权拒绝或要求修改。",
+   "内容_en": "Reels filmed by the organiser or videos provided by the sponsor must not contain political, racial or sensitive social content. The organiser may reject or request edits."
+  },
+  {
+   "顺序": "2",
+   "标题_zh": "无额外付费即无额外权益",
+   "标题_en": "No extra benefits without payment",
+   "内容_zh": "各配套权益固定，赞助商不得要求配套以外的权益，除非另行付费并经主办方同意。",
+   "内容_en": "Package benefits are fixed. Extra privileges require additional fees agreed with the organiser."
+  },
+  {
+   "顺序": "3",
+   "标题_zh": "条款不可议价",
+   "标题_en": "Terms are non-negotiable",
+   "内容_zh": "所有赞助费用与权益固定，不接受折扣、减价或更改。",
+   "内容_en": "All fees and benefits are fixed; no discounts, reductions or alterations."
+  },
+  {
+   "顺序": "4",
+   "标题_zh": "遵守截止日期",
+   "标题_en": "Deadlines",
+   "内容_zh": "赞助商须在指定日期前提交所需资料，逾期可能减少曝光。",
+   "内容_en": "Required materials must be submitted by the deadline; late submissions may reduce visibility."
+  },
+  {
+   "顺序": "5",
+   "标题_zh": "展示物料责任",
+   "标题_en": "Display materials",
+   "内容_zh": "展位物料、横幅及器材由赞助商自行负责，主办方不承担遗失或损坏责任。",
+   "内容_en": "Sponsors are responsible for their own booth materials, banners and equipment. The organiser is not liable for loss or damage."
+  }
+ ],
+ "audience": [
+  {
+   "顺序": "1",
+   "群体_zh": "马来西亚音乐团体与公司",
+   "群体_en": "Music organisations and companies in Malaysia"
+  },
+  {
+   "顺序": "2",
+   "群体_zh": "各大学学生：理大主校、UUM、UniMAP、UTAR、UPM、UKM、UM 等",
+   "群体_en": "University students: USM Main Campus, UUM, UniMAP, UTAR, UPM, UKM, UM and more"
+  },
+  {
+   "顺序": "3",
+   "群体_zh": "高渊、巴里文打、大山脚、北海一带居民",
+   "群体_en": "Residents of Nibong Tebal, Parit Buntar, Bukit Mertajam, Butterworth and nearby"
+  },
+  {
+   "顺序": "4",
+   "群体_zh": "中学生：华都中学（SMK Valdor）、SMJK Krian 等",
+   "群体_en": "Secondary school students, e.g. SMK Valdor, SMJK Krian"
+  }
+ ],
+ "media": [
+  {
+   "顺序": "1",
+   "名称": "星洲日报 Sin Chew Daily",
+   "logo": "",
+   "上架": "TRUE"
+  },
+  {
+   "顺序": "2",
+   "名称": "光明日报 Guang Ming Daily",
+   "logo": "",
+   "上架": "TRUE"
+  },
+  {
+   "顺序": "3",
+   "名称": "光华日报 Kwong Wah Daily",
+   "logo": "",
+   "上架": "TRUE"
+  },
+  {
+   "顺序": "4",
+   "名称": "中国报 China Press",
+   "logo": "",
+   "上架": "TRUE"
+  },
+  {
+   "顺序": "5",
+   "名称": "The Star",
+   "logo": "",
+   "上架": "TRUE"
+  },
+  {
+   "顺序": "6",
+   "名称": "MyFM",
+   "logo": "",
+   "上架": "TRUE"
+  },
+  {
+   "顺序": "7",
+   "名称": "988",
+   "logo": "",
+   "上架": "TRUE"
+  },
+  {
+   "顺序": "8",
+   "名称": "Buletin Mutiara",
+   "logo": "",
+   "上架": "TRUE"
+  },
+  {
+   "顺序": "9",
+   "名称": "WeirdKaya",
+   "logo": "",
+   "上架": "TRUE"
+  },
+  {
+   "顺序": "10",
+   "名称": "GoXuan",
+   "logo": "",
+   "上架": "TRUE"
+  }
+ ],
+ "sponsors": [
+  {
+   "届数": "27",
+   "商家名": "[商家名]",
+   "logo": "sponsors/xxx.png",
+   "等级": "金级",
+   "网址": "",
+   "上架": "FALSE"
+  }
+ ],
  "committee": [
   {
-   "届数": "26",
-   "部门": "高委",
-   "成员": "",
-   "顺序": "1"
+   "届数": "27",
+   "顺序": "1",
+   "职位_zh": "主席",
+   "职位_en": "President",
+   "成员": "黄慧慈 Wong Hui Chi"
   },
   {
-   "届数": "26",
-   "部门": "宣传组",
-   "成员": "",
-   "顺序": "2"
+   "届数": "27",
+   "顺序": "2",
+   "职位_zh": "赞助组组长",
+   "职位_en": "Head of Sponsorship",
+   "成员": "黄欣仪 Ng Xin Yi"
   },
   {
-   "届数": "26",
-   "部门": "司仪与戏剧组",
-   "成员": "",
-   "顺序": "3"
+   "届数": "27",
+   "顺序": "3",
+   "职位_zh": "宣传组",
+   "职位_en": "Publicity",
+   "成员": ""
   },
   {
-   "届数": "26",
-   "部门": "设计与多媒体组",
-   "成员": "",
-   "顺序": "4"
+   "届数": "27",
+   "顺序": "4",
+   "职位_zh": "设计与多媒体组",
+   "职位_en": "Design & Multimedia",
+   "成员": ""
   },
   {
-   "届数": "26",
-   "部门": "赞助组",
-   "成员": "",
-   "顺序": "5"
+   "届数": "27",
+   "顺序": "5",
+   "职位_zh": "司仪与戏剧组",
+   "职位_en": "MC & Drama",
+   "成员": ""
   },
   {
-   "届数": "26",
-   "部门": "场地组",
-   "成员": "",
-   "顺序": "6"
+   "届数": "27",
+   "顺序": "6",
+   "职位_zh": "场地组",
+   "职位_en": "Venue",
+   "成员": ""
   },
   {
-   "届数": "26",
-   "部门": "舞台设置组",
-   "成员": "",
-   "顺序": "7"
+   "届数": "27",
+   "顺序": "7",
+   "职位_zh": "舞台设置组",
+   "职位_en": "Stage Setup",
+   "成员": ""
   },
   {
-   "届数": "26",
-   "部门": "乐手组",
-   "成员": "",
-   "顺序": "8"
+   "届数": "27",
+   "顺序": "8",
+   "职位_zh": "乐手组",
+   "职位_en": "Musicians",
+   "成员": ""
   }
  ]
 }

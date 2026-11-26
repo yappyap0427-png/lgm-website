@@ -4,24 +4,40 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>活动 · 小草颂 LGM</title>
+<meta name="description" content="小草颂 LGM 的年度音乐创作演绎会与常年活动：迎新夜、对内联系日、小型音乐会、座谈会、歌唱比赛、圣诞派对等。">
+<meta property="og:title" content="活动 · 小草颂 LGM">
+<meta property="og:image" content="assets/img/logo.png">
 <link rel="icon" href="assets/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&family=Archivo+Black&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body data-page="events">
+<body>
 <header id="site-header" class="site-header"></header>
-<main class="wrap hero" style="min-height:60vh">
-  <p class="giant" style="font-size:clamp(64px,12vw,140px)">SOON<span style="color:var(--ink);text-shadow:none">.</span></p>
-  <h1 data-i18n="soon.title"></h1>
-  <p data-i18n="soon.body"></p>
-  <div class="btns"><a class="btn blue" href="index.html" data-i18n="soon.back"></a></div>
+
+<main>
+  <section class="wrap hero" style="padding-bottom:32px">
+    <p class="page-giant">EVENTS</p>
+    <p class="lead" data-i18n="ev.title"></p>
+  </section>
+
+  <section class="wrap" style="padding-bottom:40px">
+    <div class="panel" style="background:var(--ink);color:var(--paper);box-shadow:10px 10px 0 var(--pink);align-items:center" id="concert"></div>
+  </section>
+
+  <section class="wrap" style="padding-top:24px">
+    <div class="chips" id="chips" role="group" aria-label="活动类型"></div>
+  </section>
+
+  <section class="wrap" style="padding-bottom:100px" id="groups"></section>
 </main>
+
 <footer id="site-footer" class="site-footer"></footer>
+
 <script src="assets/js/config.js"></script>
 <script src="assets/js/lgm.js"></script>
 <script src="assets/js/strings.js"></script>
-<script src="assets/js/soon.js"></script>
+<script src="assets/js/events.js"></script>
 </body>
 </html>

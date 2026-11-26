@@ -138,16 +138,101 @@
     const els = (root || document).querySelectorAll('[data-count]');
     const run = (el) => {
       const end = parseFloat(el.dataset.count); if (isNaN(end)) return;
+      const dec = (String(el.dataset.count).split('.')[1] || '').length;
       const t0 = performance.now(), dur = 1400, suf = el.dataset.suffix || '';
       const step = (t) => {
-        const p = Math.min(1, (t - t0) / dur), v = Math.round(end * (1 - Math.pow(1 - p, 3)));
-        el.textContent = v.toLocaleString() + suf; if (p < 1) requestAnimationFrame(step);
+        const p = Math.min(1, (t - t0) / dur), v = end * (1 - Math.pow(1 - p, 3));
+        el.textContent = v.toLocaleString('en', { minimumFractionDigits: dec, maximumFractionDigits: dec }) + suf;
+        if (p < 1) requestAnimationFrame(step);
       };
       requestAnimationFrame(step);
     };
     if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } }), { threshold: .4 });
     els.forEach((el) => io.observe(el));
+  };
+
+
+  /* ---------- 6. 共用小元件 ---------- */
+  // 档案、PDF 等：http 连结直接用，否则当作网站里的相对路径
+  LGM.file = (p) => !p ? '' : /^https?:\/\//.test(p) ? p : p.replace(/^\/+/, '');
+  LGM.split = (v) => String(v || '').split('|').map((x) => x.trim()).filter(Boolean);
+  LGM.byOrder = (a, b) => (+a['顺序'] || 0) - (+b['顺序'] || 0);
+  // stats 分页：「显示在」栏写了 首页 / 赞助
+  LGM.stats = (d, where) => LGM.live(d.stats)
+    .filter((r) => r['数字'] !== '' && (!r['显示在'] || r['显示在'].includes(where))).sort(LGM.byOrder);
+  LGM.statHTML = (rows) => rows.map((r, i) => `
+    <div class="stat"><b class="${i % 2 ? 'blue' : ''}" data-count="${LGM.esc(r['数字'])}" data-suffix="${LGM.esc(r['后缀'])}">${LGM.esc(r['数字'])}${LGM.esc(r['后缀'])}</b>
+    <span>${LGM.esc(LGM.pick(r, '名称'))}</span></div>`).join('');
+  LGM.TYPES = {
+    '年度音乐会': ['Annual Concert', 'var(--blue)'], '造势活动': ['Hype-up Event', 'var(--pink)'], '迎新夜': ['Welcome Night', 'var(--blue)'],
+    'Bonding Day': ['Bonding Day', 'var(--ink)'], '座谈会': ['Talk', 'var(--blue)'], 'Symposium': ['Symposium', 'var(--blue)'],
+    'Mini Concert': ['Mini Concert', 'var(--blue)'], '歌唱比赛': ['Singing Competition', 'var(--pink)'],
+    'Christmas Party': ['Christmas Party', 'var(--pink)'], '外校演出': ['External Show', 'var(--ink)'], '其他': ['Other', 'var(--ink)']
+  };
+  LGM.typeLabel = (t) => (LGM.lang === 'en' && LGM.TYPES[t]) ? LGM.TYPES[t][0] : t;
+  LGM.typeColor = (t) => (LGM.TYPES[t] || [0, 'var(--ink)'])[1];
+  LGM.termName = (n, yr) => LGM.lang === 'en' ? `No.${n}${yr ? ` (${yr})` : ''}` : `第 ${n} 届${yr ? `（${yr}）` : ''}`;
+  // 活动排序：届数新的在前；同一届有日期的照日期新到旧，没日期的照 Sheet 顺序
+  LGM.sortEvents = (rows) => rows.map((r, i) => [r, i]).sort(([a, i], [b, j]) =>
+    (+b['届数'] || 0) - (+a['届数'] || 0) || String(b['日期'] || '').localeCompare(String(a['日期'] || '')) || i - j).map(([r]) => r);
+  LGM.eventCard = (r, opts) => {
+    const name = LGM.pick(r, '名称'), href = r['连结'], ext = /^https?:/.test(href || '');
+    const tag = href ? 'a' : 'div', attrs = href ? `href="${LGM.esc(href)}" ${ext ? 'target="_blank" rel="noopener"' : ''}` : '';
+    const desc = (opts && opts.desc) ? LGM.pick(r, '简介') : '';
+    const meta = [r['日期'], r['地点']].filter(Boolean).map(LGM.esc).join(' · ');
+    return `<${tag} class="card event" ${attrs}>
+      ${LGM.imgTag(r['封面'], name, 'cover')}
+      <div class="tag" style="color:${LGM.typeColor(r['类型'])}">${LGM.esc(LGM.typeLabel(r['类型']))}</div>
+      <h3>${LGM.esc(name)}</h3>
+      ${desc ? `<p class="ev-desc">${LGM.esc(desc)}</p>` : ''}
+      ${meta ? `<div class="muted" style="font-size:14px">${meta}</div>` : ''}
+      ${href ? `<div style="font-weight:900;margin-top:6px;color:var(--blue)">${LGM.t('ev.more')}</div>` : ''}
+    </${tag}>`;
+  };
+  LGM.yt = (url) => {
+    const src = LGM.ytEmbed(url);
+    return src ? `<div class="video"><iframe src="${src}" title="YouTube" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>` : '';
+  };
+  // 日期显示：2027-05-02 19:30 → 2027 年 5 月 2 日（日）19:30 / Sun, 2 May 2027, 7:30 PM
+  LGM.dateLong = (s) => {
+    const m = String(s || '').match(/^(\d{4})-(\d{1,2})-(\d{1,2})(?:[ T](\d{1,2}):(\d{2}))?/); if (!m) return LGM.month(s);
+    const dt = new Date(+m[1], +m[2] - 1, +m[3], +(m[4] || 0), +(m[5] || 0));
+    if (LGM.lang === 'en') return dt.toLocaleString('en-GB', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric', ...(m[4] ? { hour: 'numeric', minute: '2-digit', hour12: true } : {}) });
+    return `${m[1]} 年 ${+m[2]} 月 ${+m[3]} 日（${'日一二三四五六'[dt.getDay()]}）${m[4] ? ` ${m[4]}:${m[5]}` : ''}`;
+  };
+
+
+  // 倒数计时：回传 interval，换语言重画时先 clearInterval
+  LGM.countdown = (box, when) => {
+    const target = when ? new Date(String(when).replace(' ', 'T') + (String(when).length <= 10 ? 'T00:00' : '') + ':00+08:00') : null;
+    if (!box) return null;
+    if (!target || isNaN(target) || target < Date.now()) { box.remove(); return null; }
+    const tick = () => {
+      let ms = Math.max(0, target - Date.now());
+      box.innerHTML = [['d', 864e5], ['h', 36e5], ['m', 6e4], ['s', 1e3]].map(([k, u]) => {
+        const v = Math.floor(ms / u); ms -= v * u;
+        return `<div><b>${String(v).padStart(2, '0')}</b>${LGM.t('cd.' + k)}</div>`;
+      }).join('');
+    };
+    tick(); return setInterval(tick, 1000);
+  };
+
+
+  // 歌曲唱片封套卡：颜色轮流，得奖盖印章，词曲有填才显示
+  LGM.songCard = (r, i) => {
+    const P = [['var(--blue)', '#fff'], ['#fff', 'var(--ink)'], ['var(--pink)', 'var(--ink)'], ['var(--ink)', 'var(--paper)']][i % 4];
+    const award = LGM.pick(r, '获奖');
+    const credits = [['mu.lyric', '作词'], ['mu.comp', '作曲'], ['mu.arr', '编曲']].filter(([, k]) => r[k]).map(([t, k]) => `${LGM.t(t)} ${LGM.esc(r[k])}`).join(' · ');
+    const sub = [LGM.lang === 'en' ? (r['英文名'] || r['拼音']) : r['拼音'], r['年份']].filter(Boolean).map(LGM.esc).join(' · ');
+    const href = r['youtube'];
+    const tag = href ? 'a' : 'div';
+    return `<${tag} class="sleeve" ${href ? `href="${LGM.esc(href)}" target="_blank" rel="noopener"` : ''} style="--bg:${P[0]};--fg:${P[1]}">
+      <div class="cover"><div class="t brush">${LGM.esc(r['歌名'])}</div><div class="s">${sub}</div>
+        ${href ? `<div class="play"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>${LGM.t('mu.play')}</div>` : ''}</div>
+      ${award ? `<div class="award">${LGM.esc(award)}</div>` : ''}
+      ${credits ? `<div class="credits">${credits}</div>` : ''}
+    </${tag}>`;
   };
 
   LGM.stamp = (text, center, fill) => `

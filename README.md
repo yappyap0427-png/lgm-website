@@ -7,7 +7,7 @@
 
 ## 给每届宣传组 / 赞助组：只需要改 Google Sheet
 
-后台：**小草颂 LGM 网站后台**（Google Sheet，第一页「说明」有详细规则）
+后台：**小草颂 LGM 网站后台 v2**（Google Sheet，第一页「说明」有详细规则）
 
 | 想做什么 | 去哪个分页 | 怎么改 |
 |---|---|---|
@@ -17,7 +17,14 @@
 | 新增活动 | `events` | 加一行，「上架」选 TRUE |
 | 新增歌曲 | `songs` | 加一行，想上首页就把「精选」改 TRUE |
 | 新增赞助商 logo（首页会滚动） | `sponsors` | 加一行，logo 档名见下面「图片」 |
-| 改赞助配套 | `packages` | 内容用 `\|` 分隔每一项 |
+| 改赞助配套价格 | `packages` | 一行一个等级；`推荐` 打勾会显示「推荐」标签 |
+| 改配套权益（比较表） | `package_benefits` | 每个等级一栏，有就填 ✔，数量直接填数字 |
+| 节目册广告价格 | `ads` | |
+| 实物 / 服务赞助 | `other_packages` | 权益用 `\|` 分隔 |
+| 条款与细则 | `terms_conditions` | |
+| 目标观众、媒体伙伴 | `audience`、`media` | |
+| 赞助计划书 PDF | 把 PDF 放进 `assets/docs/`，`settings` 的 `sponsor_pdf_url` 填路径 | |
+| 本届筹委名单 | `committee` | 成员空白的职位不会显示 |
 | 新一届开始 | `settings` 的 `current_term` +1；`terms` 加一行 | |
 
 改完**大约 1–5 分钟**网站就会更新（Google 有快取）。
@@ -41,12 +48,16 @@
 ```
 index.html          首页
 partners.html       赞助合作
-about / events / music.html   还没做，暂时显示「施工中」
+events.html         活动（依届分组、可按类型筛选）
+music.html          自创歌曲 + 历届音乐会录影
+about.html          关于、使命愿景、时间轴、本届筹委
+term.html?t=26      每届档案页（届数换掉就是另一届）
 assets/css/style.css          所有样式；颜色在最上面 :root 改
 assets/js/config.js           Google Sheet ID（换 Sheet 时改这里）
 assets/js/lgm.js              核心：读资料、双语、页首页尾、数字滚动
 assets/js/strings.js          固定文字的中 / 英版本
-assets/js/home.js / partners.js   各页逻辑
+assets/js/home.js / partners.js / events.js / music.js / about.js / term.js   各页逻辑
+assets/docs/        赞助计划书等 PDF
 data/data.json                Sheet 备份（自动产生，不要手改）
 scripts/sync-sheet.mjs        把 Sheet 抓成 data.json
 .github/workflows/sync-sheet.yml  每天自动跑一次同步
@@ -67,6 +78,9 @@ GitHub Actions 每天凌晨把 Sheet 同步成备份，所以就算 Google 挂�
 5. Settings → Actions → General → Workflow permissions 选 **Read and write**（自动同步需要）。
 6. 把 Google Sheet 设成「知道连结的任何人可检视」。
 
+### Google Sheet 的小陷阱
+同一栏里**不要混着放数字和文字**（例如「届数」栏全部填数字）。Google 的 CSV 输出遇到混合栏位，会把少数那种型态变成空白。
+所以 `package_benefits` 里打勾用 ✔（文字），门票数量也当文字。
+
 ### 以后想加的
-- 活动页、音乐页、每届档案页（设计稿已经有，资料结构也已经在 Sheet 里）
 - 自订网域（约 RM50 / 年），在 Settings → Pages → Custom domain 设定
