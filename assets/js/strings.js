@@ -46,7 +46,7 @@ LGM.STR = {
     'mu.title': '每一首，都是小草们自己写的。',
     'mu.body': '作词、作曲、编曲全由社员完成。2016 年起年年站上金锋奖创作歌曲观摩赛的舞台。',
     'mu.yt': 'YouTube 频道 →', 'mu.all': '全部', 'mu.feat': '精选', 'mu.award': '得奖作品',
-    'mu.play': '播放', 'mu.now': 'NOW PLAYING · 精选',
+    'mu.play': '播放', 'mu.listen': '试听', 'mu.listenSec': '试听 {n} 秒', 'mu.full': '完整版 ↗', 'mu.stop': '停止', 'mu.now': 'NOW PLAYING · 精选',
     'mu.lyric': '作词', 'mu.comp': '作曲', 'mu.arr': '编曲',
     'mu.concerts': '历届音乐会录影',
     // 关于页
@@ -100,7 +100,7 @@ LGM.STR = {
     'mu.title': 'Every song here was written by our members.',
     'mu.body': 'Lyrics, music and arrangement — all by LGM members. On the Golden Frontier Award stage every year since 2016.',
     'mu.yt': 'YouTube channel →', 'mu.all': 'All', 'mu.feat': 'Featured', 'mu.award': 'Award winners',
-    'mu.play': 'Play', 'mu.now': 'NOW PLAYING · FEATURED',
+    'mu.play': 'Play', 'mu.listen': 'Preview', 'mu.listenSec': 'Play {n}s preview', 'mu.full': 'Full version ↗', 'mu.stop': 'Stop', 'mu.now': 'NOW PLAYING · FEATURED',
     'mu.lyric': 'Lyrics', 'mu.comp': 'Music', 'mu.arr': 'Arrangement',
     'mu.concerts': 'Concert recordings',
     'ab.title': 'Small but growing towards the music.', 'ab.mission': 'Mission', 'ab.vision': 'Vision', 'ab.acts': 'What we do all year',

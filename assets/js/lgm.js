@@ -102,6 +102,7 @@
   LGM.toggleLang = function () {
     LGM.lang = LGM.lang === 'zh' ? 'en' : 'zh';
     try { localStorage.setItem('lgm-lang', LGM.lang); } catch (e) {}
+    if (LGM.onLangStop) LGM.onLangStop();
     LGM.applyStatic(); listeners.forEach((fn) => fn());
   };
 
@@ -220,20 +221,47 @@
 
 
   // 歌曲唱片封套卡：颜色轮流，得奖盖印章，词曲有填才显示
+  // 歌曲唱片封套卡：颜色轮流，得奖盖印章，词曲有填才显示
+  // 有 YouTube 的歌：按「试听」在封套里直接播一小段（Sheet：试听开始 = 从第几秒开始，试听秒数 = 播多久）
+  LGM.ytId = (url) => (String(url || '').match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/) || [])[1] || '';
   LGM.songCard = (r, i) => {
     const P = [['var(--blue)', '#fff'], ['#fff', 'var(--ink)'], ['var(--pink)', 'var(--ink)'], ['var(--ink)', 'var(--paper)']][i % 4];
     const award = LGM.pick(r, '获奖');
     const credits = [['mu.lyric', '作词'], ['mu.comp', '作曲'], ['mu.arr', '编曲']].filter(([, k]) => r[k]).map(([t, k]) => `${LGM.t(t)} ${LGM.esc(r[k])}`).join(' · ');
     const sub = [LGM.lang === 'en' ? (r['英文名'] || r['拼音']) : r['拼音'], r['年份']].filter(Boolean).map(LGM.esc).join(' · ');
-    const href = r['youtube'];
-    const tag = href ? 'a' : 'div';
-    return `<${tag} class="sleeve" ${href ? `href="${LGM.esc(href)}" target="_blank" rel="noopener"` : ''} style="--bg:${P[0]};--fg:${P[1]}">
-      <div class="cover"><div class="t brush">${LGM.esc(r['歌名'])}</div><div class="s">${sub}</div>
-        ${href ? `<div class="play"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>${LGM.t('mu.play')}</div>` : ''}</div>
+    const id = LGM.ytId(r['youtube']);
+    const from = Math.max(0, parseInt(r['试听开始'], 10) || 60);
+    const len = Math.min(90, parseInt(r['试听秒数'], 10) || 30);
+    return `<div class="sleeve" style="--bg:${P[0]};--fg:${P[1]}">
+      <div class="cover"><div class="t brush${String(r['歌名']).length > 10 ? ' long' : ''}">${LGM.esc(r['歌名'])}</div><div class="s">${sub}</div>
+        ${id ? `<button type="button" class="listen" data-id="${id}" data-from="${from}" data-len="${len}" aria-label="${LGM.t('mu.listen')}：${LGM.esc(r['歌名'])}">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>${LGM.f('mu.listenSec', { n: len })}</button>` : ''}</div>
       ${award ? `<div class="award">${LGM.esc(award)}</div>` : ''}
+      ${id ? `<a class="full" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">${LGM.t('mu.full')}</a>` : ''}
       ${credits ? `<div class="credits">${credits}</div>` : ''}
-    </${tag}>`;
+    </div>`;
   };
+  // 同一时间只播一首：按下另一首，前一首自动停
+  let playing = null;
+  function stopClip() {
+    if (!playing) return;
+    playing.cover.innerHTML = playing.html; playing.card.classList.remove('is-playing'); playing = null;
+  }
+  document.addEventListener('click', (e) => {
+    const stop = e.target.closest('.clip-stop');
+    if (stop) { stopClip(); return; }
+    const b = e.target.closest('.listen'); if (!b) return;
+    stopClip();
+    const card = b.closest('.sleeve'), cover = card.querySelector('.cover');
+    const from = +b.dataset.from, to = from + (+b.dataset.len);
+    playing = { card, cover, html: cover.innerHTML };
+    card.classList.add('is-playing');
+    cover.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${b.dataset.id}?start=${from}&end=${to}&autoplay=1&rel=0&modestbranding=1&playsinline=1"
+        title="${LGM.esc(b.getAttribute('aria-label'))}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      <div class="clip-bar" style="animation-duration:${to - from}s;animation-delay:1.5s"></div>
+      <button type="button" class="clip-stop" aria-label="${LGM.t('mu.stop')}">■ ${LGM.t('mu.stop')}</button>`;
+  });
+  LGM.onLangStop = stopClip;
 
   LGM.stamp = (text, center, fill) => `
     <svg viewBox="0 0 200 200" role="img" aria-label="${LGM.esc(text)}">
