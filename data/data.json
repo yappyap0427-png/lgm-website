@@ -179,6 +179,51 @@
    "key": "annual_activities_en",
    "value": "LGM Annual Concert|LGM Mini Concert|Golden Frontier Award Song Composing Competition (Northern Group of Composers)|Annual Singing Competition|Performances for PBT Night, Pesta Budaya 4.0 and more|Freshmen Welcoming Night|Music Camp|Weekly music classes",
    "说明": ""
+  },
+  {
+   "key": "sponsor_deadline",
+   "value": "",
+   "说明": "赞助截止日期，例：2027-03-31（空白 = 不显示）"
+  },
+  {
+   "key": "wa_message_zh",
+   "value": "你好！我是 ____ 公司的 ____，想了解小草颂第 27 届音乐创作演绎会的赞助配套。",
+   "说明": "点 WhatsApp 按钮时自动带出的讯息"
+  },
+  {
+   "key": "wa_message_en",
+   "value": "Hi! I'm ____ from ____. I'd like to find out more about sponsoring LGM's 27th Annual Concert.",
+   "说明": ""
+  },
+  {
+   "key": "donation_zh",
+   "value": "没有公司也能支持我们！任何金额的乐捐都欢迎，帮小草们把原创音乐带上舞台。WhatsApp 我们，我们会告诉你怎么转账。",
+   "说明": "乐捐说明"
+  },
+  {
+   "key": "donation_en",
+   "value": "No company needed. Donations of any amount are welcome and help us bring student-written music to the stage. WhatsApp us and we'll send you the details.",
+   "说明": ""
+  },
+  {
+   "key": "donation_wa_message_zh",
+   "value": "你好！我想乐捐支持小草颂第 27 届音乐创作演绎会，请问怎么转账？",
+   "说明": ""
+  },
+  {
+   "key": "donation_wa_message_en",
+   "value": "Hi! I'd like to make a donation to LGM's 27th Annual Concert. How can I transfer?",
+   "说明": ""
+  },
+  {
+   "key": "donation_qr",
+   "value": "",
+   "说明": "DuitNow / 银行 QR 图片档名（选填，放 assets/img/）"
+  },
+  {
+   "key": "sponsor_proof",
+   "value": "proof/platinum.jpg|proof/media.jpg|proof/co-sponsor.jpg|proof/radio.jpg",
+   "说明": ""
   }
  ],
  "stats": [
@@ -197,7 +242,7 @@
    "后缀": "+",
    "名称_zh": "目标现场观众",
    "名称_en": "target audience",
-   "显示在": "首页,赞助",
+   "显示在": "首页,赞助主",
    "上架": "TRUE"
   },
   {
@@ -206,7 +251,7 @@
    "后缀": "K",
    "名称_zh": "IG 每月触及帐号",
    "名称_en": "IG accounts reached / month",
-   "显示在": "首页,赞助",
+   "显示在": "首页,赞助主",
    "上架": "TRUE"
   },
   {
@@ -215,7 +260,7 @@
    "后缀": "K",
    "名称_zh": "IG 每月观看",
    "名称_en": "IG views / month",
-   "显示在": "赞助",
+   "显示在": "赞助主",
    "上架": "TRUE"
   },
   {
@@ -224,7 +269,7 @@
    "后缀": "K",
    "名称_zh": "Reel 平均观看",
    "名称_en": "average reel views",
-   "显示在": "赞助",
+   "显示在": "赞助主",
    "上架": "TRUE"
   },
   {
@@ -1918,7 +1963,9 @@
    "等级_en": "Platinum",
    "价格": "RM 4,000",
    "推荐": "FALSE",
-   "上架": "TRUE"
+   "上架": "TRUE",
+   "亮点_zh": "20 张免费门票|公司宣传 Reel 上传社媒|客制化品牌戏剧环节",
+   "亮点_en": "20 complimentary tickets|Company promo reel on our social media|Custom drama segment featuring your brand"
   },
   {
    "顺序": "2",
@@ -1927,7 +1974,9 @@
    "等级_en": "Gold",
    "价格": "RM 2,800",
    "推荐": "FALSE",
-   "上架": "TRUE"
+   "上架": "TRUE",
+   "亮点_zh": "12 张免费门票|活动当天播放公司影片|纪念奖牌",
+   "亮点_en": "12 complimentary tickets|Company video screened on the day|Plaque award"
   },
   {
    "顺序": "3",
@@ -1935,8 +1984,10 @@
    "等级_zh": "银级",
    "等级_en": "Silver",
    "价格": "RM 2,000",
-   "推荐": "FALSE",
-   "上架": "TRUE"
+   "推荐": "TRUE",
+   "上架": "TRUE",
+   "亮点_zh": "8 张免费门票|活动当天免费展位|横幅展示",
+   "亮点_en": "8 complimentary tickets|Free exhibition booth on the day|Banner display"
   },
   {
    "顺序": "4",
@@ -1945,7 +1996,9 @@
    "等级_en": "Bronze",
    "价格": "RM 1,200",
    "推荐": "FALSE",
-   "上架": "TRUE"
+   "上架": "TRUE",
+   "亮点_zh": "5 张免费门票|节目册全页彩色广告|社媒宣传 + 宣传物料 logo",
+   "亮点_en": "5 complimentary tickets|Full-page coloured booklet ad|Social media + logo on collaterals"
   }
  ],
  "package_benefits": [
@@ -2083,7 +2136,8 @@
    "颜色_en": "Coloured",
    "规格_zh": "全页",
    "规格_en": "Full page",
-   "价格": "RM 300"
+   "价格": "RM 300",
+   "推荐": "TRUE"
   },
   {
    "顺序": "2",
@@ -2091,7 +2145,8 @@
    "颜色_en": "Coloured",
    "规格_zh": "半页",
    "规格_en": "Half page",
-   "价格": "RM 200"
+   "价格": "RM 200",
+   "推荐": "FALSE"
   },
   {
    "顺序": "3",
@@ -2099,7 +2154,8 @@
    "颜色_en": "Coloured",
    "规格_zh": "四分之一页",
    "规格_en": "Quarter page",
-   "价格": "RM 90"
+   "价格": "RM 90",
+   "推荐": "FALSE"
   },
   {
    "顺序": "4",
@@ -2107,7 +2163,8 @@
    "颜色_en": "Black & white",
    "规格_zh": "全页",
    "规格_en": "Full page",
-   "价格": "RM 180"
+   "价格": "RM 180",
+   "推荐": "FALSE"
   },
   {
    "顺序": "5",
@@ -2115,7 +2172,8 @@
    "颜色_en": "Black & white",
    "规格_zh": "半页",
    "规格_en": "Half page",
-   "价格": "RM 100"
+   "价格": "RM 100",
+   "推荐": "FALSE"
   },
   {
    "顺序": "6",
@@ -2123,7 +2181,8 @@
    "颜色_en": "Black & white",
    "规格_zh": "四分之一页",
    "规格_en": "Quarter page",
-   "价格": "RM 75"
+   "价格": "RM 75",
+   "推荐": "FALSE"
   }
  ],
  "other_packages": [
