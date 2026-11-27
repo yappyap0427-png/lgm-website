@@ -2,7 +2,11 @@
 window.LGM = window.LGM || {};
 LGM.STR = {
   zh: {
-    'nav.about': '关于', 'nav.events': '活动', 'nav.music': '音乐', 'nav.partners': '赞助合作',
+    'hi.lead': '二十多年，一届接一届，把原创音乐唱下去。', 'hi.left': '音乐会', 'hi.right': '得奖与成就', 'hi.founded': '小草颂在理大工程系分院成立',
+    'hi.grass': '历届小草', 'hi.grassSub': '{n} 位小草、{t} 届。每一个名字都是一株草，从最早的一届长到今天。',
+    'hi.focus': '{who} · {t}（这一届 {c} 位）', 'hi.found': '找到 {c} 株 ✦', 'hi.notFound': '还没找到，可能还没登记哦', 'hi.hint': '左边是最早的一届，右边是最新的。滑鼠经过会起风；滑过一个名字，同一届的人会一起亮。',
+    'nav.history': '历届',
+    'nav.about': '关于', 'nav.events': '活动', 'nav.music': '音乐', 'nav.partners': '支持我们',
     // 首页
     'hero.teaser.title': '第{n}届<br><span class="hl">敬请期待</span>',
     'hero.teaser.body': '音乐创作演绎会 · {month}。海报还在印——赞助伙伴先上车。',
@@ -45,7 +49,7 @@ LGM.STR = {
     'p.proof': '赞助商得到什么？', 'p.proofBody': '以下是第 26 届赞助商实际得到的曝光：社媒贴文、媒体报道与现场展示。', 'p.proofAlt': '往届赞助曝光示例',
     'p.total': '共 {n} 项权益 · 详见比较表', 'p.pick': '我要这个配套 →',
     'p.small': '预算有限？一样可以支持', 'p.smallBody': '节目册广告、实物或服务赞助都很欢迎，小额也能让你的品牌出现在现场。',
-    'p.donate': '乐捐 · 随心支持', 'p.donateBtn': 'WhatsApp 了解乐捐 →', 'p.donorList': '乐捐感谢名单 →',
+    'p.donate': '乐捐 · 一起填满「无限」', 'p.donateBtn': 'WhatsApp 了解乐捐 →', 'p.donorList': '乐捐感谢名单 →', 'fund.title': '第 {n} 届', 'fund.body': ' 乐捐已筹 {p}%，一起把「∞」填满', 'fund.go': '去看看 →',
     'p.deadline': '赞助截止：',
     'p.faq': '常见问题',
     'p.q1': '预算多少才能赞助？', 'p.a1': '配套从 {pack} 起；节目册广告 {ad} 起；也接受实物、服务赞助和任何数额的乐捐。',
@@ -67,7 +71,7 @@ LGM.STR = {
     'ab.title': '力量虽小，也朝音乐梦生长。', 'ab.mission': '使命', 'ab.vision': '愿景', 'ab.acts': '我们一年在做什么',
     'ab.history': '一路走来', 'ab.team': '本届筹委会', 'ab.join': '不会乐器也能加入', 'ab.joinBody': '创作、表演、宣传、设计、舞台——总有一个位置是你的。',
     'ab.dream': '梦开始的地方', 'ab.dreamSub': '{n} 位小草、{t} 届，是每一个名字拼成了 LGM。', 'ab.find': '找找你的名字…', 'ab.byTerm': '按届数看名单',
-    'ab.donors': '谢谢你们 · 乐捐名单', 'ab.donorsSub': '每一个名字，都落进了「无限」里。谢谢你们让音乐走得更远。', 'ab.donorsSubOpen': '每一个名字，都落进了「无限」里。还差一点点，就能把它填满。', 'ab.raised': '已筹', 'ab.raisedDone': '筹款完成', 'ab.donorKicker': '第 {n} 届音乐会', 'ab.allDonors': '看全部名单', 'ab.dreamKicker': 'SINCE 2000', 'ab.anon': '匿名好心人', 'ab.firstDonor': '成为第一位乐捐者 →',
+    'ab.donors': '谢谢你们 · 乐捐名单', 'ab.donorsSub': '每一个名字，都落进了「无限」里。谢谢你们让音乐走得更远。', 'ab.donorsSubOpen': '每一个名字，都落进了「无限」里。还差一点点，就能把它填满。', 'ab.raised': '已筹', 'ab.raisedDone': '筹款完成', 'ab.donorKicker': '第 {n} 届音乐会', 'ab.allDonors': '看全部名单', 'ab.dreamKicker': 'SINCE 2000', 'ab.toHistory': '看历届的故事 →', 'ab.anon': '匿名好心人', 'ab.firstDonor': '成为第一位乐捐者 →',
     'ab.joinBtn': '报名加入 →', 'ab.joinIG': '私讯 IG 了解 →',
     // 档案页
     'ar.video': 'WATCH THE FULL SHOW', 'ar.videoSub': '音乐会完整录影', 'ar.playlist': '整个播放清单 →',
@@ -77,7 +81,11 @@ LGM.STR = {
     'soon.title': '施工中', 'soon.body': '这一页正在搭建，先去首页看看吧。', 'soon.back': '回首页 →'
   },
   en: {
-    'nav.about': 'About', 'nav.events': 'Events', 'nav.music': 'Music', 'nav.partners': 'Partner with us',
+    'hi.lead': 'Over two decades, one generation after another, keeping original music alive.', 'hi.left': 'CONCERTS', 'hi.right': 'AWARDS & MILESTONES', 'hi.founded': 'LGM is founded at the USM Engineering Campus',
+    'hi.grass': 'Every LitleGras', 'hi.grassSub': '{n} members across {t} generations. Each name is a blade of grass, growing from the first year to today.',
+    'hi.focus': '{who} · {t} ({c} in this year)', 'hi.found': '{c} found ✦', 'hi.notFound': 'Not found yet. Maybe not added?', 'hi.hint': 'Oldest on the left, newest on the right. Move your mouse to make wind; hover a name to light up their year.',
+    'nav.history': 'History',
+    'nav.about': 'About', 'nav.events': 'Events', 'nav.music': 'Music', 'nav.partners': 'Support us',
     'hero.teaser.title': 'Concert No.{n}<br><span class="hl">coming soon</span>',
     'hero.teaser.body': 'Annual Original Music Concert · {month}. The poster is still printing — sponsors, hop on first.',
     'hero.teaser.kicker': 'Annual Concert No.{n} · Coming soon',
@@ -118,7 +126,7 @@ LGM.STR = {
     'p.proof': 'What sponsors actually get', 'p.proofBody': 'Real exposure our 26th-concert sponsors received: social posts, press coverage and on-site display.', 'p.proofAlt': 'Example of past sponsor exposure',
     'p.total': '{n} benefits in total · see comparison', 'p.pick': 'I want this one →',
     'p.small': 'Smaller budget? You can still help', 'p.smallBody': 'Booklet ads and in-kind or service sponsorship are all welcome. A small contribution still puts your brand in the hall.',
-    'p.donate': 'Donate · any amount', 'p.donateBtn': 'Ask about donating →', 'p.donorList': 'See our thank-you wall →',
+    'p.donate': 'Donate · help fill the infinite', 'p.donateBtn': 'Ask about donating →', 'p.donorList': 'See our thank-you wall →', 'fund.title': '{n}th concert ', 'fund.body': ' — donations {p}% there. Help us fill the ∞', 'fund.go': 'Take a look →',
     'p.deadline': 'Sponsorship closes: ',
     'p.faq': 'FAQ',
     'p.q1': 'How much do I need to sponsor?', 'p.a1': 'Packages start at {pack}, booklet ads at {ad}. We also welcome in-kind or service sponsorship and donations of any amount.',
@@ -137,7 +145,7 @@ LGM.STR = {
     'ab.title': 'Small but growing towards the music.', 'ab.mission': 'Mission', 'ab.vision': 'Vision', 'ab.acts': 'What we do all year',
     'ab.history': 'Our story so far', 'ab.team': 'This year\'s committee', 'ab.join': 'No instrument? Still join us.', 'ab.joinBody': 'Songwriting, performing, publicity, design, stage — there is a place for you.',
     'ab.dream': 'Where the dream began', 'ab.dreamSub': '{n} members across {t} generations. Every name helps spell LGM.', 'ab.find': 'Find your name…', 'ab.byTerm': 'Names by year',
-    'ab.donors': 'Thank you · Our donors', 'ab.donorsSub': 'Every name has fallen into the infinite. Thank you for taking the music further.', 'ab.donorsSubOpen': 'Every name falls into the infinite. Help us fill it up.', 'ab.raised': 'raised', 'ab.raisedDone': 'fully funded', 'ab.donorKicker': '{n}th Annual Concert', 'ab.allDonors': 'See all names', 'ab.dreamKicker': 'SINCE 2000', 'ab.anon': 'A kind anonymous friend', 'ab.firstDonor': 'Be our first donor →',
+    'ab.donors': 'Thank you · Our donors', 'ab.donorsSub': 'Every name has fallen into the infinite. Thank you for taking the music further.', 'ab.donorsSubOpen': 'Every name falls into the infinite. Help us fill it up.', 'ab.raised': 'raised', 'ab.raisedDone': 'fully funded', 'ab.donorKicker': '{n}th Annual Concert', 'ab.allDonors': 'See all names', 'ab.dreamKicker': 'SINCE 2000', 'ab.toHistory': 'See our history →', 'ab.anon': 'A kind anonymous friend', 'ab.firstDonor': 'Be our first donor →',
     'ab.joinBtn': 'Sign up →', 'ab.joinIG': 'Message us on IG →',
     'ar.video': 'WATCH THE FULL SHOW', 'ar.videoSub': 'Full concert recording', 'ar.playlist': 'Whole playlist →',
     'ar.events': 'Also this year…', 'ar.songs': 'New songs', 'ar.team': 'The committee behind the show', 'ar.sponsors': 'THANK YOU · Our partners this year',

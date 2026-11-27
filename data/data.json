@@ -229,6 +229,16 @@
    "key": "donation_progress",
    "value": "50",
    "说明": ""
+  },
+  {
+   "key": "origin_zh",
+   "value": "",
+   "说明": ""
+  },
+  {
+   "key": "origin_en",
+   "value": "",
+   "说明": ""
   }
  ],
  "stats": [

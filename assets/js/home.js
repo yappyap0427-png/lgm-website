@@ -83,6 +83,8 @@
     const songs = LGM.live(d.songs).map((r) => (LGM.lang === 'en' && r['拼音']) ? r['拼音'] : r['歌名']).filter(Boolean);
     const b = `<span>${LGM.esc(songs.join(' / '))} / </span>`;
     document.getElementById('tape-b').innerHTML = b + b;
+    LGM.marquee(document.getElementById('tape-a'), 50);
+    LGM.marquee(document.getElementById('tape-b'), 40);
   }
 
   function stats() {
@@ -115,9 +117,10 @@
     }).join('');
     const half = repeat(one, Math.ceil(8 / rows.length));
     document.getElementById('logos').innerHTML = half + half;
+    LGM.marquee(document.getElementById('logos'), 40);
   }
 
-  function render() { hero(); tapes(); stats(); events(); songs(); logos(); }
+  function render() { hero(); tapes(); LGM.fundBar(document.getElementById('fund-bar'), d); stats(); events(); songs(); logos(); }
   render();
   LGM.onLang(render);
 })();

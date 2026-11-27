@@ -62,6 +62,7 @@
     };
     const half = Math.ceil(past.length / 2);
     $('past').innerHTML = !past.length ? '' : past.length < 8 ? strip(past, 'a') : strip(past.slice(0, half), 'a') + strip(past.slice(half), 'b');
+    $('past').querySelectorAll('.track').forEach((t) => LGM.marquee(t, 40));
 
     /* 3. 观众 */
     $('stats').innerHTML = LGM.statHTML(main);
@@ -120,16 +121,7 @@
       <div class="muted" style="font-size:14px;margin-top:4px">${LGM.esc(LGM.pick(r, '条件'))}</div>
       <ul style="margin:10px 0 0;padding-left:18px;line-height:1.75;font-size:15px">${LGM.split(LGM.pick(r, '权益')).map((x) => `<li>${LGM.esc(x)}</li>`).join('')}</ul>
     </div>`).join('');
-    const donation = LGM.setting(d, 'donation');
-    hide('donate', !donation);
-    $('donate').innerHTML = !donation ? '' : `
-      <div class="donate-text">
-        <div class="brush">${LGM.t('p.donate')}</div>
-        <p>${LGM.esc(donation)}</p>
-        <a href="about.html#donors" style="font-weight:900;display:inline-block;margin-top:8px">${LGM.t('p.donorList')}</a>
-      </div>
-      ${s.donation_qr ? `<div class="qr">${LGM.imgTag(s.donation_qr, 'QR', '')}</div>` : ''}
-      ${waNum || mail ? `<a class="btn" href="${LGM.esc(wa(LGM.setting(d, 'donation_wa_message')))}" target="_blank" rel="noopener">${LGM.t('p.donateBtn')}</a>` : ''}`;
+    LGM.donorBlock($('donate'), d, { cta: !!LGM.setting(d, 'donation') });
 
     /* 7. 截止 */
     hide('deadline', !s.sponsor_deadline);

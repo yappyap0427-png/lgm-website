@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&family=Archivo+Black&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=202611270843">
+<link rel="stylesheet" href="assets/css/style.css?v=202611270914">
 </head>
 <body>
 <header id="site-header" class="site-header"></header>
@@ -45,9 +45,16 @@
     <div class="grid tilt" id="acts" style="--min:220px"></div>
   </section>
 
-  <section class="wrap block">
-    <div class="sec-title"><h2 data-i18n="ab.history"></h2></div>
-    <div class="timeline" id="history"></div>
+  <!-- 梦开始的地方：创社故事（settings 的 origin_zh / origin_en；空白就不显示） -->
+  <section class="wrap block hidden" id="origin-block">
+    <div class="origin">
+      <div class="origin-yr">2000</div>
+      <div>
+        <h2 class="brush" style="font-size:clamp(36px,5vw,52px);margin:0 0 14px" data-i18n="ab.dream"></h2>
+        <div id="origin"></div>
+        <a class="btn" style="--r:-2deg;margin-top:18px" href="history.html" data-i18n="ab.toHistory"></a>
+      </div>
+    </div>
   </section>
 
   <section class="wrap block" id="team-block">
@@ -55,30 +62,6 @@
     <div class="team-photo" id="team-photo"></div>
     <div class="team" id="team"></div>
   </section>
-
-  <!-- 舞台区：梦开始的地方（members）+ 乐捐（donors） -->
-  <div class="stage-band" id="stage">
-    <section class="wrap hidden" id="dream-block">
-      <div class="stage-kicker" data-i18n="ab.dreamKicker"></div>
-      <h2 class="stage-title" data-i18n="ab.dream"></h2>
-      <p class="stage-sub" id="dream-sub"></p>
-      <input class="name-search" id="name-search" type="search" autocomplete="off">
-      <div class="na" id="name-art" role="img"></div>
-      <details class="stage-list"><summary data-i18n="ab.byTerm"></summary><div id="name-list"></div></details>
-    </section>
-
-    <section class="wrap" id="donors">
-      <div class="stage-kicker" id="donor-kicker"></div>
-      <h2 class="stage-title" data-i18n="ab.donors"></h2>
-      <div class="donor-head">
-        <p class="stage-sub" id="donor-sub"></p>
-        <div class="donor-pct hidden" id="donor-pct"></div>
-      </div>
-      <div class="na" id="donor-art" role="img"></div>
-      <div id="donor-empty"></div>
-      <details class="stage-list hidden" id="donor-list-wrap"><summary data-i18n="ab.allDonors"></summary><div id="donor-list"></div></details>
-    </section>
-  </div>
 
   <section class="wrap block" style="padding-bottom:100px">
     <div class="panel blue">
@@ -90,10 +73,9 @@
 
 <footer id="site-footer" class="site-footer"></footer>
 
-<script src="assets/js/config.js?v=202611270843"></script>
-<script src="assets/js/lgm.js?v=202611270843"></script>
-<script src="assets/js/strings.js?v=202611270843"></script>
-<script src="assets/js/nameart.js?v=202611270843"></script>
-<script src="assets/js/about.js?v=202611270843"></script>
+<script src="assets/js/config.js?v=202611270914"></script>
+<script src="assets/js/lgm.js?v=202611270914"></script>
+<script src="assets/js/strings.js?v=202611270914"></script>
+<script src="assets/js/about.js?v=202611270914"></script>
 </body>
 </html>

@@ -109,7 +109,7 @@
 
   /* ---------- 4. 共用页首、页尾 ---------- */
   LGM.layout = function (active, d) {
-    const nav = [['about', 'about.html'], ['events', 'events.html'], ['music', 'music.html']];
+    const nav = [['events', 'events.html'], ['music', 'music.html'], ['history', 'history.html'], ['about', 'about.html']];
     const s = (d && d.settings) || {};
     document.getElementById('site-header').innerHTML = `
       <div class="wrap">
@@ -133,6 +133,14 @@
     const btn = document.querySelector('.lang');
     btn.addEventListener('click', () => { LGM.toggleLang(); btn.textContent = LGM.lang === 'zh' ? 'EN' : '中'; });
     LGM.applyStatic();
+  };
+
+  /* 跑马灯固定速度：内容越长跑越久，不会越多越快（px/s） */
+  LGM.marquee = function (track, speed) {
+    requestAnimationFrame(() => {
+      const half = track.scrollWidth / 2;
+      if (half) track.style.animationDuration = (half / (speed || 45)).toFixed(1) + 's';
+    });
   };
 
   /* ---------- 5. 数字滚动 ---------- */

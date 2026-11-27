@@ -175,3 +175,161 @@
     };
   };
 })();
+
+/* 乐捐 ∞ 区块：赞助页、届档案页共用
+   LGM.donorBlock(el, d, { term, cta }) —— term 默认本届；本届用 settings 的 donation_progress 决定填多少，往届一律填满 */
+(function () {
+  const anon = (n) => !n || /^(匿名|anonymous)$/i.test(String(n).trim());
+  LGM.donorBlock = function (el, d, opt) {
+    const s = d.settings, cur = String(s.current_term || '');
+    const term = String((opt && opt.term) || cur);
+    const rows = LGM.live(d.donors).filter((r) => String(r['届数'] || '') === term && (r['名字'] || r['届数']));
+    const isCur = term === cur;
+    const raw = isCur ? String(s.donation_progress || '').replace('%', '').trim() : '';
+    const pct = raw === '' ? 1 : Math.max(0, Math.min(100, parseFloat(raw) || 0)) / 100;
+    const cta = opt && opt.cta;
+    if (!rows.length && !cta) { el.classList.add('hidden'); return; }
+    el.classList.remove('hidden');
+    const tRow = (d.terms || []).find((r) => String(r['届数']) === term) || {};
+    const title = LGM.pick(tRow, '主题') || (isCur ? LGM.setting(d, 'concert_title') : '');
+    const people = rows.map((r) => { const n = anon(r['名字']) ? LGM.t('ab.anon') : String(r['名字']).trim(); return { name: n, short: n, term: '' }; });
+    const waNum = String(s.sponsor_whatsapp || '').replace(/\D/g, '');
+    const waMsg = LGM.setting(d, 'donation_wa_message');
+    const donation = LGM.setting(d, 'donation');
+    el.innerHTML = `<div class="wrap">
+      <div class="stage-kicker">${LGM.esc(LGM.f('ab.donorKicker', { n: term }) + (title ? ' · ' + title : ''))}</div>
+      <h2 class="stage-title">${LGM.t(cta ? 'p.donate' : 'ab.donors')}</h2>
+      <div class="donor-head">
+        <p class="stage-sub">${LGM.esc(cta && donation ? donation : LGM.t(pct < 1 ? 'ab.donorsSubOpen' : 'ab.donorsSub'))}</p>
+        ${raw !== '' ? `<div class="donor-pct"><b>${Math.round(pct * 100)}%</b><span>${LGM.t(pct < 1 ? 'ab.raised' : 'ab.raisedDone')}</span></div>` : ''}
+      </div>
+      ${cta ? `<div class="donor-cta">
+        ${waNum ? `<a class="btn yellow" style="--r:-2deg" href="https://wa.me/${waNum}?text=${encodeURIComponent(waMsg)}" target="_blank" rel="noopener">${LGM.t('p.donateBtn')}</a>` : ''}
+        ${s.donation_qr ? `<div class="qr">${LGM.imgTag(s.donation_qr, 'QR', '')}</div>` : ''}</div>` : ''}
+      ${people.length ? `<div class="na" role="img" aria-label="${LGM.esc(LGM.t('ab.donors'))}"></div>
+        <details class="stage-list"><summary>${LGM.t('ab.allDonors')} (${people.length})</summary><p>${people.map((p) => LGM.esc(p.name)).join('、')}</p></details>` : ''}
+    </div>`;
+    if (people.length) LGM.nameArt(el.querySelector('.na'), { people, shape: LGM.shapeInfinity, pct, mode: 'fall', minW: 760 }).draw(true);
+  };
+
+  /* 首页小横幅：筹款中才出现 */
+  LGM.fundBar = function (el, d) {
+    const s = d.settings;
+    const raw = String(s.donation_progress || '').replace('%', '').trim();
+    const pct = Math.max(0, Math.min(100, parseFloat(raw) || 0));
+    if (raw === '' || pct >= 100) { el.innerHTML = ''; return; }
+    const title = LGM.setting(d, 'concert_title');
+    el.innerHTML = `<a class="fund-bar wrap" href="partners.html#donate">
+      <span class="fb-inf" aria-hidden="true">∞</span>
+      <span class="fb-text"><b>${LGM.esc(LGM.f('fund.title', { n: s.current_term || '' }) + (title ? '《' + title + '》' : ''))}</b>${LGM.esc(LGM.f('fund.body', { p: Math.round(pct) }))}</span>
+      <span class="fb-meter" aria-hidden="true"><i style="width:${pct}%"></i></span>
+      <span class="fb-go">${LGM.t('fund.go')}</span></a>`;
+  };
+})();
+
+/* 历届小草：每个名字是一株草，按届数从左（最早）长到右（最新），会随风摇、滑鼠经过会被「吹开」
+   LGM.grassField(box, people, { onFocus(term, count) }) → { draw, search } */
+(function () {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const rnd = (a, b) => a + Math.random() * (b - a);
+
+  LGM.grassField = function (box, people, opt) {
+    opt = opt || {};
+    let blades = [], lastW = 0;
+    const scroller = box.parentElement;
+    const list = people.slice().sort((a, b) => (+a.term || 0) - (+b.term || 0));
+
+    function draw(force) {
+      const BW = scroller.clientWidth;
+      if (!BW || (BW === lastW && !force)) return;
+      lastW = BW;
+      const n = list.length, mobile = BW < 640;
+      const H = mobile ? 300 : 380;
+      const step = mobile ? 9 : 8;                         // 每株草平均占的宽度
+      const W = Math.max(BW, n * step + 80);
+      const span = Math.min(W - 80, Math.max(n * 46, 0));  // 人少时集中在中间，不要散得太开
+      const left = (W - span) / 2;
+      const fs = mobile ? [9, 11, 13] : [10, 12, 15];
+      let html = '', axis = '', lastTerm = null;
+      blades = [];
+      list.forEach((p, i) => {
+        const x = left + (n === 1 ? span / 2 : (i / (n - 1 || 1)) * span) + rnd(-3, 3);
+        const L = Math.random() < 0.3 ? 0 : Math.random() < 0.55 ? 1 : 2;   // 0 = 远、1 = 中、2 = 近
+        const bottom = [70, 40, 10][L] + rnd(0, 18);
+        const stem = rnd(H * 0.08, H * (L === 2 ? 0.5 : L === 1 ? 0.38 : 0.28));
+        blades.push(x);
+        html += `<span class="blade l${L}" data-t="${LGM.esc(p.term)}" title="${LGM.esc(p.name + (p.term ? ' · ' + LGM.termName(p.term) : ''))}"
+          style="left:${x.toFixed(0)}px;bottom:${bottom.toFixed(0)}px;--g:${(rnd(0, 1600) + i * 0.4).toFixed(0)}ms">
+          <span class="sway" style="--sw:${rnd(3.2, 6.5).toFixed(2)}s;--sd:-${rnd(0, 6).toFixed(2)}s;--amp:${rnd(2, L === 2 ? 6 : 4).toFixed(1)}deg">
+            <em style="font-size:${fs[L]}px">${LGM.esc(p.short)}</em><i style="height:${stem.toFixed(0)}px"></i></span></span>`;
+        if (p.term && p.term !== lastTerm) { axis += `<span class="gf-tick" style="left:${x.toFixed(0)}px">${LGM.esc(p.term)}</span>`; lastTerm = p.term; }
+      });
+      let flies = '';
+      for (let i = 0; i < (mobile ? 10 : 18); i++) flies += `<b class="fly" style="left:${rnd(0, W).toFixed(0)}px;bottom:${rnd(40, H - 40).toFixed(0)}px;--fd:${rnd(5, 11).toFixed(1)}s;--fx:${rnd(-60, 60).toFixed(0)}px;--fy:${rnd(-50, 30).toFixed(0)}px;animation-delay:-${rnd(0, 10).toFixed(1)}s"></b>`;
+      box.style.width = W + 'px';
+      box.style.height = H + 'px';
+      box.innerHTML = flies + html + `<div class="gf-axis">${axis}</div>`;
+      if (reduce || seen) box.classList.add('in', 'done');
+      // 人多到要横向滑：先滑到最右边（最新一届）
+      if (W > BW) scroller.scrollLeft = W;
+    }
+
+    let seen = false;
+    if (!reduce && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((es) => {
+        if (!es.some((e) => e.isIntersecting)) return;
+        seen = true; io.disconnect();
+        box.classList.add('in');
+        setTimeout(() => box.classList.add('done'), 2600);
+      }, { threshold: 0.25 });
+      io.observe(box);
+    } else seen = true;
+
+    // 滑鼠像风：附近的草往反方向倒
+    let raf = 0, mx = null;
+    box.addEventListener('pointermove', (e) => {
+      const r = box.getBoundingClientRect();
+      mx = e.clientX - r.left;
+      if (!raf) raf = requestAnimationFrame(wind);
+    });
+    box.addEventListener('pointerleave', () => { mx = null; if (!raf) raf = requestAnimationFrame(wind); });
+    function wind() {
+      raf = 0;
+      box.querySelectorAll('.blade').forEach((el, i) => {
+        const dx = mx == null ? 999 : blades[i] - mx;
+        const push = Math.abs(dx) < 110 ? Math.sign(dx) * (1 - Math.abs(dx) / 110) * 16 : 0;
+        el.style.setProperty('--push', push.toFixed(1) + 'deg');
+      });
+    }
+
+    // 滑过一株草：同一届一起亮
+    box.addEventListener('mouseover', (e) => {
+      const b = e.target.closest('.blade');
+      box.querySelectorAll('.blade.lit').forEach((x) => x.classList.remove('lit'));
+      box.classList.toggle('focus', !!(b && b.dataset.t));
+      if (b && b.dataset.t) {
+        const same = box.querySelectorAll(`.blade[data-t="${CSS.escape(b.dataset.t)}"]`);
+        same.forEach((x) => x.classList.add('lit'));
+        opt.onFocus && opt.onFocus(b.dataset.t, same.length, b.title.split(' · ')[0]);
+      }
+    });
+    box.addEventListener('mouseleave', () => { box.classList.remove('focus'); box.querySelectorAll('.blade.lit').forEach((x) => x.classList.remove('lit')); opt.onFocus && opt.onFocus(null); });
+
+    function search(q) {
+      q = (q || '').trim().toLowerCase();
+      box.classList.toggle('searching', !!q);
+      let first = null;
+      box.querySelectorAll('.blade').forEach((b) => {
+        const hit = !!q && b.title.toLowerCase().includes(q);
+        b.classList.toggle('hit', hit);
+        if (hit && !first) first = b;
+      });
+      if (first) scroller.scrollTo({ left: first.offsetLeft - scroller.clientWidth / 2, behavior: 'smooth' });
+      return box.querySelectorAll('.blade.hit').length;
+    }
+
+    let rt;
+    addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => draw(), 200); });
+    return { draw, search };
+  };
+})();

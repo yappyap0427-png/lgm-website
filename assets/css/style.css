@@ -317,3 +317,70 @@ details.tier ul{margin:0;padding:0 16px 14px 34px;line-height:1.8}
 #donor-art .na-names span{color:rgba(244,236,220,.6)}
 @media (prefers-reduced-motion:reduce){.na-names span{transition:none!important}.na.done .na-spot{animation:none;display:none}}
 @media (max-width:640px){.donor-pct{text-align:left}}
+/* 首页筹款小横幅 */
+.fund-bar{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:10px;margin-bottom:10px;padding:16px 22px;background:var(--stage);color:var(--cream);border:3px solid var(--ink);box-shadow:6px 6px 0 var(--yellow);transform:rotate(-.4deg);text-decoration:none}
+.fund-bar:hover{transform:rotate(0) translateY(-2px)}
+.fb-inf{font-size:40px;line-height:1;color:var(--yellow)}
+.fb-text{flex:1 1 320px;font-size:16px;line-height:1.6}
+.fb-text b{color:var(--yellow);font-weight:900}
+.fb-meter{flex:0 1 200px;height:10px;border:1.5px solid rgba(244,236,220,.5);border-radius:99px;overflow:hidden}
+.fb-meter i{display:block;height:100%;background:var(--yellow)}
+.fb-go{font-weight:900;white-space:nowrap}
+.donor-cta{display:flex;flex-wrap:wrap;gap:20px;align-items:center;margin:0 0 34px}
+.donor-cta .qr img{width:130px;height:130px;object-fit:contain;background:#fff;padding:6px;border-radius:6px}
+/* ---------- 历届小草：草地 ---------- */
+.gf-scroll{overflow-x:auto;overflow-y:hidden;margin:10px 0 0;scrollbar-width:thin;scrollbar-color:rgba(244,236,220,.25) transparent}
+.gf{position:relative;margin:0 auto}
+.gf::after{content:'';position:absolute;left:0;right:0;bottom:0;height:110px;background:linear-gradient(to top,rgba(70,110,40,.35),rgba(70,110,40,0));pointer-events:none}
+.blade{position:absolute;transform-origin:50% 100%;transform:rotate(var(--push,0deg));transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.gf:not(.in) .blade{transform:scaleY(0)}
+.gf.in:not(.done) .blade{transition:transform 1.4s cubic-bezier(.2,.9,.3,1.1) var(--g)}
+.blade .sway{display:flex;flex-direction:column;align-items:center;transform-origin:50% 100%;animation:sway var(--sw) ease-in-out var(--sd) infinite alternate}
+@keyframes sway{from{transform:rotate(calc(var(--amp) * -1))}to{transform:rotate(var(--amp))}}
+.blade em{writing-mode:vertical-rl;font-style:normal;font-weight:700;letter-spacing:.08em;color:var(--cream);line-height:1;cursor:default;transition:color .3s,opacity .3s,text-shadow .3s}
+.blade i{display:block;width:1.5px;background:linear-gradient(to top,#5d8a34,rgba(244,236,220,.35));margin-top:4px}
+.blade.l0 em{opacity:.3}.blade.l1 em{opacity:.58}.blade.l2 em{opacity:.92}
+.blade.l0 i{opacity:.35}.blade.l1 i{opacity:.6}
+.blade:hover em{color:var(--yellow);opacity:1;text-shadow:0 0 12px rgba(255,225,77,.7)}
+.gf.focus .blade em,.gf.searching .blade em{opacity:.12}
+.gf.focus .blade.lit em,.gf.searching .blade.hit em{opacity:1;color:var(--yellow);text-shadow:0 0 12px rgba(255,225,77,.7)}
+.gf-axis{position:absolute;left:0;right:0;bottom:-26px;height:20px}
+.gf-tick{position:absolute;transform:translateX(-50%);font-family:var(--display);font-size:11px;color:rgba(244,236,220,.4)}
+.fly{position:absolute;width:4px;height:4px;border-radius:50%;background:#ffe98a;box-shadow:0 0 10px 3px rgba(255,225,77,.45);opacity:.7;animation:fly var(--fd) ease-in-out infinite alternate;pointer-events:none}
+@keyframes fly{0%{transform:translate(0,0);opacity:.15}50%{opacity:.8}100%{transform:translate(var(--fx),var(--fy));opacity:.25}}
+.gf-scroll{padding-bottom:36px}
+.grass-tools{display:flex;flex-wrap:wrap;gap:18px;align-items:center}
+.grass-tools .name-search{margin-bottom:0}
+.grass-now{font-size:15px;color:var(--yellow);min-height:1.4em}
+.gf-hint{font-size:13px;color:rgba(244,236,220,.45);margin:0}
+@media (prefers-reduced-motion:reduce){.blade .sway,.fly{animation:none}}
+/* ---------- 大事记：左音乐会，右成就 ---------- */
+.tl2-head{display:grid;grid-template-columns:1fr 110px 1fr;font-family:var(--display);font-size:14px;letter-spacing:.2em;margin-bottom:18px}
+.tl2-head span:first-child{text-align:right;color:var(--blue)}.tl2-head span:last-child{color:var(--pink)}
+.tl2{position:relative;display:grid;gap:34px}
+.tl2::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:4px;margin-left:-2px;background:var(--ink)}
+.tl2-row{display:grid;grid-template-columns:1fr 110px 1fr;align-items:start}
+.tl2-yr{position:relative;justify-self:center;font-family:var(--display);font-size:22px;background:var(--yellow);border:3px solid var(--ink);padding:4px 10px;transform:rotate(-3deg);z-index:1}
+.tl2-l{text-align:right;padding-right:6px}.tl2-r{padding-left:6px}
+.tl2 .gig{display:inline-flex;gap:14px;align-items:center;flex-direction:row-reverse;text-align:right;background:#fff;border:3px solid var(--ink);padding:10px 14px;box-shadow:5px 5px 0 var(--blue);text-decoration:none;color:inherit;transform:rotate(.6deg)}
+.tl2 .gig:hover{transform:rotate(0) translateY(-2px)}
+.tl2 .gig img{width:54px;height:72px;object-fit:cover;border:2px solid var(--ink)}
+.tl2 .gig b{display:block;font-size:17px}.tl2 .gig small{color:var(--muted,#666);font-weight:700}
+.tl2 ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.tl2 li{background:#fff;border:2px solid var(--ink);padding:8px 12px;box-shadow:4px 4px 0 var(--pink);line-height:1.6;transform:rotate(-.5deg)}
+.tl2 .founded{grid-column:1/-1;justify-self:center;background:var(--ink);color:var(--yellow);padding:10px 18px;font-weight:900;z-index:1;border:3px solid var(--ink)}
+@media (max-width:720px){
+  .tl2-head{display:none}
+  .tl2::before{left:14px}
+  .tl2-row{grid-template-columns:1fr;gap:10px;padding-left:40px}
+  .tl2-yr{justify-self:start;margin-left:-40px}
+  .tl2-l,.tl2-r{text-align:left;padding:0}
+  .tl2 .gig{flex-direction:row;text-align:left}
+  .tl2-r:empty,.tl2-l:empty{display:none}
+  .tl2 .founded{justify-self:start;margin-left:-40px}
+}
+/* 梦开始的地方：创社故事 */
+.origin{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:start}
+.origin-yr{font-family:var(--display);font-size:clamp(72px,9vw,128px);line-height:.85;color:var(--blue);text-shadow:6px 6px 0 var(--pink);transform:rotate(-4deg)}
+#origin p{font-size:18px;line-height:1.95;margin:0 0 14px;max-width:640px}
+@media (max-width:720px){.origin{grid-template-columns:1fr;gap:10px}}

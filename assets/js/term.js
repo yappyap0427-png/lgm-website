@@ -2,7 +2,7 @@
 (async function () {
   const d = await LGM.load();
   const s = d.settings;
-  LGM.layout('events', d);
+  LGM.layout('history', d);
   const $ = (id) => document.getElementById(id);
   const terms = (d.terms || []).filter((t) => t['届数']).sort((a, b) => (+b['届数']) - (+a['届数']));
   const want = new URLSearchParams(location.search).get('t') || s.current_term;
@@ -70,6 +70,8 @@
         <div style="margin-top:16px;background:var(--ink);overflow:hidden;padding:18px 0;transform:rotate(-1.5deg)"><div class="track" style="color:var(--yellow);font-family:var(--display);font-size:22px">${
           (() => { const one = `<span>${spons.map((r) => LGM.esc(r['商家名'])).join(' ★ ')} ★ </span>`; return one + one; })()}</div></div></section>` : ''}
 
+      <div class="stage-band hidden" id="term-donors"></div>
+
       ${empty ? `<section class="wrap block"><p class="empty">${LGM.t('ar.nodata')}</p></section>` : ''}
 
       <section class="wrap block" style="padding-bottom:90px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center">
@@ -77,6 +79,9 @@
         <div class="brush" style="font-size:clamp(24px,3.5vw,34px);text-align:center;flex:1 1 300px">${LGM.t('ar.thanks')}</div>
         ${newer ? `<a class="btn blue" style="--r:2deg" href="term.html?t=${encodeURIComponent(newer['届数'])}">${LGM.esc(newer['届数'])} ${LGM.t('ar.next')}</a>` : '<span></span>'}
       </section>`;
+    // 这一届的乐捐名单（本届跟着筹款进度，往届填满）
+    LGM.donorBlock($('term-donors'), d, { term: String(t['届数']) });
+    $('term').querySelectorAll('.track').forEach((tr) => LGM.marquee(tr, 40));
   }
   render();
   LGM.onLang(render);
