@@ -70,6 +70,7 @@ LGM.STR = {
     // 档案页
     'ar.video': 'WATCH THE FULL SHOW', 'ar.videoSub': '音乐会完整录影', 'ar.playlist': '整个播放清单 →',
     'ar.events': '这一届我们还搞了……', 'ar.songs': '本届原创', 'ar.team': '筹委会 · 幕后的小草们', 'ar.sponsors': 'THANK YOU · 本届赞助伙伴',
+    'ar.post': '官方贴文 →', 'ar.merch': '本届周边',
     'ar.prev': '← 上一届', 'ar.next': '下一届 →', 'ar.thanks': '小草颂的小草们！你们是最棒的！', 'ar.nodata': '这一届的资料还在整理中。',
     'soon.title': '施工中', 'soon.body': '这一页正在搭建，先去首页看看吧。', 'soon.back': '回首页 →'
   },
@@ -136,6 +137,7 @@ LGM.STR = {
     'ab.joinBtn': 'Sign up →', 'ab.joinIG': 'Message us on IG →',
     'ar.video': 'WATCH THE FULL SHOW', 'ar.videoSub': 'Full concert recording', 'ar.playlist': 'Whole playlist →',
     'ar.events': 'Also this year…', 'ar.songs': 'New songs', 'ar.team': 'The committee behind the show', 'ar.sponsors': 'THANK YOU · Our partners this year',
+    'ar.post': 'Official post →', 'ar.merch': 'Merchandise',
     'ar.prev': '← Previous', 'ar.next': 'Next →', 'ar.thanks': 'To every member of LGM — you are the best!', 'ar.nodata': "We're still putting this year's records together.",
     'soon.title': 'Under construction', 'soon.body': 'This page is being built. Head back home for now.', 'soon.back': 'Back home →'
   }

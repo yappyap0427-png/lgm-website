@@ -26,7 +26,8 @@
     const spons = LGM.live(d.sponsors).filter((r) => r['届数'] === n);
     const video = LGM.yt(t['影片_youtube']);
     const desc = LGM.split(LGM.pick(t, '简介'));
-    const empty = !video && !events.length && !songs.length && !team.length && !spons.length;
+    const photo = t['团照'], merch = LGM.split(t['周边图']), post = t['官方贴文'];
+    const empty = !video && !events.length && !songs.length && !team.length && !spons.length && !photo && !merch.length;
 
     $('term').innerHTML = `
       <section class="wrap hero" style="padding-top:40px;padding-bottom:64px">
@@ -40,6 +41,7 @@
             ${t['主题_en'] ? `<div class="display sub-en">${LGM.esc(t['主题_en'].toUpperCase())}</div>` : ''}
             <div class="facts">${[date ? LGM.dateLong(date) : '', venue].filter(Boolean).map((x) => `<span>${LGM.esc(x)}</span>`).join('')}</div>
             ${desc.map((p) => `<p>${LGM.esc(p)}</p>`).join('')}
+            ${post ? `<p><a class="btn" style="--r:-1deg;margin-top:10px" href="${LGM.esc(post)}" target="_blank" rel="noopener">${LGM.t('ar.post')}</a></p>` : ''}
           </div>
           <div class="hero-side" style="min-height:420px"><div class="pasted">${LGM.imgTag(poster, LGM.lang === 'en' ? 'Poster' : '海报', '')}</div><div class="tape" style="background:rgba(255,77,141,.8)"></div></div>
         </div>
@@ -56,7 +58,12 @@
       ${songs.length ? `<section class="wrap block"><div class="sec-title"><h2 class="display">NEW SONGS<span style="color:var(--pink)">.</span> <span style="font-family:var(--body);font-size:22px">${LGM.t('ar.songs')}</span></h2></div>
         <div class="sleeves">${songs.map(LGM.songCard).join('')}</div></section>` : ''}
 
-      ${team.length ? `<section class="wrap block"><div class="sec-title"><h2>${LGM.t('ar.team')}</h2></div>
+      ${merch.length ? `<section class="wrap block"><div class="sec-title"><h2 class="display">MERCH<span style="color:var(--blue)">.</span> <span style="font-family:var(--body);font-size:22px">${LGM.t('ar.merch')}</span></h2></div>
+        ${LGM.pick(t, '周边说明') ? `<p class="muted" style="margin:-10px 0 24px;font-size:17px;line-height:1.7">${LGM.esc(LGM.pick(t, '周边说明'))}</p>` : ''}
+        <div class="proof-grid">${merch.map((m) => `<figure>${LGM.imgTag(m, 'Merch', '')}</figure>`).join('')}</div></section>` : ''}
+
+      ${team.length || photo ? `<section class="wrap block"><div class="sec-title"><h2>${LGM.t('ar.team')}</h2></div>
+        ${photo ? `<div class="team-photo">${LGM.imgTag(photo, LGM.t('ar.team'), '')}</div>` : ''}
         <div class="team">${team.map((r) => `<div><b>${LGM.esc(LGM.pick(r, '职位'))}</b><span>${LGM.esc(r['成员'])}</span></div>`).join('')}</div></section>` : ''}
 
       ${spons.length ? `<section class="block"><div class="wrap display" style="font-size:18px">${LGM.t('ar.sponsors')}</div>

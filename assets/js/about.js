@@ -29,7 +29,10 @@
     // 本届筹委（有名字的才显示）
     const n = s.current_term;
     const team = (d.committee || []).filter((r) => r['届数'] === n && r['成员']).sort(LGM.byOrder);
-    $('team-block').classList.toggle('hidden', !team.length);
+    const tm = (d.terms || []).find((r) => r['届数'] === n) || {};
+    $('team-block').classList.toggle('hidden', !team.length && !tm['团照']);
+    $('team-photo').innerHTML = tm['团照'] ? LGM.imgTag(tm['团照'], LGM.t('ab.team'), '') : '';
+    $('team-photo').classList.toggle('hidden', !tm['团照']);
     $('team').innerHTML = team.map((r) => `<div><b>${LGM.esc(LGM.pick(r, '职位'))}</b><span>${LGM.esc(r['成员'])}</span></div>`).join('');
     $('team-link').href = `term.html?t=${encodeURIComponent(n)}`;
     $('team-link').textContent = LGM.t('ev.archive');
