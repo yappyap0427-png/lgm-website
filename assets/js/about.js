@@ -45,7 +45,11 @@
   }
   /* ---------- 梦开始的地方：名字拼成 LGM ---------- */
   const people = LGM.live(d.members).filter((r) => String(r['名字'] || '').trim())
-    .map((r) => ({ name: String(r['名字']).trim(), term: String(r['届数'] || '').trim() }));
+    .map((r) => {
+      const name = String(r['名字']).trim(), cjk = name.match(/[\u3400-\u9fff]+/g);
+      // 字形里只放中文名（短、填得密）；完整名字在滑过和搜寻时出现
+      return { name, short: cjk ? cjk.join('') : name, term: String(r['届数'] || '').trim() };
+    });
   let lastW = 0;
 
   function renderNames() {
@@ -112,10 +116,10 @@
         let used = 0, spans = '';
         while (used < w) {
           const p = people[k % people.length];
-          const nw = meas.measureText(p.name).width + sepW;
+          const nw = meas.measureText(p.short).width + sepW;
           if (used + nw > w + nw * 0.4 && spans) break; // 放不完整就留给下一段，避免名字被切掉太多
           k++;
-          spans += `<span class="c${(+p.term || 0) % 3}" title="${LGM.esc(LGM.termName(p.term))}">${LGM.esc(p.name)}</span>${sep}`;
+          spans += `<span class="c${k % 3}" title="${LGM.esc(p.name + ' · ' + LGM.termName(p.term))}">${LGM.esc(p.short)}</span>${sep}`;
           used += nw;
         }
         html += `<div style="left:${x0}px;top:${y}px;width:${w}px;height:${line}px;font-size:${fs}px;line-height:${line}px">${spans}</div>`;
@@ -128,7 +132,7 @@
     const q = $('name-search').value.trim().toLowerCase();
     const box = $('name-art');
     box.classList.toggle('searching', !!q);
-    box.querySelectorAll('span').forEach((sp) => sp.classList.toggle('hit', !!q && sp.textContent.toLowerCase().includes(q)));
+    box.querySelectorAll('span').forEach((sp) => sp.classList.toggle('hit', !!q && sp.title.toLowerCase().includes(q)));
   }
   $('name-search').addEventListener('input', search);
   let rt;
