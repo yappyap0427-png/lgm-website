@@ -69,8 +69,9 @@
   // 图片：http 连结直接用（Drive 连结自动转换）；否则当成 assets/img/ 下的档名
   LGM.img = function (path) {
     if (!path) return '';
-    const m = path.match(/drive\.google\.com\/(?:file\/d\/|open\?id=)([\w-]+)/);
-    if (m) return `https://lh3.googleusercontent.com/d/${m[1]}`;
+    // 支援 drive.google.com/file/d/ID、open?id=ID、uc?id=ID，以及表单上传的连结；=w1600 让大图自动缩小
+    const m = path.match(/drive\.google\.com\/(?:file\/d\/|(?:open|uc|thumbnail)\?(?:[^#]*&)?id=)([\w-]{20,})/);
+    if (m) return `https://lh3.googleusercontent.com/d/${m[1]}=w1600`;
     return /^https?:\/\//.test(path) ? path : 'assets/img/' + path.replace(/^\/+/, '');
   };
   LGM.imgTag = (path, alt, cls, eager) => path
