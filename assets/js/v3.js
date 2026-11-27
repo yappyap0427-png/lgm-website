@@ -276,7 +276,7 @@
         ${terms.map((t) => `<div class="term-block" data-term="${E(t)}"><div class="term-h"><b>${E(LGM.termName(t))}</b><a href="term.html?t=${encodeURIComponent(t)}">${E(L('这一届的档案', 'ARCHIVE'))} →</a></div>
           <div class="grid">${ev.filter((r) => String(r['届数']) === t).map(evCard).join('')}</div></div>`).join('')}</div>
       ${s.venue_zh ? `<div class="sec"><div class="label">VENUE NAVIGATION // ${E(L('场地导航', 'HOW TO GET THERE'))}</div>
-        <div class="box" style="padding:8px"><iframe title="map" style="width:100%;height:300px;border:0;filter:grayscale(1) contrast(1.1)" loading="lazy" src="https://maps.google.com/maps?q=${encodeURIComponent('Dewan Utama, USM Engineering Campus, Nibong Tebal')}&output=embed"></iframe>
+        <div class="box" style="padding:8px"><iframe title="map" style="width:100%;height:300px;border:0" loading="lazy" src="https://maps.google.com/maps?q=${encodeURIComponent('Dewan Utama, USM Engineering Campus, Nibong Tebal')}&output=embed"></iframe>
         <div class="mono" style="font-size:11px;font-weight:700;padding:8px 4px 2px">📍 ${E(LGM.setting(d, 'venue'))} · USM ENGINEERING CAMPUS, NIBONG TEBAL</div></div></div>` : ''}
     </div>`;
   };
