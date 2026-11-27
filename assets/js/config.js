@@ -4,7 +4,7 @@
 window.LGM_CONFIG = {
   sheetId: '1LABBTTJHO2lmUwbuvhg8TLqOj8EO4l_NXpRhTbGMwB8',
   tabs: ['settings', 'stats', 'terms', 'events', 'songs', 'awards_other', 'packages', 'package_benefits', 'ads',
-         'other_packages', 'terms_conditions', 'audience', 'media', 'sponsors', 'committee'],
+         'other_packages', 'terms_conditions', 'audience', 'media', 'sponsors', 'committee', 'members', 'donors'],
   // 读 Google Sheet 超过这个时间（毫秒）就改用 data/data.json 备份
   timeoutMs: 5000
 };

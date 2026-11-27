@@ -255,3 +255,18 @@ details.tier ul{margin:0;padding:0 16px 14px 34px;line-height:1.8}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 .team-photo{border:3px solid var(--ink);box-shadow:8px 8px 0 var(--pink);margin:0 0 28px;transform:rotate(-.6deg);overflow:hidden;background:#fff}
 .team-photo img{display:block;width:100%;height:auto}
+/* 梦开始的地方 + 乐捐墙 */
+.name-search{font:inherit;font-weight:700;font-size:16px;border:3px solid var(--ink);padding:10px 14px;width:min(360px,100%);margin-bottom:22px;background:#fff}
+.name-search:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.name-art{position:relative;width:100%;font-family:var(--body);font-weight:700;overflow:hidden}
+.name-art div{position:absolute;white-space:nowrap;overflow:hidden;color:var(--ink)}
+.name-art span{transition:opacity .2s,background .2s;cursor:default}
+.name-art .c0{color:var(--blue)}.name-art .c1{color:var(--pink)}.name-art .c2{color:var(--ink)}
+.name-art span:hover{background:var(--yellow);color:var(--ink)}
+.name-art.searching span{opacity:.15}.name-art.searching span.hit{opacity:1;background:var(--yellow);color:var(--ink)}
+.donor-wall{display:flex;flex-wrap:wrap;gap:12px}
+.donor-wall span{background:#fff;border:3px solid var(--ink);padding:10px 16px;font-weight:900;font-size:17px;transform:rotate(var(--r,-1deg))}
+.donor-wall span:nth-child(3n){--r:1.5deg;background:var(--yellow)}.donor-wall span:nth-child(4n){--r:-2deg;background:var(--pink)}
+.donor-wall span.anon{font-weight:700;font-style:italic}
+.donor-wall small{font-family:var(--display);font-size:11px;margin-left:8px;opacity:.6}
+.name-art .name-art-inner{position:absolute;left:0;top:0;transform-origin:0 0;overflow:visible;white-space:normal}

@@ -126,6 +126,7 @@
       <div class="donate-text">
         <div class="brush">${LGM.t('p.donate')}</div>
         <p>${LGM.esc(donation)}</p>
+        <a href="about.html#donors" style="font-weight:900;display:inline-block;margin-top:8px">${LGM.t('p.donorList')}</a>
       </div>
       ${s.donation_qr ? `<div class="qr">${LGM.imgTag(s.donation_qr, 'QR', '')}</div>` : ''}
       ${waNum || mail ? `<a class="btn" href="${LGM.esc(wa(LGM.setting(d, 'donation_wa_message')))}" target="_blank" rel="noopener">${LGM.t('p.donateBtn')}</a>` : ''}`;
