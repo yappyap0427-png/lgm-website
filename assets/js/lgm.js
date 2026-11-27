@@ -40,7 +40,7 @@
     return data;
   }
   async function fromBackup() {
-    const r = await fetch('data/data.json', { cache: 'no-cache' });
+    const r = await fetch((window.LGM_BASE || '') + 'data/data.json', { cache: 'no-cache' });
     return r.json();
   }
   function shape(raw) {
@@ -72,7 +72,7 @@
     // 支援 drive.google.com/file/d/ID、open?id=ID、uc?id=ID，以及表单上传的连结；=w1600 让大图自动缩小
     const m = path.match(/drive\.google\.com\/(?:file\/d\/|(?:open|uc|thumbnail)\?(?:[^#]*&)?id=)([\w-]{20,})/);
     if (m) return `https://lh3.googleusercontent.com/d/${m[1]}=w1600`;
-    return /^https?:\/\//.test(path) ? path : 'assets/img/' + path.replace(/^\/+/, '');
+    return /^https?:\/\//.test(path) ? path : (window.LGM_BASE || '') + 'assets/img/' + path.replace(/^\/+/, '');
   };
   LGM.imgTag = (path, alt, cls, eager) => path
     ? `<img class="${cls || ''}" src="${LGM.esc(LGM.img(path))}" alt="${LGM.esc(alt)}" loading="${eager ? 'eager' : 'lazy'}" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph ${cls || ''}',textContent:'${LGM.esc(alt)}'}))">`
@@ -180,7 +180,7 @@
 
   /* ---------- 6. 共用小元件 ---------- */
   // 档案、PDF 等：http 连结直接用，否则当作网站里的相对路径
-  LGM.file = (p) => !p ? '' : /^https?:\/\//.test(p) ? p : p.replace(/^\/+/, '');
+  LGM.file = (p) => !p ? '' : /^https?:\/\//.test(p) ? p : (window.LGM_BASE || '') + p.replace(/^\/+/, '');
   LGM.split = (v) => String(v || '').split('|').map((x) => x.trim()).filter(Boolean);
   LGM.byOrder = (a, b) => (+a['顺序'] || 0) - (+b['顺序'] || 0);
   // stats 分页：「显示在」栏写了 首页 / 赞助
