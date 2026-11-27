@@ -67,7 +67,7 @@ LGM.STR = {
     'ab.title': '力量虽小，也朝音乐梦生长。', 'ab.mission': '使命', 'ab.vision': '愿景', 'ab.acts': '我们一年在做什么',
     'ab.history': '一路走来', 'ab.team': '本届筹委会', 'ab.join': '不会乐器也能加入', 'ab.joinBody': '创作、表演、宣传、设计、舞台——总有一个位置是你的。',
     'ab.dream': '梦开始的地方', 'ab.dreamSub': '{n} 位小草、{t} 届，是每一个名字拼成了 LGM。', 'ab.find': '找找你的名字…', 'ab.byTerm': '按届数看名单',
-    'ab.donors': '谢谢你们 · 乐捐名单', 'ab.donorsSub': '每一份心意，都让音乐多走一步。', 'ab.anon': '匿名好心人', 'ab.firstDonor': '成为第一位乐捐者 →',
+    'ab.donors': '谢谢你们 · 乐捐名单', 'ab.donorsSub': '每一个名字，都落进了「无限」里。谢谢你们让音乐走得更远。', 'ab.donorsSubOpen': '每一个名字，都落进了「无限」里。还差一点点，就能把它填满。', 'ab.raised': '已筹', 'ab.raisedDone': '筹款完成', 'ab.donorKicker': '第 {n} 届音乐会', 'ab.allDonors': '看全部名单', 'ab.dreamKicker': 'SINCE 2000', 'ab.anon': '匿名好心人', 'ab.firstDonor': '成为第一位乐捐者 →',
     'ab.joinBtn': '报名加入 →', 'ab.joinIG': '私讯 IG 了解 →',
     // 档案页
     'ar.video': 'WATCH THE FULL SHOW', 'ar.videoSub': '音乐会完整录影', 'ar.playlist': '整个播放清单 →',
@@ -137,7 +137,7 @@ LGM.STR = {
     'ab.title': 'Small but growing towards the music.', 'ab.mission': 'Mission', 'ab.vision': 'Vision', 'ab.acts': 'What we do all year',
     'ab.history': 'Our story so far', 'ab.team': 'This year\'s committee', 'ab.join': 'No instrument? Still join us.', 'ab.joinBody': 'Songwriting, performing, publicity, design, stage — there is a place for you.',
     'ab.dream': 'Where the dream began', 'ab.dreamSub': '{n} members across {t} generations. Every name helps spell LGM.', 'ab.find': 'Find your name…', 'ab.byTerm': 'Names by year',
-    'ab.donors': 'Thank you · Our donors', 'ab.donorsSub': 'Every gift helps the music go a little further.', 'ab.anon': 'A kind anonymous friend', 'ab.firstDonor': 'Be our first donor →',
+    'ab.donors': 'Thank you · Our donors', 'ab.donorsSub': 'Every name has fallen into the infinite. Thank you for taking the music further.', 'ab.donorsSubOpen': 'Every name falls into the infinite. Help us fill it up.', 'ab.raised': 'raised', 'ab.raisedDone': 'fully funded', 'ab.donorKicker': '{n}th Annual Concert', 'ab.allDonors': 'See all names', 'ab.dreamKicker': 'SINCE 2000', 'ab.anon': 'A kind anonymous friend', 'ab.firstDonor': 'Be our first donor →',
     'ab.joinBtn': 'Sign up →', 'ab.joinIG': 'Message us on IG →',
     'ar.video': 'WATCH THE FULL SHOW', 'ar.videoSub': 'Full concert recording', 'ar.playlist': 'Whole playlist →',
     'ar.events': 'Also this year…', 'ar.songs': 'New songs', 'ar.team': 'The committee behind the show', 'ar.sponsors': 'THANK YOU · Our partners this year',

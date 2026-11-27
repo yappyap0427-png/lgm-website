@@ -224,6 +224,11 @@
    "key": "sponsor_proof",
    "value": "proof/platinum.jpg|proof/media.jpg|proof/co-sponsor.jpg|proof/radio.jpg",
    "说明": "赞助页「上一届赞助商得到什么」的图片，| 分隔"
+  },
+  {
+   "key": "donation_progress",
+   "value": "50",
+   "说明": ""
   }
  ],
  "stats": [
@@ -3607,5 +3612,346 @@
    "上架": "TRUE"
   }
  ],
- "donors": []
+ "donors": [
+  {
+   "届数": "27",
+   "名字": "大借辇",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "178 饮食中心",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "Tan Cheng Hooi",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "Meyta Hair Studio",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "JR Speed Auto",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "Colour Floor",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "TWIN STAR WEI TRADING",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "DEN OPTICS",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "CARE OPTOMETRISTS",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "EYEZ TOWNS",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "HNG ZHAO JIE",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "阿爸的店",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "WEE PIN",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "TUKANG JAHIT SEW THENG",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "PUSAT FOTO WEN WAH",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "KEDAI UBAT ENG SENG TONG",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "CHUAN OPTICAL",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "GS HOME HARDWARE",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "TUKANG JAHIT CP",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "陈俊发",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "周瑞昌",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "HOAY",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "DTS STATIONARY ENTERPRISE",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "QUINTEX",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "吴先生",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "MR NG",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "CMTT",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "Ms Chen",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "Mr Yang",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "Mr Steven",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "Mr Chen",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "MINECOS AUTOMART",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "Keong Motor",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "77 ENTERPRISE",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "PERNIAGAAN HUP SENG HONG",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "LEE SONG PENG",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "NG SOON JOO",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "OOH",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "KAI COFFEE RESTORAN",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "FARMASI BUKIT PANCHOR",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "YEOH WEI KANG",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "PASAR MINI ZINWONN",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "ELVIN",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "PUSAT PERKHIDMATAN KERETA YONG SHENG",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "AH LOON",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "114",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "CK TIM MARKET",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "MRS TAN",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "永青企业",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "TAN",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "HUANG ZU ENTERPRISE",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "FRIENDSHIP VEGE CAFE",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "ZENHERB",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "YASMIN Seafood",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "CECILIA",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "YONI",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "ZUHAINI",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "WONG",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "ADIF",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "YUMI TEH",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "SUPER-RIDER MOTOR SDN BHD NIBONG TEBAL",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "EYE TALK OPTICAL",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "PEY",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "MR TAN",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "MR TAN",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "K K TAN",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "JIA DA AUTO ACCESSORIES & AIR CONDITIONER",
+   "上架": "TRUE"
+  },
+  {
+   "届数": "27",
+   "名字": "匿名",
+   "上架": "TRUE"
+  }
+ ]
 }
