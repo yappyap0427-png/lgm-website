@@ -46,7 +46,7 @@ function onEventSubmit(e) {
   // 届数 = settings 里的 current_term
   const settings = ss.getSheetByName('settings').getDataRange().getValues();
   const termRow = settings.find((r) => r[0] === 'current_term');
-  const term = termRow ? String(termRow[1]) : '';
+  const term = termRow ? String(termRow[1]).trim() : '';
 
   // 照片：设成公开检视，存成 Drive 连结
   let cover = '';
@@ -58,7 +58,7 @@ function onEventSubmit(e) {
   }
 
   const ev = ss.getSheetByName('events');
-  ev.appendRow(["'" + term, "'" + (a['日期'] || ''), a['类型'] || '', a['活动名称（中文）'] || '', a['活动名称（英文）'] || '',
+  ev.appendRow([Number(term) || term, "'" + (a['日期'] || ''), a['类型'] || '', a['活动名称（中文）'] || '', a['活动名称（英文）'] || '',
     a['简介（中文）'] || '', a['简介（英文）'] || '', a['地点'] || '', cover, a['贴文连结'] || '', true]);
   ev.getRange(ev.getLastRow(), 11).insertCheckboxes().check();
 }
