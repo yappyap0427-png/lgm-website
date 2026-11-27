@@ -370,3 +370,13 @@ details.fq>div{padding:0 14px 12px;font-size:14px;line-height:1.7}
 .trk .acts{justify-content:flex-start}
 .trk .acts .btn{white-space:nowrap}
 .more{display:flex;justify-content:center;margin-top:22px}
+/* 封面照贴齐卡片边（全局 img max-width:100% 会挡住负边距） */
+.stub img.cover{max-width:none;width:calc(100% + 28px);display:block}
+/* 赞助伙伴：两排反方向流动 */
+.ally-lane{overflow:hidden;border-top:var(--line) solid var(--ink);border-bottom:var(--line) solid var(--ink);background:#fff;padding:12px 0}
+.ally-lane+.ally-lane{border-top:0;background:var(--card)}
+.ally-run{display:flex;gap:12px;width:max-content;animation:run 40s linear infinite}
+.ally-run.rev{animation-direction:reverse}
+.ally-lane:hover .ally-run{animation-play-state:paused}
+.ally-run .ally{width:170px;flex:none;min-height:118px}
+@media (prefers-reduced-motion:reduce){.ally-lane{overflow-x:auto}}

@@ -90,6 +90,7 @@
     tb.innerHTML = NAV.map(([k, h, zh, en]) => `<a href="${h}" class="${page === k ? 'on' : ''}"><svg viewBox="0 0 24 24" aria-hidden="true">${ICON[k]}</svg>${L(zh.slice(0, 2), en[0] + en.slice(1).toLowerCase())}</a>`).join('');
     document.querySelectorAll('.ticker .run').forEach((r) => LGM.marquee(r, 45));
   }
+  const runAllies = () => app.querySelectorAll('.ally-run').forEach((r) => LGM.marquee(r, 38));
 
   /* ---------- 大门票：本届音乐会 ---------- */
   function gigTicket() {
@@ -217,13 +218,22 @@
   }
 
   /* ---------- 赞助商 logo 墙 ---------- */
-  function allies(limit) {
+  // 两排反方向滚动；滑鼠移上去会停
+  function allies() {
     const seen = new Set();
-    const rows = LGM.live(d.sponsors).filter((r) => r['商家名'] && !seen.has(r['商家名']) && seen.add(r['商家名'])).slice(0, limit || 99);
-    return `<div class="allies">${rows.map((r) => {
+    const rows = LGM.live(d.sponsors).filter((r) => r['商家名'] && !seen.has(r['商家名']) && seen.add(r['商家名']));
+    const card = (r) => {
       const tag = r['网址'] ? 'a' : 'div';
-      return `<${tag} class="ally" ${r['网址'] ? `href="${E(r['网址'])}" target="_blank" rel="noopener"` : ''}>${r['logo'] ? LGM.imgTag(r['logo'], r['商家名'], '') : ''}<b>${E(r['商家名'])}</b><small>${E(r['等级'] || '')}${r['届数'] ? ' · ' + E(LGM.termName(r['届数'])) : ''}</small></${tag}>`;
-    }).join('')}<a class="ally you" href="partners.html#tiers"><span>+</span>${E(L('虚位以待', 'YOUR BRAND HERE'))}<small>SEASON ${E(cur)}</small></a></div>`;
+      return `<${tag} class="ally" ${r['网址'] ? `href="${E(r['网址'])}" target="_blank" rel="noopener"` : ''}>${r['logo'] ? LGM.imgTag(r['logo'], r['商家名'], '', true) : ''}<b>${E(r['商家名'])}</b><small>${E(r['等级'] || '')}${r['届数'] ? ' · ' + E(LGM.termName(r['届数'])) : ''}</small></${tag}>`;
+    };
+    const you = `<a class="ally you" href="partners.html#tiers"><span>+</span>${E(L('虚位以待', 'YOUR BRAND HERE'))}<small>SEASON ${E(cur)}</small></a>`;
+    const half = Math.ceil(rows.length / 2);
+    const lane = (list, rev) => {
+      let one = list.map(card).join('') + you;
+      for (let k = list.length + 1; k < 8 && list.length; k += list.length + 1) one += list.map(card).join('') + you;
+      return `<div class="ally-lane"><div class="ally-run${rev ? ' rev' : ''}">${one}${one}</div></div>`;
+    };
+    return rows.length < 6 ? lane(rows) : lane(rows.slice(0, half)) + lane(rows.slice(half), true);
   }
 
   /* ---------- 招新黄块 ---------- */
@@ -256,7 +266,7 @@
       ${film(ev)}
       ${feat.length ? `<div class="sec"><div class="sec-h"><h2>A-SIDE <em>// ${E(L('自创精选', 'ORIGINALS'))}</em></h2><a class="btn sm" href="music.html">${E(L('全部作品', 'ALL TRACKS'))} →</a></div>${featured(feat[0])}
         ${feat.length > 1 ? `<div class="grid" style="margin-top:20px">${feat.slice(1, 4).map(songStub).join('')}</div>` : ''}</div>` : ''}
-      <div class="sec"><div class="sec-h"><h2>PATRONS & BRAND ALLIES <em>// ${E(L('历届支持伙伴', 'PAST PARTNERS'))}</em></h2></div>${allies(11)}</div>
+      <div class="sec"><div class="sec-h"><h2>PATRONS & BRAND ALLIES <em>// ${E(L('历届支持伙伴', 'PAST PARTNERS'))}</em></h2></div>${allies()}</div>
       ${recruit()}
     </div>`;
   };
@@ -526,6 +536,7 @@
     app.innerHTML = (P[page] || P.index)();
     startCountdown();
     wire();
+    runAllies();
     const don = document.getElementById('donate');
     if (don && LGM.donorBlock) LGM.donorBlock(don, d, { cta: !!LGM.setting(d, 'donation') });
     const td = document.getElementById('term-donors');
