@@ -113,7 +113,7 @@
     const s = (d && d.settings) || {};
     document.getElementById('site-header').innerHTML = `
       <div class="wrap">
-        <a class="brand" href="index.html"><img src="assets/img/logo.png" alt="小草颂 LGM logo"><span>小草颂</span></a>
+        <a class="brand" href="index.html"><img src="${window.LGM_BASE || ''}assets/img/logo.png" alt="小草颂 LGM logo"><span>小草颂</span></a>
         <nav class="nav" aria-label="主选单">
           ${nav.map(([k, href]) => `<a href="${href}" class="${active === k ? 'active' : ''}" data-i18n="nav.${k}"></a>`).join('')}
           <a href="partners.html" class="${active === 'partners' ? 'active' : 'cta'}" data-i18n="nav.partners"></a>

@@ -25,7 +25,7 @@
     }
     return `<svg class="bar ${cls || ''}" viewBox="0 0 ${x} 60" preserveAspectRatio="none" aria-hidden="true">${bars}</svg>`;
   };
-  const parseDT = (v) => { const t = new Date(String(v || '').trim().replace(' ', 'T')); return isNaN(t) ? null : t; };
+  const parseDT = (v) => { let x = String(v || '').trim().replace(' ', 'T'); if (/^\d{4}-\d{2}-\d{2}$/.test(x)) x += 'T00:00'; const t = new Date(x); return isNaN(t) ? null : t; };
   const ymd = (t) => t ? `${t.getFullYear()}.${pad(t.getMonth() + 1)}.${pad(t.getDate())}` : '';
   const wk = (t) => t ? L('（' + '日一二三四五六'[t.getDay()] + '）', ' ' + ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'][t.getDay()]) : '';
   const hm = (t) => t && (t.getHours() || t.getMinutes()) ? `${pad(t.getHours())}:${pad(t.getMinutes())}` : '';
@@ -64,7 +64,7 @@
     document.getElementById('top').innerHTML =
       ticker(['LITTLEGRAS MUSIC CLUB INDIE ZINE', 'USM ENGINEERING CAMPUS', 'EST. 2000 原创音乐社团', 'NO MUSIC, NO LIFE!', '力量虽小，也朝音乐梦生长'], 'y')
       + `<header class="hdr"><div class="wrap">
-          <a class="brand" href="index.html"><img src="../assets/img/logo.png" alt="小草颂 LGM logo">
+          <a class="brand" href="index.html"><img src="${(window.LGM_BASE || '')}assets/img/logo.png" alt="小草颂 LGM logo">
             <span><b>LITTLEGRAS</b><small>小草颂 LGM ·<br>EST. 2000</small></span><span class="vinyl">VINYL<br>CLUB</span></a>
           <nav class="nav" aria-label="主选单">${NAV.map(([k, h, zh, en]) => `<a href="${h}" class="${page === k ? 'on' : ''}">${zh}<small>(${en})</small></a>`).join('')}</nav>
           <button class="lang" type="button" aria-label="切换语言 / Switch language">EN<br>/中文</button>
@@ -273,7 +273,7 @@
       ${film(ev)}
       <div class="sec"><div class="label">GIG STUB ARCHIVE // ${E(L('所有活动', 'ALL EVENTS'))}</div>
         <div class="filters" role="group"><span class="mono">FILTER:</span><button type="button" aria-pressed="true" data-f="">${E(L('全部', 'ALL'))} (${ev.length})</button>${types.map((t) => `<button type="button" aria-pressed="false" data-f="${E(t)}">${E(LGM.typeLabel(t))}</button>`).join('')}</div>
-        ${terms.map((t) => `<div class="term-block" data-term="${E(t)}"><div class="term-h"><b>${E(LGM.termName(t))}</b><a href="../term.html?t=${encodeURIComponent(t)}">${E(L('这一届的档案', 'ARCHIVE'))} →</a></div>
+        ${terms.map((t) => `<div class="term-block" data-term="${E(t)}"><div class="term-h"><b>${E(LGM.termName(t))}</b><a href="term.html?t=${encodeURIComponent(t)}">${E(L('这一届的档案', 'ARCHIVE'))} →</a></div>
           <div class="grid">${ev.filter((r) => String(r['届数']) === t).map(evCard).join('')}</div></div>`).join('')}</div>
       ${s.venue_zh ? `<div class="sec"><div class="label">VENUE NAVIGATION // ${E(L('场地导航', 'HOW TO GET THERE'))}</div>
         <div class="box" style="padding:8px"><iframe title="map" style="width:100%;height:300px;border:0;filter:grayscale(1) contrast(1.1)" loading="lazy" src="https://maps.google.com/maps?q=${encodeURIComponent('Dewan Utama, USM Engineering Campus, Nibong Tebal')}&output=embed"></iframe>
@@ -319,7 +319,7 @@
     const yearOf = (x) => (String(x['日期']).match(/^\d{4}/) || [])[0] || (x['学年'] && /\/(\d{2})/.test(x['学年']) ? '20' + x['学年'].split('/')[1].slice(0, 2) : '');
     const rows = {};
     const row = (y) => (rows[y] = rows[y] || []);
-    (d.terms || []).forEach((x) => { const y = yearOf(x); if (x['主题_zh'] && y && +y <= new Date().getFullYear()) row(y).push(`<a class="it" href="../term.html?t=${encodeURIComponent(x['届数'])}">${x['海报'] ? LGM.imgTag(x['海报'], '', '') : ''}<span><span class="mono" style="font-size:10px;font-weight:700">${E(LGM.termName(x['届数']))}</span><br><b>《${E(LGM.pick(x, '主题'))}》</b></span><span class="tag y">CONCERT</span></a>`); });
+    (d.terms || []).forEach((x) => { const y = yearOf(x); if (x['主题_zh'] && y && +y <= new Date().getFullYear()) row(y).push(`<a class="it" href="term.html?t=${encodeURIComponent(x['届数'])}">${x['海报'] ? LGM.imgTag(x['海报'], '', '') : ''}<span><span class="mono" style="font-size:10px;font-weight:700">${E(LGM.termName(x['届数']))}</span><br><b>《${E(LGM.pick(x, '主题'))}》</b></span><span class="tag y">CONCERT</span></a>`); });
     songs.filter((r) => r['获奖_zh'] && r['年份']).forEach((r) => row(r['年份']).push(`<div class="it"><b>《${E(r['歌名'])}》</b><span>${E(LGM.pick(r, '获奖'))}</span><span class="tag r">AWARD</span></div>`));
     LGM.live(d.awards_other).filter((r) => r['年份']).forEach((r) => row(r['年份']).push(`<div class="it"><span>${E(LGM.pick(r, '内容'))}</span><span class="tag c">MILESTONE</span></div>`));
     return `<div class="wrap">
@@ -430,6 +430,60 @@
     </div>`;
   };
 
+  P.term = () => {
+    const terms = (d.terms || []).filter((x) => x['届数']).sort((a, b) => (+b['届数']) - (+a['届数']));
+    const want = new URLSearchParams(location.search).get('t') || cur;
+    const t = terms.find((x) => String(x['届数']) === String(want)) || terms[0];
+    if (!t) return '<div class="wrap sec">—</div>';
+    const n = String(t['届数']), i = terms.indexOf(t), newer = terms[i - 1], older = terms[i + 1];
+    const isCur = n === cur;
+    const dt = parseDT(isCur && s.concert_datetime ? s.concert_datetime : t['日期']);
+    const venue = isCur ? (LGM.setting(d, 'venue') || t['地点']) : t['地点'];
+    const poster = t['海报'] || (isCur ? s.poster : '');
+    const ev = LGM.sortEvents(LGM.live(d.events).filter((r) => String(r['届数']) === n && r['类型'] !== '年度音乐会'));
+    const sg = songs.filter((r) => String(r['届数']) === n);
+    const crew = (d.committee || []).filter((r) => String(r['届数']) === n && r['成员']).sort(LGM.byOrder);
+    const seen = new Set();
+    const spons = LGM.live(d.sponsors).filter((r) => String(r['届数']) === n && r['商家名'] && !seen.has(r['商家名']) && seen.add(r['商家名']));
+    const vid = LGM.ytId(t['影片_youtube']);
+    const merch = LGM.split(t['周边图']);
+    document.title = `${LGM.termName(n)}${t['主题_zh'] ? ` 《${t['主题_zh']}》` : ''} · 小草颂 LGM`;
+    return `<div class="wrap">
+      <div class="issue"><span>ARCHIVE VAULT // GENERATION #${E(n)}</span><span>${E(t['学年'] || '')}</span></div>
+      <div class="filters" role="navigation" aria-label="${E(L('届数', 'Generation'))}"><span class="mono">GEN:</span>${terms.map((x) => `<a href="term.html?t=${encodeURIComponent(x['届数'])}" style="border:1.5px solid var(--ink);padding:4px 10px;font-weight:700;font-size:12.5px;text-decoration:none;${x === t ? 'background:var(--yellow)' : 'background:#fff'}" ${x === t ? 'aria-current="page"' : ''}>${E(x['届数'])}</a>`).join('')}</div>
+      <div class="gig" style="grid-template-columns:64px 1fr ${poster ? '280px' : '220px'}">
+        <div class="gig-side"><span class="v">LITTLEGRAS ${E(n)}TH</span><span class="n">${E(n)}<br>GEN</span><span class="mono" style="font-size:9px;writing-mode:vertical-rl;transform:rotate(180deg)">${E(t['学年'] || '')}</span></div>
+        <div class="gig-body">
+          <div class="tags"><span class="tag k">${E(LGM.termName(n))}</span>${isCur ? `<span class="tag r">● ${E(L('本届', 'CURRENT'))}</span>` : `<span class="tag y">ARCHIVED</span>`}</div>
+          <div class="gig-k">★ ${E(n)}TH ANNUAL ORIGINAL MUSIC SHOWCASE</div>
+          ${t['主题_zh'] ? `<div class="gig-theme" style="margin-top:8px">《${E(LGM.pick(t, '主题'))}》${LGM.lang === 'zh' && t['主题_en'] ? `<small>${E(t['主题_en'])}</small>` : ''}</div>` : ''}
+          <dl class="gig-rows">${[['DATE // 日期', dt ? ymd(dt) + wk(dt) : t['日期']], ['TIME // 时间', hm(dt)], ['VENUE // 地点', venue]].filter(([, v]) => v).map(([k, v]) => `<div><dt>${k}</dt><dd>${E(v)}</dd></div>`).join('')}</dl>
+          ${LGM.split(LGM.pick(t, '简介')).map((x) => `<p style="margin:0 0 10px;line-height:1.75">${E(x)}</p>`).join('')}
+          <div class="btns">${t['官方贴文'] ? `<a class="btn y" href="${E(t['官方贴文'])}" target="_blank" rel="noopener">${E(L('官方贴文', 'OFFICIAL POST'))} ↗</a>` : ''}
+            ${t['播放清单'] ? `<a class="btn" href="${E(t['播放清单'])}" target="_blank" rel="noopener">▶ ${E(L('演出播放清单', 'LIVE PLAYLIST'))}</a>` : ''}</div>
+        </div>
+        <div class="gig-stub">${poster ? `<div style="border:2px solid var(--ink);background:#fff;padding:6px">${LGM.imgTag(poster, 'Poster', '')}</div>` : ''}
+          ${barcode('LGM-ARCHIVE-' + n)}<div class="foot mono">SERIAL: LGM-${E(n)}-${dt ? dt.getFullYear() : 'TBA'}</div></div>
+      </div>
+      ${vid ? `<div class="sec"><div class="label">FULL CONCERT TAPE // ${E(L('完整录影', 'FULL RECORDING'))}</div>
+        <div class="box" style="padding:8px"><div style="aspect-ratio:16/9"><iframe style="width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/${vid}?rel=0" title="${E(LGM.termName(n))}" loading="lazy" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div></div></div>` : ''}
+      ${ev.length ? `<div class="sec"><div class="label">GIG STUBS // ${E(L('这一届的活动', 'EVENTS THIS YEAR'))}</div><div class="grid">${ev.map(evCard).join('')}</div></div>` : ''}
+      ${sg.length ? `<div class="sec"><div class="sec-h"><h2>TRACKLIST <em>// ${E(L('这一届的歌', 'SONGS'))}</em></h2><span class="tag">${sg.length} TRACKS</span></div><div class="grid">${sg.map(songStub).join('')}</div></div>` : ''}
+      ${merch.length ? `<div class="sec film"><div class="label">MERCH TABLE // ${E(L('本届周边', 'MERCHANDISE'))}</div>
+        ${LGM.pick(t, '周边说明') ? `<p style="margin:0 0 6px;color:#ddd">${E(LGM.pick(t, '周边说明'))}</p>` : ''}
+        <div class="frames">${merch.map((m, k) => `<div class="frame"><span class="fno">ITEM #${pad(k + 1)}</span>${LGM.imgTag(m, 'Merch', '')}</div>`).join('')}</div></div>` : ''}
+      ${t['团照'] || crew.length ? `<div class="sec"><div class="label">CREW // ${E(L('这一届的筹委', 'COMMITTEE'))}</div>
+        ${t['团照'] ? `<div class="crew-photo" style="margin-bottom:18px">${LGM.imgTag(t['团照'], 'Committee', '')}<span class="cap">${E(t['学年'] || '')} COMMITTEE</span></div>` : ''}
+        ${crew.length ? `<div class="grid">${crew.map((r, k) => `<div class="pass"><span class="no">${pad(k + 1)}</span><span class="tag ${k === 0 ? 'r' : 'y'}">${E(LGM.pick(r, '职位'))}</span><h3>${E(r['成员'])}</h3>${barcode('P-' + n + '-' + k)}<div class="foot"><span>LGM-${E(n)}-${pad(k + 1)}</span><span>ALL ACCESS</span></div></div>`).join('')}</div>` : ''}</div>` : ''}
+      ${spons.length ? `<div class="sec"><div class="label">PATRONS // ${E(L('这一届的赞助伙伴', 'SPONSORS'))}</div><div class="allies">${spons.map((r) => `<div class="ally">${r['logo'] ? LGM.imgTag(r['logo'], r['商家名'], '') : ''}<b>${E(r['商家名'])}</b><small>${E(r['等级'] || '')}</small></div>`).join('')}</div></div>` : ''}
+      </div>
+      <div class="stage-band hidden" id="term-donors"></div>
+      <div class="wrap"><div class="sec" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        ${older ? `<a class="btn" href="term.html?t=${encodeURIComponent(older['届数'])}">← ${E(LGM.termName(older['届数']))}</a>` : '<span></span>'}
+        <a class="btn y" href="history.html">${E(L('回到历届', 'BACK TO HISTORY'))}</a>
+        ${newer ? `<a class="btn" href="term.html?t=${encodeURIComponent(newer['届数'])}">${E(LGM.termName(newer['届数']))} →</a>` : '<span></span>'}</div></div>`;
+  };
+
   /* ---------- 互动：筛选、搜寻 ---------- */
   function wire() {
     // 活动类型筛选
@@ -474,6 +528,8 @@
     wire();
     const don = document.getElementById('donate');
     if (don && LGM.donorBlock) LGM.donorBlock(don, d, { cta: !!LGM.setting(d, 'donation') });
+    const td = document.getElementById('term-donors');
+    if (td && LGM.donorBlock) { const tt = new URLSearchParams(location.search).get('t') || cur; LGM.donorBlock(td, d, { term: String(tt) }); }
   }
   render();
   LGM.onLang(render);

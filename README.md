@@ -1,3 +1,6 @@
+> **2026-11 改版：** 网站现在用「门票印刷」风格（照 Google Stitch 设计），页面在根目录（index / events / music / history / partners / about / term.html），
+> 版面程式在 `assets/js/v3.js`、样式在 `assets/css/stitch.css`。旧的 Zine 版本留在 `classic/`（例：/classic/index.html），资料一样从同一份 Google Sheet 读，随时可以切回去。
+
 # 小草颂 LGM 官网
 
 理大工程系分院原创音乐团体「小草颂 LitleGras Music Club」的官网。

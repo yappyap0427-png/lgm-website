@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>支持我们 · 赞助与乐捐 · 小草颂 LGM</title>
+<meta name="description" content="赞助小草颂 LGM 第 27 届音乐创作演绎会《无限·无界 UNBOUND》：500+ 现场观众、社媒曝光、赞助配套 RM1,200 起，节目册广告 RM75 起，也欢迎乐捐。">
+<meta property="og:title" content="支持我们 · 赞助与乐捐 · 小草颂 LGM">
+<meta property="og:image" content="assets/img/logo.png">
+<link rel="icon" href="../assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css?v=202611271433">
+</head>
+<body class="partners-page">
+<header id="site-header" class="site-header"></header>
+
+<main>
+  <!-- 1. 首屏：一眼看到 观众 / 曝光 / 起价 / 联系 -->
+  <section class="hero wrap" style="padding-bottom:48px">
+    <p class="page-giant">PRINT YOUR<br>LOGO HERE.</p>
+    <div class="hero-grid" style="align-items:flex-end">
+      <div class="hero-main">
+        <div class="lead" data-i18n="p.hero.sub"></div>
+        <div class="key-facts" id="p-keys"></div>
+        <div class="facts" id="p-facts"></div>
+        <div class="btns" id="p-btns"></div>
+      </div>
+      <div style="width:170px;height:170px;flex:0 0 auto;animation:spin 14s linear infinite" id="p-stamp"></div>
+    </div>
+  </section>
+
+  <!-- 2. 往届伙伴 -->
+  <section class="past-block" id="past-block">
+    <div class="wrap sec-title" style="margin-bottom:20px"><h2 class="display" style="font-size:20px" data-i18n="p.trusted"></h2></div>
+    <div id="past"></div>
+  </section>
+
+  <!-- 3. 观众 -->
+  <section class="dark">
+    <div class="wrap block">
+      <div class="sec-title"><h2 data-i18n="p.who"></h2></div>
+      <div class="grid tilt" id="stats" style="--min:210px"></div>
+      <details class="more-stats" id="more-stats-wrap">
+        <summary data-i18n="p.moreStats"></summary>
+        <div class="grid" id="more-stats" style="--min:180px;gap:14px;margin-top:18px"></div>
+      </details>
+      <div style="display:flex;flex-wrap:wrap;gap:40px;margin-top:40px">
+        <div style="flex:1 1 420px">
+          <p style="font-weight:900;font-size:18px;margin:0 0 14px" id="target"></p>
+          <ul class="list" id="audience"></ul>
+        </div>
+        <div style="flex:1 1 360px">
+          <p style="font-weight:900;font-size:18px;margin:0 0 14px" data-i18n="p.media"></p>
+          <div class="media-chips" id="media"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 证据：上一届赞助商得到什么 -->
+  <section class="block wrap" id="proof-block">
+    <div class="sec-title"><h2 data-i18n="p.proof"></h2></div>
+    <p class="muted" style="margin:-10px 0 24px;font-size:17px" data-i18n="p.proofBody"></p>
+    <div class="proof-grid" id="proof"></div>
+    <div class="grid tilt" style="--min:200px;margin-top:44px">
+      <div class="card"><div class="display" style="color:var(--pink)">01</div><div style="font-weight:900;font-size:18px" data-i18n="p.b1"></div><p class="muted" style="margin:6px 0 0;line-height:1.6" data-i18n="p.b1d"></p></div>
+      <div class="card"><div class="display" style="color:var(--blue)">02</div><div style="font-weight:900;font-size:18px" data-i18n="p.b2"></div><p class="muted" style="margin:6px 0 0;line-height:1.6" data-i18n="p.b2d"></p></div>
+      <div class="card"><div class="display">03</div><div style="font-weight:900;font-size:18px" data-i18n="p.b3"></div><p class="muted" style="margin:6px 0 0;line-height:1.6" data-i18n="p.b3d"></p></div>
+      <div class="card"><div class="display" style="color:var(--pink)">04</div><div style="font-weight:900;font-size:18px" data-i18n="p.b4"></div><p class="muted" style="margin:6px 0 0;line-height:1.6" data-i18n="p.b4d"></p></div>
+    </div>
+  </section>
+
+  <!-- 5. 配套 -->
+  <section class="block wrap" id="packs-block">
+    <div class="sec-title"><h2 class="display" style="font-size:clamp(40px,6vw,56px)" data-i18n="p.packs"></h2></div>
+    <div class="grid tilt" id="packs" style="--min:230px;gap:30px;align-items:stretch"></div>
+    <details class="compare" id="compare-wrap">
+      <summary data-i18n="p.compare"></summary>
+      <div class="scroll compare-table"><table class="zine" id="compare"></table></div>
+      <div class="compare-list" id="compare-list"></div>
+    </details>
+  </section>
+
+  <!-- 6. 预算有限？ -->
+  <section class="block wrap" id="small-block">
+    <div class="sec-title"><h2 data-i18n="p.small"></h2></div>
+    <p class="muted" style="margin:-10px 0 28px;font-size:17px" data-i18n="p.smallBody"></p>
+    <div class="small-grid">
+      <div id="ads-block">
+        <h3 class="display" style="font-weight:400;font-size:22px;margin:0 0 14px" data-i18n="p.ads"></h3>
+        <table class="zine small" id="ads"></table>
+      </div>
+      <div id="other-block">
+        <h3 class="display" style="font-weight:400;font-size:22px;margin:0 0 14px" data-i18n="p.other"></h3>
+        <div class="grid tilt" id="other" style="--min:220px"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6b. 乐捐：名字跌进 ∞ -->
+  <div class="stage-band hidden" id="donate"></div>
+
+  <!-- 7. 流程 -->
+  <section class="block wrap">
+    <div class="sec-title"><h2 class="display" style="font-size:clamp(40px,6vw,56px)" data-i18n="p.how"></h2></div>
+    <div class="grid" style="--min:200px;gap:16px">
+      <div class="step"><b>1</b><div data-i18n="p.s1"></div></div>
+      <div class="step"><b>2</b><div data-i18n="p.s2"></div></div>
+      <div class="step"><b>3</b><div data-i18n="p.s3"></div></div>
+      <div class="step"><b>4</b><div data-i18n="p.s4"></div></div>
+    </div>
+    <p class="deadline hidden" id="deadline"></p>
+  </section>
+
+  <!-- 8. 常见问题 + 条款 -->
+  <section class="block wrap" id="faq-block">
+    <div class="sec-title"><h2 data-i18n="p.faq"></h2></div>
+    <div id="faq"></div>
+  </section>
+
+  <!-- 9. 联系 -->
+  <section class="block wrap" style="padding-bottom:120px" id="contact">
+    <div class="panel yellow">
+      <div style="flex:1 1 460px"><div class="big" data-i18n="p.talk"></div><div style="font-weight:700;font-size:18px;margin-top:14px;line-height:1.8" id="p-contact"></div></div>
+      <div id="p-wa2"></div>
+    </div>
+  </section>
+</main>
+
+<a class="wa-float hidden" id="wa-float" target="_blank" rel="noopener"></a>
+
+<footer id="site-footer" class="site-footer"></footer>
+
+<script>window.LGM_BASE = "../";</script>
+<script src="../assets/js/config.js?v=202611271433"></script>
+<script src="../assets/js/lgm.js?v=202611271433"></script>
+<script src="../assets/js/strings.js?v=202611271433"></script>
+<script src="../assets/js/nameart.js?v=202611271433"></script>
+<script src="../assets/js/partners.js?v=202611271433"></script>
+</body>
+</html>
