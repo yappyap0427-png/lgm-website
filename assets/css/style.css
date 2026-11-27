@@ -5,6 +5,7 @@
   --display:'Archivo Black',system-ui,sans-serif;
   --brush:'Ma Shan Zheng','Noto Sans SC',serif;
   --body:'Noto Sans SC',system-ui,sans-serif;
+  --mono:'Space Mono',ui-monospace,monospace;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:hidden}
@@ -384,3 +385,70 @@ details.tier ul{margin:0;padding:0 16px 14px 34px;line-height:1.8}
 .origin-yr{font-family:var(--display);font-size:clamp(72px,9vw,128px);line-height:.85;color:var(--blue);text-shadow:6px 6px 0 var(--pink);transform:rotate(-4deg)}
 #origin p{font-size:18px;line-height:1.95;margin:0 0 14px;max-width:640px}
 @media (max-width:720px){.origin{grid-template-columns:1fr;gap:10px}}
+/* ---------- 从 Stitch 移植：门票 / 卡带 / 手机底部导览 ---------- */
+.mono{font-family:var(--mono);letter-spacing:.06em}
+/* 门票 */
+.ticket{position:relative;display:grid;grid-template-columns:1fr 150px;background:#fff;border:3px solid var(--ink);box-shadow:8px 8px 0 var(--ink);margin-top:6px;transform:rotate(-.8deg)}
+.tk-body{padding:22px 26px 24px;min-width:0}
+.tk-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;font-weight:700;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:14px}
+.tk-status{background:var(--pink);border:2px solid var(--ink);padding:1px 8px;transform:rotate(3deg)}
+.tk-title{margin:0 0 16px}
+.tk-rows{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:0;margin:0 0 18px;border:2px solid var(--ink)}
+.tk-rows div{padding:8px 12px;border-right:2px solid var(--ink)}
+.tk-rows div:last-child{border-right:0}
+.tk-rows dt{font-size:10.5px;font-weight:700;opacity:.65}
+.tk-rows dd{margin:2px 0 0;font-weight:900;font-size:15px}
+.ticket .countdown{margin:0}
+.tk-stub{position:relative;border-left:3px dashed var(--ink);background:var(--yellow);padding:20px 14px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:4px}
+.tk-stub::before,.tk-stub::after{content:'';position:absolute;left:-14px;width:24px;height:24px;border-radius:50%;background:var(--paper);border:3px solid var(--ink)}
+.tk-stub::before{top:-15px;clip-path:inset(50% 0 0 0)}.tk-stub::after{bottom:-15px;clip-path:inset(0 0 50% 0)}
+.tk-no{font-size:11px;font-weight:700}
+.tk-n{font-family:var(--display);font-size:64px;line-height:.9}
+.tk-serial{font-size:10.5px;font-weight:700;margin-top:6px}
+.tk-bar{width:100%;height:54px;margin-top:8px;fill:var(--ink)}
+@media (max-width:720px){
+  .ticket{grid-template-columns:1fr;transform:none}
+  .tk-body{padding:18px}
+  .tk-stub{border-left:0;border-top:3px dashed var(--ink);flex-direction:row;flex-wrap:wrap;justify-content:space-between;padding:12px 16px}
+  .tk-stub::before,.tk-stub::after{top:-14px;left:auto;clip-path:none}
+  .tk-stub::before{left:-14px;clip-path:inset(0 0 0 50%)}.tk-stub::after{right:-14px;bottom:auto;clip-path:inset(0 50% 0 0)}
+  .tk-n{font-size:40px}.tk-bar{width:120px;height:34px;margin:0}
+  .tk-rows div{border-right:0;border-bottom:2px solid var(--ink)}.tk-rows div:last-child{border-bottom:0}
+}
+/* 卡带 */
+.sleeve.cassette .cover{aspect-ratio:16/10.5;justify-content:space-between;padding:12px 12px 10px;border-radius:10px 10px 4px 4px;box-shadow:inset 0 0 0 4px rgba(0,0,0,.08)}
+.cs-label{position:relative;background:#fff;color:var(--ink);border:2px solid var(--ink);padding:8px 10px 8px 34px;min-height:0}
+.cs-label .t{font-size:clamp(22px,2.6vw,30px)}.cs-label .t.long{font-size:clamp(17px,1.8vw,21px)}
+.cs-label .s{font-size:11.5px;margin-top:2px;opacity:.75}
+.cs-side{position:absolute;left:8px;top:8px;width:20px;height:20px;background:var(--ink);color:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.cs-window{display:flex;align-items:center;justify-content:center;gap:10px;margin:8px auto 6px;width:72%;height:38px;background:rgba(0,0,0,.55);border:2px solid var(--ink);border-radius:20px;padding:0 8px}
+.cs-tape{flex:1;height:14px;background:#3a2a1e;border-radius:3px;opacity:.85}
+.reel{width:26px;height:26px;border-radius:50%;background:radial-gradient(circle,var(--paper) 0 3px,transparent 3.5px),repeating-conic-gradient(var(--paper) 0 18deg,#cfcabe 18deg 60deg);border:2px solid var(--ink);flex:none}
+.reel.spin{animation:reel 1.4s linear infinite}
+@keyframes reel{to{transform:rotate(360deg)}}
+.sleeve:not(.is-playing):hover .cs-window .reel{animation:reel 1.4s linear infinite}
+.cs-foot{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;font-weight:700}
+.sleeve.cassette .listen{margin-top:0;font-size:12px;padding:5px 10px}
+.sleeve.cassette.is-playing .cover{aspect-ratio:16/9;border-radius:6px}
+.deck{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:10px;background:var(--ink);color:var(--yellow);border:3px solid var(--ink);padding:6px 10px;font-size:13px;font-weight:700}
+.sleeve.cassette:not(.is-playing):hover{animation:none;transform:rotate(0) translateY(-3px)}
+/* 手机底部导览 */
+.tabbar{display:none}
+@media (max-width:720px){
+  .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--paper);border-top:3px solid var(--ink);padding-bottom:env(safe-area-inset-bottom,0)}
+  .tabbar a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 2px 7px;color:var(--ink);font-size:11.5px;font-weight:700;border-right:2px solid var(--ink)}
+  .tabbar a:last-child{border-right:0}
+  .tabbar svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .tabbar a.on{background:var(--yellow)}
+  .tabbar a.hot:not(.on){background:var(--pink)}
+  body.has-tabbar{padding-bottom:70px}
+  .site-header .nav a{display:none}
+  .wa-float{bottom:82px}
+}
+@media (max-width:720px){
+  .hero .ticket h1{font-size:clamp(34px,10.5vw,48px)}
+  .tk-rows{grid-template-columns:1fr}
+  .ticket .countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+  .ticket .countdown div{min-width:0;padding:6px 2px}
+  .ticket .countdown b{font-size:24px}
+}

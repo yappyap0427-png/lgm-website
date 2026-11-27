@@ -120,6 +120,21 @@
           <button class="lang" type="button" aria-label="切换语言 / Switch language">${LGM.lang === 'zh' ? 'EN' : '中'}</button>
         </nav>
       </div>`;
+    // 手机底部导览列（像 App 一样，720px 以下才出现）
+    const ICON = {
+      events: '<path d="M4 6h16v14H4zM4 10h16M9 3v5M15 3v5"/>',
+      music: '<circle cx="7" cy="17" r="3"/><circle cx="17" cy="15" r="3"/><path d="M10 17V6l10-2v11"/>',
+      history: '<circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/>',
+      about: '<path d="M12 21c0-6 0-9 0-12M12 9c-3-4-7-3-8-1 3 0 6 1 8 1zM12 13c3-4 7-3 8-1-3 0-6 1-8 1z"/>',
+      partners: '<path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/>'
+    };
+    const tabs = [...nav, ['partners', 'partners.html']];
+    let tb = document.getElementById('tabbar');
+    if (!tb) { tb = document.createElement('nav'); tb.id = 'tabbar'; tb.className = 'tabbar'; tb.setAttribute('aria-label', 'Tab'); document.body.appendChild(tb); }
+    tb.innerHTML = tabs.map(([k, href]) => `<a href="${href}" class="${active === k ? 'on' : ''}${k === 'partners' ? ' hot' : ''}">
+        <svg viewBox="0 0 24 24" aria-hidden="true">${ICON[k]}</svg><span data-i18n="nav.${k}"></span></a>`).join('');
+    document.body.classList.add('has-tabbar');
+
     document.getElementById('site-footer').innerHTML = `
       <div class="wrap">
         <span>小草颂 LGM · LGM！No Music, No Life!</span>
@@ -241,10 +256,15 @@
     const id = LGM.ytId(r['youtube']);
     const from = Math.max(0, parseInt(r['试听开始'], 10) || 60);
     const len = Math.min(90, parseInt(r['试听秒数'], 10) || 30);
-    return `<div class="sleeve" style="--bg:${P[0]};--fg:${P[1]}">
-      <div class="cover"><div class="t brush${String(r['歌名']).length > 10 ? ' long' : ''}">${LGM.esc(r['歌名'])}</div><div class="s">${sub}</div>
-        ${id ? `<button type="button" class="listen" data-id="${id}" data-from="${from}" data-len="${len}" aria-label="${LGM.t('mu.listen')}：${LGM.esc(r['歌名'])}">
-          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>${LGM.f('mu.listenSec', { n: len })}</button>` : ''}</div>
+    const side = 'AB'[i % 2];
+    return `<div class="sleeve cassette" style="--bg:${P[0]};--fg:${P[1]}">
+      <div class="cover">
+        <div class="cs-label"><span class="cs-side mono">${side}</span>
+          <div class="t brush${String(r['歌名']).length > 8 ? ' long' : ''}">${LGM.esc(r['歌名'])}</div><div class="s">${sub}</div></div>
+        <div class="cs-window" aria-hidden="true"><span class="reel"></span><span class="cs-tape"></span><span class="reel"></span></div>
+        <div class="cs-foot mono"><span>LGM-C60</span>${id ? `<button type="button" class="listen" data-id="${id}" data-from="${from}" data-len="${len}" aria-label="${LGM.t('mu.listen')}：${LGM.esc(r['歌名'])}">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>${LGM.f('mu.listenSec', { n: len })}</button>` : `<span>${LGM.esc(r['年份'] || '')}</span>`}</div>
+      </div>
       ${award ? `<div class="award">${LGM.esc(award)}</div>` : ''}
       ${id ? `<a class="full" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">${LGM.t('mu.full')}</a>` : ''}
       ${credits ? `<div class="credits">${credits}</div>` : ''}
@@ -254,7 +274,8 @@
   let playing = null;
   function stopClip() {
     if (!playing) return;
-    playing.cover.innerHTML = playing.html; playing.card.classList.remove('is-playing'); playing = null;
+    playing.cover.innerHTML = playing.html; playing.card.classList.remove('is-playing');
+    clearInterval(playing.tick); playing.card.querySelector('.deck')?.remove(); playing = null;
   }
   document.addEventListener('click', (e) => {
     const stop = e.target.closest('.clip-stop');
@@ -269,8 +290,46 @@
         title="${LGM.esc(b.getAttribute('aria-label'))}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
       <div class="clip-bar" style="animation-duration:${to - from}s;animation-delay:1.5s"></div>
       <button type="button" class="clip-stop" aria-label="${LGM.t('mu.stop')}">■ ${LGM.t('mu.stop')}</button>`;
+    // 卡带走带：两个转轮 + 计数器
+    const len = to - from, mmss = (t) => String(Math.floor(t / 60)).padStart(2, '0') + ':' + String(t % 60).padStart(2, '0');
+    cover.insertAdjacentHTML('afterend', `<div class="deck mono" aria-hidden="true"><span class="reel spin"></span><span class="deck-t">00:00 / ${mmss(len)}</span><span class="reel spin"></span></div>`);
+    let t = 0;
+    const tEl = card.querySelector('.deck-t');
+    playing.tick = setInterval(() => { t = Math.min(len, t + 1); tEl.textContent = `${mmss(t)} / ${mmss(len)}`; if (t >= len) clearInterval(playing && playing.tick); }, 1000);
   });
   LGM.onLangStop = stopClip;
+
+  /* 音乐会门票：主体 + 撕线 + 存根（条码）。o = { kicker, title, sub, when(Date字符串), venue, price, status, n } */
+  LGM.ticket = (o) => {
+    const dt = o.when ? new Date(String(o.when).trim().replace(' ', 'T')) : null;
+    const ok = dt && !isNaN(dt);
+    const pad = (x) => String(x).padStart(2, '0');
+    const date = ok ? `${dt.getFullYear()}.${pad(dt.getMonth() + 1)}.${pad(dt.getDate())}` : '';
+    const wk = ok ? (LGM.lang === 'zh' ? '（' + '日一二三四五六'[dt.getDay()] + '）' : ' ' + ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'][dt.getDay()]) : '';
+    const time = ok && (dt.getHours() || dt.getMinutes()) ? `${pad(dt.getHours())}:${pad(dt.getMinutes())}` : '';
+    const serial = `LGM-${o.n || '00'}-${ok ? pad(dt.getMonth() + 1) + pad(dt.getDate()) : 'TBA'}`;
+    // 条码：用编号算出固定的粗细，每次都一样
+    let h = 7, bars = '', x = 0;
+    for (let i = 0; i < 34; i++) {
+      h = (h * 31 + serial.charCodeAt(i % serial.length) + i) % 997;
+      const w = 1 + (h % 3), gap = 1 + ((h >> 2) % 2);
+      bars += `<rect x="${x}" y="0" width="${w}" height="54"/>`; x += w + gap;
+    }
+    const rows = [['tk.date', date + wk], ['tk.time', time], ['tk.venue', o.venue], ['tk.price', o.price]].filter(([, v]) => v);
+    return `<div class="ticket">
+      <div class="tk-body">
+        <div class="tk-top mono"><span>ADMIT ONE · ${LGM.esc(o.kicker || '')}</span>${o.status ? `<span class="tk-status">${LGM.esc(o.status)}</span>` : ''}</div>
+        <h1 class="tk-title"><span class="hl">《${LGM.esc(o.title)}》</span>${o.sub ? `<div class="display sub-en">${LGM.esc(o.sub)}</div>` : ''}</h1>
+        <dl class="tk-rows">${rows.map(([k, v]) => `<div><dt class="mono">${LGM.t(k)}</dt><dd>${LGM.esc(v)}</dd></div>`).join('')}</dl>
+        <div class="countdown" id="cd"></div>
+      </div>
+      <div class="tk-stub">
+        <div class="mono tk-no">No.</div><div class="tk-n">${LGM.esc(o.n || '')}</div>
+        <div class="mono tk-serial">${serial}</div>
+        <svg class="tk-bar" viewBox="0 0 ${x} 54" preserveAspectRatio="none" aria-hidden="true">${bars}</svg>
+      </div>
+    </div>`;
+  };
 
   LGM.stamp = (text, center, fill) => `
     <svg viewBox="0 0 200 200" role="img" aria-label="${LGM.esc(text)}">

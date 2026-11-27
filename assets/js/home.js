@@ -28,14 +28,7 @@
     if (phase === '宣传期') {
       el.innerHTML = `
         <div class="hero-main">
-          <div class="kicker">${LGM.f('hero.promo.kicker', { n })}</div>
-          <h1 style="margin-top:10px">《${LGM.esc(title || '…')}》${titleEn ? `<div class="display sub-en">${LGM.esc(titleEn)}</div>` : ''}</h1>
-          <div class="countdown" id="cd"></div>
-          <div class="facts">
-            ${when ? `<span>${LGM.esc(when)}</span>` : ''}
-            ${venue ? `<span>${LGM.esc(venue)}</span>` : ''}
-            ${s.ticket_price ? `<span style="background:var(--yellow)">${LGM.esc(s.ticket_price)}</span>` : ''}
-          </div>
+          ${LGM.ticket({ kicker: LGM.f('hero.promo.kicker', { n }), title: title || '…', sub: titleEn, when: s.concert_datetime, venue, price: s.ticket_price, status: LGM.t('tk.onsale'), n })}
           <div class="btns">
             ${s.ticket_url ? `<a class="btn blue" href="${LGM.esc(s.ticket_url)}" target="_blank" rel="noopener">${LGM.t('btn.ticket')}</a>` : ''}
             <a class="btn" href="partners.html">${LGM.t('btn.sponsor')}</a>
@@ -53,11 +46,8 @@
         </div>`;
     } else {
       // 招商期：主题公布了就显示主题 + 日期 + 倒数，没公布就「敬请期待」
-      const main = title ? `
-          <div class="kicker">${LGM.f('hero.teaser.kicker', { n })}</div>
-          <h1 style="margin-top:10px"><span class="hl">《${LGM.esc(title)}》</span>${titleEn ? `<div class="display sub-en">${LGM.esc(titleEn)}</div>` : ''}</h1>
-          <div class="facts">${when ? `<span>${LGM.esc(when)}</span>` : ''}${venue ? `<span>${LGM.esc(venue)}</span>` : ''}</div>
-          <div class="countdown" id="cd"></div>`
+      const main = title
+        ? LGM.ticket({ kicker: LGM.f('hero.teaser.kicker', { n }), title, sub: titleEn, when: s.concert_datetime, venue, status: LGM.t('tk.soon'), n })
         : `<h1>${LGM.f('hero.teaser.title', { n: cnNum(n) })}</h1>
            <p>${LGM.f('hero.teaser.body', { month: LGM.month(s.concert_month) })}</p>`;
       el.innerHTML = `
