@@ -1,10 +1,11 @@
-/* 小草颂 LGM — E 风格（地下 Zine）
+/* 小草颂 LGM — B 风格（门票印刷 · Underground Print & Ticket，源自 Google Stitch）
    颜色只在这里改：--blue / --pink / --yellow / --ink / --paper */
 :root{
-  --blue:#2B3BFF; --pink:#FF4D8D; --yellow:#FFE14D; --ink:#111111; --paper:#F3F1EC; --grey:#D9D5CC; --muted:#555555;
-  --display:'Archivo Black',system-ui,sans-serif;
-  --brush:'Ma Shan Zheng','Noto Sans SC',serif;
-  --body:'Noto Sans SC',system-ui,sans-serif;
+  /* B 风格「门票印刷」（来自 Google Stitch）：黄 = 主色、珊瑚红 = 次色、青 = 标签、墨黑框线 */
+  --blue:#006970; --cyan:#00F0FF; --mint:#00E5A3; --pink:#FF4D4D; --yellow:#FFE600; --ink:#121212; --paper:#F9F8F6; --card:#F4F3EE; --grey:#E5E2E1; --muted:#4b4731;
+  --display:'Space Grotesk','Noto Sans SC',system-ui,sans-serif;
+  --brush:'Space Grotesk','Noto Sans SC',system-ui,sans-serif;
+  --body:'Space Grotesk','Noto Sans SC',system-ui,sans-serif;
   --mono:'Space Mono',ui-monospace,monospace;
 }
 *{box-sizing:border-box}
@@ -452,3 +453,58 @@ details.tier ul{margin:0;padding:0 16px 14px 34px;line-height:1.8}
   .ticket .countdown div{min-width:0;padding:6px 2px}
   .ticket .countdown b{font-size:24px}
 }
+
+/* ================= B 风格覆盖层（门票印刷）=================
+   想换回 E 风格：删掉从这里到档案结尾，并把最上面 :root 的颜色字体改回去 */
+.display,.giant,.countdown b,.strip.a,.sec-title h2.display,.stat b,.tag,.panel .big,.pack .price,.pack .badge,.step b,.kicker,.page-giant,.term-head .n,.zine th,details.tc summary::after,.timeline .yr,.year-tabs,.big-n,.key-facts b,.mini-stat b,details.compare>summary,.donor-wall small,.stage-kicker,.donor-pct b,.gf-tick,.tl2-head,.tl2-yr,.origin-yr,.tk-n{font-weight:700;letter-spacing:-.02em}
+.brush,.brand span,.hero h1,.sec-title h2,.empty,.lead{font-weight:900;letter-spacing:-.01em}
+.nav a.active,.nav a.cta,.btn,.tilt>*,.pasted,.strip.a,.strip.b,.past-block .logos,.past-block .logos.b,.chip,.sleeve,.media-chips span,.year-tabs a.on,.key-facts div,.key-facts div:nth-child(2),.key-facts div:nth-child(3),.proof-grid figure,.donate,.deadline,.team-photo,.donor-wall span,.fund-bar,.fund-bar:hover,.tl2-yr,.tl2 .gig,.tl2 .gig:hover,.tl2 li,.origin-yr,.ticket,.tilt>*{transform:none}
+
+body{background-color:var(--paper);background-image:radial-gradient(rgba(18,18,18,.07) 1px,transparent 1.2px);background-size:14px 14px}
+a{color:var(--ink);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+a:hover{color:var(--ink);background:var(--yellow)}
+.btn,.nav a,.brand,.logo-item,.tabbar a,.fund-bar,.tl2 .gig,a.gig,.pack .pick,.event,.event a,.card a,.sleeve a,.panel a.btn{text-decoration:none}
+/* 大标题：墨黑粗体 + 黄色错位 */
+.giant,.page-giant{color:var(--ink);text-transform:uppercase;text-shadow:.05em .05em 0 var(--yellow);letter-spacing:-.05em}
+.display,.kicker,.tag,.stage-kicker,.tl2-head{text-transform:uppercase}
+.kicker,.tag,.stage-kicker,.tk-top,.tl2-head,.gf-tick,.year-tabs,.chip,.mini-badge,.pack .badge,.donor-pct span{font-family:var(--mono);font-weight:700;letter-spacing:.06em}
+.kicker{color:var(--ink);background:var(--yellow);display:inline-block;padding:3px 10px;border:2px solid var(--ink);font-size:13px}
+.brand span{font-weight:900;letter-spacing:.02em}
+.brand::after{content:'EST. 2000 // USMKK';font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--muted);align-self:flex-end;margin:0 0 4px -4px}
+.sec-title{border-bottom:2px dashed var(--ink);padding-bottom:12px}
+.sec-title h2::before{content:'// ';font-family:var(--mono);font-weight:700;color:var(--pink)}
+/* 按钮：直的，按下去像打孔 */
+.btn{border-width:2.5px;box-shadow:4px 4px 0 var(--ink);text-transform:uppercase;letter-spacing:.02em;transition:transform .1s,box-shadow .1s}
+.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink);background:var(--yellow);color:var(--ink)}
+.btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
+.btn.blue{background:var(--cyan);color:var(--ink)}.btn.blue:hover{color:var(--ink)}
+.btn.pink{background:var(--pink);color:#fff}.btn.yellow{background:var(--yellow)}
+.btn.ink{background:var(--ink);color:var(--yellow)}
+.btns .btn:nth-child(2){--r:0deg}
+.nav a.active{background:var(--yellow);border-color:var(--ink)}
+.nav a.cta{background:var(--pink);color:#fff;border-color:var(--ink)}
+.lang{font-family:var(--mono)}
+/* 跑马灯：直的长条，像门票顶边 */
+.strip.a{background:var(--yellow);color:var(--ink);border-top:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);font-family:var(--mono);font-weight:700;font-size:20px;letter-spacing:.04em}
+.strip.b{background:var(--ink);color:var(--yellow);font-family:var(--mono);font-weight:700;font-size:17px}
+/* 卡片：纸板底色 + 硬阴影 */
+.stat{background:var(--card)}
+.stat:nth-child(4n+1){background:var(--yellow)}.stat:nth-child(4n+2){background:#fff}.stat:nth-child(4n+3){background:var(--pink);color:#fff}.stat:nth-child(4n+4){background:var(--cyan)}
+.stat b.blue{color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--yellow)}
+.panel.blue{background:var(--cyan);color:var(--ink)}
+/* 门票：直的 */
+.ticket{transform:none;box-shadow:6px 6px 0 var(--ink)}
+.tk-stub{background:var(--yellow)}
+.hero h1 .hl,.hl{background:var(--yellow)}
+.sub-en{color:var(--pink)}
+/* 舞台区沿用墨黑底，强调色改成 Stitch 黄 */
+.stage-band{background:var(--ink)}
+:root{--stage:#121212}
+/* 大事记 */
+.tl2 .gig{box-shadow:5px 5px 0 var(--cyan)}
+.tl2 li{box-shadow:4px 4px 0 var(--pink)}
+.tl2-head span:first-child{color:var(--ink)}.tl2-head span:last-child{color:var(--pink)}
+.origin-yr{color:var(--ink);text-shadow:.05em .05em 0 var(--yellow)}
+/* 卡带：色块对齐 Stitch */
+.sleeve.cassette .cover{border-radius:8px 8px 3px 3px}

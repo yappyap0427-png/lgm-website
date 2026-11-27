@@ -335,7 +335,7 @@
     <svg viewBox="0 0 200 200" role="img" aria-label="${LGM.esc(text)}">
       <circle cx="100" cy="100" r="96" fill="${fill || '#FF4D8D'}" stroke="#111" stroke-width="4"/>
       <defs><path id="ring" d="M100,100 m-70,0 a70,70 0 1,1 140,0 a70,70 0 1,1 -140,0"/></defs>
-      <text font-family="Archivo Black" font-size="19" fill="#111" ><textPath href="#ring" textLength="436" lengthAdjust="spacingAndGlyphs">${LGM.esc(text)}</textPath></text>
-      <text x="100" y="114" text-anchor="middle" font-family="Archivo Black" font-size="40" fill="#111">${LGM.esc(center)}</text>
+      <text font-family="Space Mono, monospace" font-weight="700" font-size="17" fill="#111" ><textPath href="#ring" textLength="436" lengthAdjust="spacingAndGlyphs">${LGM.esc(text)}</textPath></text>
+      <text x="100" y="114" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="44" fill="#111">${LGM.esc(center)}</text>
     </svg>`;
 })();

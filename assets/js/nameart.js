@@ -18,7 +18,7 @@
       const BW = box.clientWidth;
       if (!BW || (BW === lastW && !force) || !people.length) return;
       lastW = BW;
-      try { await document.fonts.load('400 100px "Archivo Black"'); } catch (e) { /* 后备字体 */ }
+      try { await document.fonts.load('700 100px "Space Grotesk"'); } catch (e) { /* 后备字体 */ }
       let W = Math.max(BW, o.minW || 720), fs = W < 900 ? 11 : 13, out;
       for (let i = 0; i < 16; i++) {
         out = layout(W, fs);
@@ -136,7 +136,7 @@
   };
 
   /* ---------- 形状 ---------- */
-  const font = (px) => `400 ${px}px "Archivo Black", Impact, sans-serif`;
+  const font = (px) => `700 ${px}px "Space Grotesk", Impact, sans-serif`;
   const LINE = 'rgba(244,236,220,.22)';
 
   // 文字（例：LGM）
@@ -152,7 +152,7 @@
     return {
       H,
       paint: (ctx) => { ctx.font = font(size); ctx.fillText(text, x, y); },
-      svg: `<svg width="${W}" height="${H}" aria-hidden="true"><text x="${x}" y="${y}" font-family="Archivo Black, Impact, sans-serif" font-size="${size}" fill="none" stroke="${LINE}" stroke-width="1.2">${LGM.esc(text)}</text></svg>`
+      svg: `<svg width="${W}" height="${H}" aria-hidden="true"><text x="${x}" y="${y}" font-family="Space Grotesk, Impact, sans-serif" font-weight="700" font-size="${size}" fill="none" stroke="${LINE}" stroke-width="1.2">${LGM.esc(text)}</text></svg>`
     };
   };
 
